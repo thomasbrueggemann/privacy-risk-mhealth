@@ -1,0 +1,39 @@
+body, html {
+  height:100%;
+}
+
+.plus-column {
+  text-align: center;
+  font-size: 3em;
+  height:50px;
+  top:50%;
+  margin-top:-25px;
+  position: absolute;
+}
+
+.apps {
+  clear:both;
+}
+
+.app-header {
+  font-size: bold;
+  float:left;
+}
+
+.app-header .app-cell {
+    font-size: bold;
+}
+
+.app {
+  width:300px;
+  background:red;
+  float:left;
+}
+
+.app-cell {
+  width:100%;
+  text-align: center;
+  height:100px;
+  vertical-align: middle;
+  border-bottom:1px solid black;
+}

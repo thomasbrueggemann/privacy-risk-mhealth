@@ -1,0 +1,399 @@
+dataset id,app name,personal data categories,login categories,personal data targets,unspecific data categories,personal data usage mentioned in app description,source of rating information,reasonableness of personal data collection,secure data transmission,notes
+3,ABG Interpreter,"Life status specs, Vital values",None,App provider,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,0,
+13,OnTrack Diabetes,"Body specs, Medication intake, Workout / Activities, Vital values, Food intake",E-Mail,App Provider,Analytics,1,"App downloaded, HTTP Proxy",1,0,übernommen von medivo
+21,FDA Drugs Free,,,,,,,,,nicht mehr im store
+59,BMI Calculator (free),Body specs,None,,Analytics,1,"App downloaded, HTTP Proxy",1,,
+60,Pregnancy Contraction Timer,Life status specs,None,,Analytics,1,"App downloaded, HTTP Proxy",1,,
+61,Anesthesiologist,Body specs,None,App provider,"Advertisers / Marketeers, Analytics",1,"App downloaded, HTTP Proxy",1,0,http://a.mologiq.net/mologiq/et?v=1.2.9&p=com.shahlab.anesthesiologist
+64,Pocket Doctor Lite,Body specs,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,
+70,BMI n Fat Calculator,"Body specs, Life status specs",None,App provider,"Advertisers / Marketeers, Analytics",,"App downloaded, HTTP Proxy",0,0,"Sehr viele Ad streams, Zugriff auf Standort, Telefon, Fotos, WLAN, Geräte ID"
+89,Rx Savings!,,None,,,0,"App downloaded, HTTP Proxy",0,,"Zugriff auf Standort, SMS, Fotos, Kamera, Mikrofon, Geräte ID"
+116,Clinicians Drug Reference TR,,None,App provider,Analytics,0,"App downloaded, HTTP Proxy",0,0,http://mobisystems.com/cgi-bin2/pdb?file=McGrawHillCPDR_2011.pdb&record=14
+139,Get Pregnant,Life status specs,None,,Advertisers / Marketeers,1,"App downloaded, HTTP Proxy",1,,
+150,Ob (Pregnancy) Wheel,Life status specs,None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+157,MedBook,,None,App provider,,0,"Screenshots, App downloaded, HTTP Proxy",0,0,http://medibookpr.com/app/banners-android.js
+198,Emergency Tools,Address,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",0,,"Kontakte, Fotos, Kamera, Geräte ID"
+199,Kids Height Predictor,"Body specs, Family",None,,"Advertisers / Marketeers, Analytics",1,"App downloaded, HTTP Proxy",1,,
+203,Color Blindness Test,,None,,"Advertisers / Marketeers, Analytics",0,"App downloaded, HTTP Proxy",,,
+236,HeartSounds: Stethoscope Lite,,None,App provider,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,0,
+248,Visual Anatomy Free,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,
+249,Dosage Calc,Medication intake,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,"Fotos, ID"
+251,Sleep Graph,Sleep Metrics,None,,,1,"Screenshots, App downloaded, HTTP Proxy",,,
+252,Standard Dictations,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+267,3D BMI Calculator 2 Free,Body specs,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",0,,"Fotos, Kamera"
+377,Medical Dictionary,,,,,,,,,nicht mehr im store
+382,ACC Pocket Guides,,,,,,,,,"nicht mehr im store, aber skyscape medical linrary"
+390,Pocket Rx Guide Free,,,,,,,,,nicht mehr im store
+457,Mobile emergency call,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",1,,Standort etc
+458,Skyscape RxDrugs,,,,,,,,,nicht mehr im store
+577,Control Your Mind BrainMassage,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,"Fotos, ID"
+629,Menstrual Calendar,"Life status specs, Body specs, Medical appointments, Medication intake",None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",0,,
+639,Medical News,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+656,Fluid & Electrolytes,"Body specs, Vital values",None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,"Fotos, ID"
+668,Pregancy Calculator,,None,,,1,Screenshots,0,,Zugriff auf alles
+669,BeatDroid,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+682,ADHD Test,Symptoms,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",,,"Standort, ID"
+738,Mom 2 Be Pregnancy Tracker,,,,,,,,,nicht mehr im store
+924,Medicinal Marijuana Cookbook.,,,,,,,,,nicht mehr im store
+925,WeedLaws: Marijuana Law Guide,,,,,,,,,nicht mehr im store
+926,Medical Marijuana GrowApp,,,,,,,,,nicht mehr im store
+930,Good Weed Wanted,,,,,,,,,nicht mehr im store
+957,First Aid,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,"Verlauf, Fotos???"
+958,Massage Lite,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,"Fotos, ID"
+1020,Cardiograph,"Vital values, Workout / Activities",None,App provider,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,0,http://ma.macropinch.com/
+1051,Brain Booster - Mind Refresher,,,,,,,,,nicht mehr im store
+1215,Weight Control Hypnosis(Trial),,,,,,,,,nicht mehr im store
+1216,Stress Relief Hypnosis (Trial),,,,,,,,,nicht mehr im store
+1228,QA of health collection TW,,,,,,,,,app ist auf chinesisch
+1229,Endomondo Sports Tracker,"Workout / Activities, Address, Life status specs","E-Mail, Facebook, Google","App provider, Facebook","Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",0,1,"Identität, Kontakte, Fotos; Privacy Policy: viele Daten werden gesammelt … umbenannt in Endomondo - Laufen und Gehen"
+1231,Music Therapy for Sound Sleep,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,SMS
+1233,CPR Choking,,None,,Analytics,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1239,Pregnancy Ticker,Life status specs,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1242,Stretch Exercises,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",0,,Identität
+1243,Music Therapy for Refreshment,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1246,Prenatal Lullabies Lite,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1248,Calming Music to Tranquilize,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1250,Yoga Moment Lite,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1251,Simple Weight Loss Resolution,Body specs,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1252,Thunderstorm Sleep sound,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1255,Yoga Nidra Meditation (Free),,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1256,iZen - Art of Zen Meditation,,,,,,,,,nicht mehr im store
+1257,Calming Music to Simplicity,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1258,Relax Rain drops Sleep,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1260,Relax Ocean waves Sleep,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1262,My Tracks,Workout / Activities,None,App provider,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,1,
+1265,Calorie Counter - MyFitnessPal,"Address, Body specs, Life status specs, Food intake",Email,App provider,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,1,"Kontakte, Identität etc"
+1266,Sugar log,Vital values,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1267,Motivation to Exercise,,,,,,,,,nicht mehr im store
+1269,Lucid Dream Brainwave(Trial),,,,,,,,,nicht mehr im store
+1270,Waterfall Relax Sound,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1271,Office Yoga - Care Your Health,,,,,,,,,nicht mehr im store
+1272,Advanced Eye Charts (Trial),,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,Sehtest? Daten relevant?
+1273,Tropic rain forest stress,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1274,Relax & Sleep by Glenn Harrold,,,,,,,,,nicht mehr im store
+1276,Ocean Sleeper Sound,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1277,Noom CardioTrainer,Workout / Activities,None,App provider,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",0,1,"Identität, Kontakte"
+1278,aBMI,Body specs,None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1279,Healthy Eating Habits,,,,,,,,,nicht mehr im store
+1281,Stress Check,,,,,,,,,nicht mehr im store
+1284,Free From Smoking - Hypnosis,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1285,Restful Sleep Deluxe (Free),,,,,,,,,nicht mehr im store
+1286,Weight Helper,,,,,,,,,nicht mehr im store
+1289,Workout Buddy,,,,,,,,,nicht mehr im store
+1290,Chakra Opening BrainwaveTrial,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",0,,Identität
+1292,Depression Help Brainwave Lite,,,,,,,,,nicht mehr im store
+1293,Smoke Free Hypnosis (Trial),,,,,,,,,nicht mehr im store
+1301,Bikini Widget,,,,,,,,,nicht mehr im store
+1306,Alarm Clock Plus,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1308,Libra - Weight Manager,"Body specs, Food intake",None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,Identität
+1326,PointsPlus Calculator,"Body specs, Food intake",Email,App provider,"Advertisers / Marketeers, Analytics",1,"App downloaded, HTTP Proxy",1,1,Weight Watchers mobile (kostenpflichitg)
+1327,Alura: Free Cognitive Therapy,,,,,0,Screenshots,0,,"Kontakte, SMS, Telefon"
+1334,eyesightTest,,,,,,,,,nicht mehr im store
+1354,Quitting smoking,,,,,,,,,nicht mehr im store
+1367,CardioTrainer Widget,Workout / Activities,None,App provider,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,1,
+1369,Breast Augmentation free,,,,,,,,,nicht mehr im store
+1379,C25K,,,,,,,,,nicht mehr im store
+1380,Simple Weight Recorder,Body specs,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1386,PointsList,,,,,,,,,nicht mehr im store
+1407,Eponyms,,None,App provider,,0,"Screenshots, App downloaded, HTTP Proxy",,0,
+1408,TwoTouch Timer & Alarmclock,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1414,Calorific Diet Tracker,,,,,,,,,nicht mehr im store
+1416,Body Fat Calculator,"Body specs, Life status specs",None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1417,Farmácias,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1418,Self-Hypnosis for Meditation,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1420,Brainwave Tuner Lite,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,
+1423,All-in Pedometer,,,,,,,,,nicht mehr im store
+1425,Bench Press Workout,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,
+1430,Bleep Test 20-15,Workout / Activities,None,,,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1431,Weight Chart,,,,,,,,,nicht mehr im store
+1438,Dharma Timer Counter Lite,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1446,Eight Cups Lite,Food intake,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1447,Health Net Mobile,,Username,App provider,,1,"Screenshots, App downloaded, HTTP Proxy",1,1,Registrierung nötig
+1448,Self-Hypnosis for Sound Sleep,,,,,,,,,nicht mehr im store
+1452,Menstruation Calendar Lite,,,,,,,,,nicht mehr im store
+1461,Valentine's Weight Loss,,,,,,,,,nicht mehr im store
+1467,Alcohol Calculator,"Body specs, Life status specs, Food intake",None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1468,CarSafety,,,,,,,,,nicht mehr im store
+1472,step counter,,,,,,,,,nicht mehr im store
+1473,Sleep Log Automatic,,,,,,,,,nicht mehr im store
+1481,Toothbrush Helper (Lite),,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,
+1491,FitRoid - Lite,"Body specs, Food intake, Workout / Activities, Vital values",None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,übernommen von Invigor Solutions
+1493,WW Point Calculator,,,,,,,,,nicht mehr im store
+1507,Depressed?,,,,,,,,,nicht mehr im store
+1509,Simple Meal Reminder,Food intake,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,übernommen von Dolatabadi
+1510,mobiCeliac [mini],,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,
+1518,Relax with Andrew Johnson Lite,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1529,Natural Beauty Recipe,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1531,Weight Chart v2,Body specs,None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1536,What Additives,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",0,,Identität
+1537,WeightPad,,,,,,,,,nicht mehr im store
+1540,Blood Pressure+Pulse Docu,,,,,,,,,nicht mehr im store
+1544,Glasgow Coma Scale,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",1,,Nicht eigene Daten …
+1546,NCCN Guidelines,,None,,Analytics,0,"Screenshots, App downloaded, HTTP Proxy",0,,"Identität; Registrierung, TIP Medical Communications"
+1549,Insight Timer Free,,,,,,,,,nicht mehr im store
+1560,Power Nap Alarm,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1565,Tabata Sport Interval Timer,Workout / Activities,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1566,HeartRate Monitor,,,,,,,,,nicht mehr im store
+1569,Hands-Only CPR,,,,,,,,,nicht mehr im store
+1572,Recall Watch,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,
+1573,moveo pedometer (beta),,,,,,,,,nicht mehr im store
+1583,Blood Alcohol Calculator,"Body specs, Food intake",None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1599,Feng Shui Secrets,,,,,,,,,nicht mehr im store
+1603,Military Body Fat Calculator,Body specs,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1606,Max Bench Press Calculator,Workout / Activities,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1612,yourFit Lite,"Body specs, Life status specs, Food intake, Workout / Activities",None,App provider,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,0,
+1613,Health to Go inspired by GE,,,,,,,,,nicht mehr im store
+1614,(Free) Herbs of Traditn & Sppl,,,,,0,Screenshots,0,,"Kontakte, Telefon"
+1619,Live Sound,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1629,Baby Growth Tracker,,,,,,,,,nicht mehr im store
+1634,Pregnancy Widget,Life status specs,None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1636,Eat This? Diet for weight loss,,,,,,,,,nicht mehr im store
+1637,Yoga Song,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1641,BMI-Calculator Free,,,,,,,,,nicht mehr im store
+1642,Workout Assistant,Workout / Activities,None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1645,Know Your BMI,,,,,,,,,nicht mehr im store
+1647,Barcode Calorie,Food intake,None,,,1,"Screenshots, App downloaded, HTTP Proxy",1,,Kamerazugriff auch ohne Erlaubnis
+1648,YourSport Lite,,,,,,,,,nicht mehr im store
+1650,Refresh Your Brain Relaxation,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1654,ColorTest,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1655,Diary Weight,Body specs,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",,,
+1669,My Sleep Diary BETA,,,,,,,,,nicht mehr im store
+1674,MedWeb,,,,,,,,,nicht mehr im store
+1677,Vision Test,,,,,,,,,nicht mehr im store
+1679,Walttend Lite,Workout / Activities,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1684,Pregnancy Due Dates Calculator,Life status specs,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1686,Relaxing Night Brain Massage,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1693,Adora AA=> Acupuncture Assist.,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1713,WWDiary,"Food intake, Workout / Activities",None,,,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+1715,SmartTraining,Workout / Activities,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,Identität
+1717,Move Your Bot!,,,,,,,,,nicht mehr im store
+1718,QuitSM,,,,,,,,,nicht mehr im store
+1720,Menstrual Calendar Tool,,,,,,,,,nicht mehr im store
+1721,DietLog Free,"Body specs, Life status specs, Food intake",None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",0,,
+1722,Food Balance,,,,,,,,,nicht mehr im store
+1723,Brushy - Teeth brushing timer,,,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+1840,Cancer Preventing Food (Health,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,
+1841,Contraction Timer,,,,,,,,,nicht mehr im store
+1845,Swine Flu,,,,,,,,,nicht mehr im store
+2096,Calculate ideal weight  (BMI),Body specs,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",,,
+2135,EiWeight,Body specs,None,,,1,"Screenshots, App downloaded, HTTP Proxy",,,
+2145,Mover (M),,,,,,,,,nicht mehr im store
+2173,MyBodyTime,,,,,,,,,nicht mehr im store
+2265,OM BMI Body Mass Index Calc,,,,,,,,,nicht mehr im store
+2303,Smart Alarm Clock,,,,,,,,,nicht mehr im store
+2305,Instant Heart Rate - Classic,Vital values,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,
+2308,Sleepytime,,,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+2366,Quit Smoking,Life status specs,,,,1,Screenshots,1,,"umbenannt in Stop Smoking, stürtzt direkt ab"
+2409,Enjoy Vibro,,,,,,,,,nicht mehr im store
+2418,Vibrator Pro,,,,,,,,,nicht mehr im store
+2464,Power Nap with Andrew Johnson,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+2473,SportsTracker (by STL),"Life status specs, Body specs, Vital values, Workout / Activity",None,App provider,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,0,Running and Biking
+2476,E Numbers,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+2481,Pharmacist's Letter®,,None,App provider,Analytics,0,"Screenshots, App downloaded, HTTP Proxy",,0,E-Mail Registrierung für erweiterten Zugriff
+2495,Fitness Coach,,,,,,,,,nicht mehr im store
+2496,Round One Timer,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+2497,Handy Runner,Workout / Activities,None,,,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+2501,Mudras,,,,,,,,,nicht mehr im store
+2502,iGeneric -Generic Drugs & Meds,,,,,,,,,nicht mehr im store
+2504,Kick Counter 1.5,Life status specs,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+2509,Skimble GPS Sports Tracker,Workout / Activities,None,"App provider, Facebook","Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,0,"E-Mail, Facebook Registrierung für erweiterten Zugriff"
+2534,RxCase Minder,Medication intake,None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+2552,SolanasTimer,,,,,,,,,nicht mehr im store
+2553,Your Baby's Development - Week,,,,,0,"App downloaded, HTTP Proxy",,,
+2770,3 Day Easy Diet app,,,,,,,,,nicht mehr im store
+2817,Personality Test,Personality Test,None,,"Advertisers / Marketeers, Analytics",1,"App downloaded, HTTP Proxy",1,,
+3005,BodyIMC (BMI Calculator),,,,,,,,,nicht mehr im store
+3009,heartbeat,Vital values,,,,1,"App downloaded, HTTP Proxy",1,,
+3011,Pill Box,,,,,,,,,nicht mehr im store
+3075,Natural Silences Lite,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,
+3179,Step Counter,,,,,,,,,nicht mehr im store
+3180,NON SMOKING,,,,,,,,,nicht mehr im store
+3954,Ideal Weight Stats - BMI / BFI,Body specs,None,,"Advertisers / Marketeers, Analytics",1,"Screenshots, App downloaded, HTTP Proxy",1,,
+4327,Rx 4 Less,,,,,,,,,nicht mehr im store
+4348,GO Sleeping Free,,None,,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,,
+4489,mobilePDR for Prescribers,,,,,,,,,nicht mehr im store
+4681,Burn the Turkey - Widget,,None,,Analytics,0,"Screenshots, App downloaded, HTTP Proxy",,,Standort
+4716,Med Minder - Free,Medication intake,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+37392,First Aid,,,,,,,,,nicht mehr im store
+37428,PainKill Free WellWave,,,,,,,,,nicht mehr im store
+37502,eMoods Bipolar Mood Tracker,"Symptoms, Medication intake",None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+37526,LAP-BAND Surgery Support Forum,,,,,,,,,nicht mehr im store
+37533,Gastric Sleeve Surgery Support,,,,,,,,,nicht mehr im store
+37557,Gastric Bypass Surgery Support,,,,,,,,,nicht mehr im store
+37558,Sleeve Plication Surgery Forum,,,,,,,,,nicht mehr im store
+37744,Pill Reminder,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,
+37848,Ideal Weight & Stats BMI / BFI,,,,,,,,,doppelt
+37855,Cadence Calculator for Cycling,,,,,,,,,nicht mehr im store
+37869,AnabolicMinds.com,,None,App provider,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",0,0,Identität
+37943,Pocket Trainer,,,,,,,,,kostenpflichtig
+38016,Build A Perfect Body Guide,,,,,,,,,nicht mehr im store
+38180,PubMed Mobile,,None,App provider,"Advertisers / Marketeers, Analytics",0,"Screenshots, App downloaded, HTTP Proxy",,0,
+38228,Sleepmeter Free,Sleep Metrics,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+38363,Lady Cycle Lite,"Life status specs, Symptoms, Body specs",None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+38390,OvuView - Period Tracker,"Life status specs, Symptoms, Body specs",None,App provider,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,0,
+38391,Walkroid - simple pedometer,Workout / Activities,,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+38462,Core Trainer Free,,,,,,,,,nicht mehr im store
+38464,Full Body Circuit Trainer Free,,,,,,,,,nicht mehr im store
+38534,The 21 Day Fitness Plan!,,,,,,,,,nicht mehr im store
+38538,White Noise - Rainy Day,,,,,,,,,nicht mehr im store
+38540,Relaxus Lite,,,,,,,,,nicht mehr im store
+38542,Sleepmeter Widget,Sleep Metrics,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+38543,Lightning Bug - Sleep Clock,,None,,Analytics,0,"Screenshots, App downloaded, HTTP Proxy",,,Standort
+38565,Move! Bike Computer,Workout / Activities,None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+38855,Massager,,,,,,,,,nicht mehr im store
+38892,PillReminder,,,,,,,,,nicht mehr im store
+38906,Heart ECG Handbook - Lite,,None,App provider,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,0,
+38908,Pill Box,,,,,,,,,nicht mehr im store
+39065,Relaxing massage,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,Standort
+39104,Building A Perfect Body Plan,,None,,Advertisers / Marketeers,0,"Screenshots, App downloaded, HTTP Proxy",,,umbenannt? Dream Body Workout Plan
+39224,Gym Guide,,None,,,0,"Screenshots, App downloaded, HTTP Proxy",,,übernommen von Kaleb makes apps
+39225,GPS Walk and Run Tracker,Workout / Activities,None,,Analytics,1,"Screenshots, App downloaded, HTTP Proxy",0,,Identität
+39306,Alcohol Calculator,"Body specs, Life status specs, Food intake",None,,Advertisers / Marketeers,1,"Screenshots, App downloaded, HTTP Proxy",1,,
+39324,Ideal Weight BMI Adult & Child,,,,,,,,,nicht mehr im store
+4877,First Aid White Cross,None,None,None,Analytics,0,"App downloaded,HTTP Proxy",,,Just displays information videos
+5273,EyeXam,Symptoms,"E-Mail,Facebook",App provider,,1,"App downloaded,HTTP Proxy",1,1,"Eye test, Eye doc locator, Crashes like crazy"
+5628,Eponyms (for students),None,None,None,"Analytics, Advertisers / Marketeers",0,"App downloaded,HTTP Proxy",,0,Symptom info lists
+5637,Epocrates,"Address, ",E-Mail,None,Analytics,,"App downloaded,HTTP Proxy",,0,
+6027,Easy Weight Loss Tips,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+6054,Drug Pronunciations Lite,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+6121,Dream Meanings,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+6126,Dream Interpreter,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+7027,Davis's Drug Guide for Mobile + Web,None,Username,None,Advertisers / Marketeers,1,"App downloaded, Screenshots, Description, HTTP Proxy",1,,"App unusable, In-App data update times out"
+7174,Cures A-Z,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+8083,Brain Tutor 3D,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+9222,Beauty Tips,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+9271,Best Diet Foods,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+10955,Health Tips 1000,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+13632,Mental Illness,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+17073,Psych Drugs,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+10954,Health Tip of the Day,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+13760,Mind Tricks,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+15851,Phobias,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+22670,Baby Names+,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+23513,Custom Sounds of Nature - Lite,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+25520,Dream: Free,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+29496,Men's Health Mag,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+32067,Sleep Pillow Sounds: white noise machine lite,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+32120,SleepStream Classic Lite,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+33847,Relaxing Sounds Of Nature Lite (help with meditation relaxation sleep and spa),None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+33883,"Relax Melodies: A white noise ambience for sleep, meditation &amp; yoga",None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+34128,Relax & Sleep Well by Glenn Harrold: A Relaxation Self-Hypnosis Meditation,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+34144,"Relax Melodies HD: A white noise ambience for sleep, meditation &amp; yoga",None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+34596,White Noise Lite,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+28803,Human Body Facts!,None,None,None,Advertisers / Marketeers,0,"Screenshot, Description",,,
+23677,CorePower Yoga,None,None,None,Advertisers / Marketeers,0,Description,,,
+21113,3D Brain,None,None,None,Advertisers / Marketeers,0,Description,,,
+21295,3D4Medical's Images - iPad edition,None,None,None,Advertisers / Marketeers,0,Description,,,
+19398,X-rays,None,None,None,Advertisers / Marketeers,0,Description,,,
+17383,Sleepmaker Waves Free,None,None,None,Advertisers / Marketeers,0,Description,,,
+17385,Sleepmaker Wildlife Free,None,None,None,Advertisers / Marketeers,0,Description,,,
+17387,Sleepmaker Storms Free,None,None,None,Advertisers / Marketeers,0,Description,,,
+17389,Sleepmaker Streams Free,None,None,None,Advertisers / Marketeers,0,Description,,,
+17393,Sleepmaker Rain Free,None,None,None,Advertisers / Marketeers,0,Description,,,
+17687,Silent Island Relaxation Lite,None,None,None,Advertisers / Marketeers,0,Description,,,
+16386,Relax Completely,None,None,None,Advertisers / Marketeers,0,Description,,,
+16388,Relax Dream,None,None,None,Advertisers / Marketeers,0,Description,,,
+16412,Relax with Andrew Johnson Lite,None,None,None,Advertisers / Marketeers,0,Description,,,
+16414,Relax Waterfall,None,None,None,Advertisers / Marketeers,0,Description,,,
+16432,Relax Ocean Waves,None,None,None,Advertisers / Marketeers,0,Description,,,
+16437,Relax Raindrops,None,None,None,Advertisers / Marketeers,0,Description,,,
+16438,Relax Peace,None,None,None,Advertisers / Marketeers,0,Description,,,
+14188,Medical Encyclopedia,None,None,None,Advertisers / Marketeers,0,Description,,,
+9224,Beauty Tips Full : How to become more beautiful...,None,None,None,Advertisers / Marketeers,0,Description,,,
+8254,Calculate (Medical Calculator) by QxMD,"Address, Vital values",E-Mail,"App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,Informations for doctors or medical staff
+8912,Baby Pregnancy Tracker (Lite),Life status specs,None,None,,0,"App downloaded,HTTP Proxy",,,"Does not connect to servers, no data is sent anywhere"
+9073,Blood Pressure Monitor - Family Lite,"Body specs,Medication intake",E-Mail,"App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,Does try to gather as much information as possible
+9842,Amazing Human Calculator FREE,None,None,None,"Analytics, Advertisers / Marketeers",0,"Description, Screenshots",0,,Input Birthdate and get fancy fact on how many times you inhaled since then and so on
+10108,Anatomy Pronunciations Lite,None,None,None,,0,"Description, Screenshots",,,Guide
+10638,ABG,"Body specs,Vital values",None,None,None,1,"App downloaded,HTTP Proxy",1,,
+12029,Instant Heart Rate - Heart Rate Monitor by Azumio Free,Vital values,None,None,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,,
+12357,Lexicomp,Medication intake,E-Mail,"App provider,Advertisers / Marketeers,Research Projects",None,0,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+12442,Legal Maps,None,None,,,,"Description, Screenshots",,,
+12757,Marijuana Handbook Lite,None,None,,,,"Description, Screenshots",,,
+13523,Medscape,"Address,Life status specs,Medication intake",E-Mail,"App provider,Advertisers / Marketeers,Research Projects","Analytics, Advertisers / Marketeers",0,"App downloaded,HTTP Proxy,Privacy policy",,1,
+14732,Nursing Central,None,E-Mail,,None,,"App downloaded,HTTP Proxy",,,
+14910,My Baby Today,"Body specs,Life status specs",E-Mail,App provider,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,0,
+15019,"Monthly Cycles - Period Tracker, Menstrual Calendar &amp; Ovulation / Fertility Diary","Body specs,Symptoms,Life status specs",None,App provider,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,1,
+15277,My Pregnancy Today,None,E-Mail,,"Analytics, Advertisers / Marketeers",,"App downloaded,HTTP Proxy",,0,
+15318,My Cycles Period and Ovulation Tracker,"Life status specs,Address",E-Mail,App provider,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",0,1,
+15469,Period Tracker (Pink Pad Free),Life status specs,"E-Mail, Facebook","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,0,
+15994,Orasphere,None,None,,,,"Description, Screenshots",,,Shows images of teeth
+16792,ReachMD CME,Unknown,E-Mail,Unknown,None,,"Description, Screenshots",,,App does not load on iPhone 4s
+16895,Prognosis : Your Diagnosis,Symptoms,"Google, Facebook",App provider,Advertisers / Marketeers,0,"App downloaded,HTTP Proxy",1,0,
+17006,PubMed On Tap Lite,None,None,None,Analytics,,"App downloaded,HTTP Proxy",,,
+17315,Pregnancy (BabyBump),"Life status specs,Vital values,Body specs,Symptoms","E-Mail, Facebook","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",0,1,
+17837,Skyscape Medical Resources,Address,E-Mail,"App provider,Advertisers / Marketeers",Analytics,0,"App downloaded,HTTP Proxy,Privacy policy",0,0,
+18231,RxmindMe Prescription / Medicine Reminder and Pill Tracker,Medication intake,E-Mail,"App provider,Advertisers / Marketeers",None,1,"App downloaded,HTTP Proxy,Privacy policy",0,0,
+18258,Running Log Free,Workout / Activities,None,None,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,,
+18773,"Teen BMI (Find out how your WEIGHT, HEIGHT and BMI compares with others of the same age)",None,None,None,None,,"App downloaded,HTTP Proxy",,,
+18891,Taber's Medical Dictionary for Mobile + Web,None,Unknown,None,None,,"Description, Screenshots",,,
+18963,Symptom Checker .MD,Symptoms,"E-Mail, Facebook",App provider,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",0,1,
+19125,Stress Check,"Symptoms,Life status specs",None,None,None,,"App downloaded,HTTP Proxy",,,
+19222,STAT ICD-9 LITE,None,None,None,Analytics,,"App downloaded,HTTP Proxy",,,
+19336,Speed Bones Lite (Quiz),None,None,,None,,"Description, Screenshots",,,
+19615,"Waterlogged - Drink More Water, Track Daily Water Intake, Use Remiders",Food intake,E-Mail,App provider,Analytics,1,"App downloaded,HTTP Proxy",1,1,
+19670,WebMD,"Symptoms,Life status specs,Medication Intake,Symptoms",E-Mail,"App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+19671,WebMD for iPad,"Symptoms,Life status specs,Medication Intake,Symptoms",E-Mail,"App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+21981,BMI Calculator,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+22090,BMIapp,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+22092,Bmi/BodyFat Calculator+More,Body specs,,,"Analytics, Advertisers / Marketeers",,"App downloaded,HTTP Proxy",,,
+22549,C25K™ - 5K Trainer FREE,None,None,None,"Analytics, Advertisers / Marketeers",,"App downloaded,HTTP Proxy",,,
+24320,Calorie Counter and Diet Tracker by MyFitnessPal HD,"Body specs,Life status specs,Food intake,Workout / Activities","E-Mail, Facebook",App provider,None,1,"App downloaded,HTTP Proxy",1,1,
+24324,Calorie Counter &amp; Diet Tracker by MyFitnessPal,"Body specs,Life status specs,Food intake,Workout / Activities","E-Mail, Facebook",App provider,None,1,"App downloaded,HTTP Proxy",1,1,
+24321,Calorie Counter by FatSecret,"Body specs,Life status specs,Food intake,Workout / Activities",E-Mail,App provider,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,1,
+24329,Calorie Counter*,"Body specs,Life status specs,Food intake,Workout / Activities","E-Mail, Facebook, Google+","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,0,
+24332,Calorie Counter by FatSecret for iPad,"Body specs,Life status specs,Food intake,Workout / Activities",E-Mail,App provider,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,1,
+24331,Calorie Counter by MyNetDiary,"Body specs,Food intake",E-Mail,"App provider,Advertisers / Marketeers,Research Projects",Analytics,1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+24457,Contraction Timer Free,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+24715,Cigarettes Lite,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+25077,Fitness Muscle,None,None,None,"Analytics, Advertisers / Marketeers",,"App downloaded,HTTP Proxy",,,
+25351,FemCal Lite: Period and Ovulation Calendar,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+25365,Fearless Brain Free,None,None,None,"Analytics, Advertisers / Marketeers",,"App downloaded,HTTP Proxy",,,
+25447,First Aid by American Red Cross,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+25855,Electric Sheep,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+25931,Endomondo Sports Tracker,"Body specs,Workout / Activities,Food intake","E-Mail, Facebook","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",0,1,
+26040,Easy Recipes: See How to Cook Healthy Meals (Videos),None,None,None,None,,"App downloaded,HTTP Proxy",,,
+26989,GoMeals,"Body specs, Food intake,Vital values,Workout / Activities",E-Mail,"App provider,Advertisers / Marketeers",Analytics,1,"App downloaded,HTTP Proxy,Privacy policy",0,1,
+27150,Footsteps - Pedometer Free,Workout / Activities,None,None,None,,"App downloaded,HTTP Proxy",,,
+27266,Food Labels With Nutritional Facts,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+27502,Free Personality Quiz,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+28801,Horoscope & WhereFortune: based on your physical location.,"Address,Body specs",E-Mail,Unknown,"Analytics, Advertisers / Marketeers",0,"App downloaded,HTTP Proxy",0,1,
+29052,My Days - Period &amp; Ovulation ™,"Life status specs,Vital values,Symptoms",None,None,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,,
+29876,MapMyFITNESS GPS Tracking,"Body specs, Food intake,Vital values,Workout / Activities","E-Mail, Facebook","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+29880,MapMyRIDE GPS Cycling,"Body specs, Food intake,Vital values,Workout / Activities","E-Mail, Facebook","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+29882,MapMyRUN GPS Running,"Body specs, Food intake,Vital values,Workout / Activities","E-Mail, Facebook","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+30100,Lose the Belly (Weight Loss for Men),None,None,None,None,,"App downloaded,HTTP Proxy,Privacy policy",,,
+30102,Lose It!,"Body specs,Food intake,Workout / Activities",E-Mail,"App provider,Advertisers / Marketeers",Analytics,1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+30105,Lose the Belly (Weight Loss for Women),None,None,None,None,,"App downloaded,HTTP Proxy,Privacy policy",,,
+30179,LIVESTRONG.COM - Calorie Tracker LITE - Your Free Diet and Fitness Calorie Counter for Better Health,"Food intake,Workout / Activities,Body specs","E-Mail, Facebook","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+30562,Period Tracker Lite,"Symptoms,Life status specs",E-Mail,"App provider, Unknown","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,0,
+30581,Period Planner Lite,Life status specs,None,None,None,,"App downloaded,HTTP Proxy",,,
+30940,Nutrisystem,"Body specs,Food intake,Workout / Activities","E-Mail, Facebook",App provider,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+31224,Nike+ Running,"Address,Workout / Activities",E-Mail,"App provider,Advertisers / Marketeers",Analytics,1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+31234,Nike Training Club,"Address,Workout / Activities",E-Mail,"App provider,Advertisers / Marketeers",Analytics,1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+31382,Naturespace: Relax Meditate Escape Sleep (3D Sound - The most effective audio therapy for stress rel...,None,None,None,None,,"Description, Screenshots",,,
+31763,Shake and Squeeze Stress Ball,None,None,None,None,,"Description, Screenshots",,,
+36228,Test of Life,None,None,None,None,,"Description, Screenshots",,,
+31570,My24,None,None,None,Analytics,,"App downloaded,HTTP Proxy",,,
+36965,Vibrating Massager FREE,None,None,None,None,,"Description, Screenshots",,,
+36064,Tao Te Ching - Chinese Wisdom,None,None,None,None,,"Description, Screenshots",,,
+32401,Sports Tracker,"Body specs,Workout / Activities,Food intake","E-Mail, Facebook","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+32474,Splash 'n' Dash Free,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+32991,Strava Cycling,Workout / Activities,"E-Mail, Facebook, Google",,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+33172,Pregnancy Tracker from WhatToExpect.com,Family,None,None,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,,
+33579,Quitter,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+33586,R-U-Buzzed? BAC Calculator,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+33693,Prêt-à-Yoga Lite,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+34510,"RunKeeper - Track GPS Running, Walking, Cycling and more!",Workout / Activities,"E-Mail, Facebook","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+34751,What Women Want(USA),None,None,None,"Analytics, Advertisers / Marketeers",,"App downloaded,HTTP Proxy",,,
+34892,Woodya Run,None,None,None,"Analytics, Advertisers / Marketeers",,"App downloaded,HTTP Proxy",,,
+34907,WomanLog Calendar,Life status specs,None,None,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,1,
+34957,Workout Trainer,Workout / Activities,"E-Mail, Facebook","App provider,Advertisers / Marketeers","Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy,Privacy policy",1,1,
+35084,Your Ideal Weight,Body specs,None,None,"Analytics, Advertisers / Marketeers",1,"App downloaded,HTTP Proxy",1,,
+35146,Yoga at Home: Videos for Beginners,None,None,None,Advertisers / Marketeers,,"App downloaded,HTTP Proxy",,,
+35263,ZYRTEC AllergyCast,Symptoms,None,None,Advertisers / Marketeers,1,"App downloaded,HTTP Proxy,Privacy policy",1,0,
+35893,"5K Runner: 0 to 5K run training, free",Workout / Activities,"E-Mail, Facebook",App provider,Analytics,1,"App downloaded,HTTP Proxy",1,1,
+36246,THI Personal Trainer Lite,Workout / Activities,None,None,None,1,"App downloaded,HTTP Proxy",1,,
+36678,True Weight Lite,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+37098,Virtual Weight Loss Model Lite,None,None,None,None,,"App downloaded,HTTP Proxy",,,
+37233,Walgreens,Medication intake,E-Mail,App provider,Analytics,1,"App downloaded,HTTP Proxy,Privacy policy",1,1,

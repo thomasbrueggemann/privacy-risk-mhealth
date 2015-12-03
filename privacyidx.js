@@ -3,6 +3,7 @@ var csv = require("fast-csv");
 
 var ratings = [];
 
+// pipe in csv data
 fs.createReadStream("data.csv")
     .pipe(csv())
     .on("data", function(data){
@@ -21,6 +22,10 @@ fs.createReadStream("data.csv")
             "secure_transmission": data[9] === "1"
         });
     })
-    .on("end", function(){
-        console.log(ratings);
+    .on("end", function() {
+
+        // calculate privacy indizes
+        for(var rating in ratings) {
+            
+        }
     });

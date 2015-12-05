@@ -14,10 +14,10 @@ var multiplier = {
 var weights = {
     "security": 0.1,
     "personal_target": 0.4,
-    "category": 0.2,
+    "category": 0.35,
     "unspecific_target": 0.05,
-    "rating_source": 0.15,
-    "data_reasonable": 0.1
+    "rating_source": 0.05,
+    "data_reasonable": 0.05
 };
 
 var personalTargetWeights = {

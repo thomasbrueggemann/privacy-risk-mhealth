@@ -1,0 +1,400 @@
+id;name;personal_category;login;personal_target;unspecific_target;personal_description;rating_source;data_reasonable;secure_transmission;privacy_index
+NaN;app name;personal data categories;true;personal data targets;unspecific data categories;false;source of rating information;false;false;NaN
+3;ABG Interpreter;life status specs,vital values;false;app provider;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;17
+13;OnTrack Diabetes;body specs,medication intake,workout / activities,vital values,food intake;true;app provider;analytics;true;app downloaded,http proxy;true;false;34
+21;FDA Drugs Free;;false;;;false;;false;false;0
+59;BMI Calculator (free);body specs;false;;analytics;true;app downloaded,http proxy;true;false;9
+60;Pregnancy Contraction Timer;life status specs;false;;analytics;true;app downloaded,http proxy;true;false;10
+61;Anesthesiologist;body specs;false;app provider;advertisers / marketeers,analytics;true;app downloaded,http proxy;true;false;13
+64;Pocket Doctor Lite;body specs;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;9
+70;BMI n Fat Calculator;body specs,life status specs;false;app provider;advertisers / marketeers,analytics;false;app downloaded,http proxy;false;false;25
+89;Rx Savings!;;false;;;false;app downloaded,http proxy;false;false;0
+116;Clinicians Drug Reference TR;;false;app provider;analytics;false;app downloaded,http proxy;false;false;0
+139;Get Pregnant;life status specs;false;;advertisers / marketeers;true;app downloaded,http proxy;true;false;10
+150;Ob (Pregnancy) Wheel;life status specs;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;10
+157;MedBook;;false;app provider;;false;screenshots,app downloaded,http proxy;false;false;0
+198;Emergency Tools;address;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;19
+199;Kids Height Predictor;body specs,family;false;;advertisers / marketeers,analytics;true;app downloaded,http proxy;true;false;10
+203;Color Blindness Test;;false;;advertisers / marketeers,analytics;false;app downloaded,http proxy;false;false;0
+236;HeartSounds: Stethoscope Lite;;false;app provider;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+248;Visual Anatomy Free;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+249;Dosage Calc;medication intake;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;10
+251;Sleep Graph;sleep metrics;false;;;true;screenshots,app downloaded,http proxy;false;false;0
+252;Standard Dictations;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+267;3D BMI Calculator 2 Free;body specs;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;false;false;19
+377;Medical Dictionary;;false;;;false;;false;false;0
+382;ACC Pocket Guides;;false;;;false;;false;false;0
+390;Pocket Rx Guide Free;;false;;;false;;false;false;0
+457;Mobile emergency call;;false;;;false;screenshots,app downloaded,http proxy;true;false;0
+458;Skyscape RxDrugs;;false;;;false;;false;false;0
+577;Control Your Mind BrainMassage;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+629;Menstrual Calendar;life status specs,body specs,medical appointments,medication intake;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;false;false;25
+639;Medical News;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+656;Fluid & Electrolytes;body specs,vital values;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;12
+668;Pregancy Calculator;;false;;;true;screenshots;false;false;0
+669;BeatDroid;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+682;ADHD Test;symptoms;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;false;false;20
+738;Mom 2 Be Pregnancy Tracker;;false;;;false;;false;false;0
+924;Medicinal Marijuana Cookbook.;;false;;;false;;false;false;0
+925;WeedLaws: Marijuana Law Guide;;false;;;false;;false;false;0
+926;Medical Marijuana GrowApp;;false;;;false;;false;false;0
+930;Good Weed Wanted;;false;;;false;;false;false;0
+957;First Aid;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+958;Massage Lite;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1020;Cardiograph;vital values,workout / activities;false;app provider;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;15
+1051;Brain Booster - Mind Refresher;;false;;;false;;false;false;0
+1215;Weight Control Hypnosis(Trial);;false;;;false;;false;false;0
+1216;Stress Relief Hypnosis (Trial);;false;;;false;;false;false;0
+1228;QA of health collection TW;;false;;;false;;false;false;0
+1229;Endomondo Sports Tracker;workout / activities,address,life status specs;true;app provider,facebook;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;false;true;32
+1231;Music Therapy for Sound Sleep;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1233;CPR Choking;;false;;analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1239;Pregnancy Ticker;life status specs;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;10
+1242;Stretch Exercises;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1243;Music Therapy for Refreshment;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1246;Prenatal Lullabies Lite;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1248;Calming Music to Tranquilize;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1250;Yoga Moment Lite;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1251;Simple Weight Loss Resolution;body specs;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;9
+1252;Thunderstorm Sleep sound;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1255;Yoga Nidra Meditation (Free);;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+1256;iZen - Art of Zen Meditation;;false;;;false;;false;false;0
+1257;Calming Music to Simplicity;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1258;Relax Rain drops Sleep;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1260;Relax Ocean waves Sleep;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1262;My Tracks;workout / activities;false;app provider;analytics;true;screenshots,app downloaded,http proxy;true;true;12
+1265;Calorie Counter - MyFitnessPal;address,body specs,life status specs,food intake;true;app provider;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;true;22
+1266;Sugar log;vital values;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;10
+1267;Motivation to Exercise;;false;;;false;;false;false;0
+1269;Lucid Dream Brainwave(Trial);;false;;;false;;false;false;0
+1270;Waterfall Relax Sound;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1271;Office Yoga - Care Your Health;;false;;;false;;false;false;0
+1272;Advanced Eye Charts (Trial);;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1273;Tropic rain forest stress;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1274;Relax & Sleep by Glenn Harrold;;false;;;false;;false;false;0
+1276;Ocean Sleeper Sound;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1277;Noom CardioTrainer;workout / activities;false;app provider;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;false;true;22
+1278;aBMI;body specs;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;9
+1279;Healthy Eating Habits;;false;;;false;;false;false;0
+1281;Stress Check;;false;;;false;;false;false;0
+1284;Free From Smoking - Hypnosis;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+1285;Restful Sleep Deluxe (Free);;false;;;false;;false;false;0
+1286;Weight Helper;;false;;;false;;false;false;0
+1289;Workout Buddy;;false;;;false;;false;false;0
+1290;Chakra Opening BrainwaveTrial;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1292;Depression Help Brainwave Lite;;false;;;false;;false;false;0
+1293;Smoke Free Hypnosis (Trial);;false;;;false;;false;false;0
+1301;Bikini Widget;;false;;;false;;false;false;0
+1306;Alarm Clock Plus;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1308;Libra - Weight Manager;body specs,food intake;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;10
+1326;PointsPlus Calculator;body specs,food intake;true;app provider;advertisers / marketeers,analytics;true;app downloaded,http proxy;true;true;18
+1327;Alura: Free Cognitive Therapy;;false;;;false;screenshots;false;false;0
+1334;eyesightTest;;false;;;false;;false;false;0
+1354;Quitting smoking;;false;;;false;;false;false;0
+1367;CardioTrainer Widget;workout / activities;false;app provider;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;true;12
+1369;Breast Augmentation free;;false;;;false;;false;false;0
+1379;C25K;;false;;;false;;false;false;0
+1380;Simple Weight Recorder;body specs;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;9
+1386;PointsList;;false;;;false;;false;false;0
+1407;Eponyms;;false;app provider;;false;screenshots,app downloaded,http proxy;false;false;0
+1408;TwoTouch Timer & Alarmclock;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1414;Calorific Diet Tracker;;false;;;false;;false;false;0
+1416;Body Fat Calculator;body specs,life status specs;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;11
+1417;Farmácias;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+1418;Self-Hypnosis for Meditation;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1420;Brainwave Tuner Lite;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1423;All-in Pedometer;;false;;;false;;false;false;0
+1425;Bench Press Workout;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1430;Bleep Test 20-15;workout / activities;false;;;true;screenshots,app downloaded,http proxy;true;false;0
+1431;Weight Chart;;false;;;false;;false;false;0
+1438;Dharma Timer Counter Lite;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+1446;Eight Cups Lite;food intake;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;8
+1447;Health Net Mobile;;true;app provider;;true;screenshots,app downloaded,http proxy;true;true;0
+1448;Self-Hypnosis for Sound Sleep;;false;;;false;;false;false;0
+1452;Menstruation Calendar Lite;;false;;;false;;false;false;0
+1461;"Valentine's Weight Loss";;false;;;false;;false;false;0
+1467;Alcohol Calculator;body specs,life status specs,food intake;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;12
+1468;CarSafety;;false;;;false;;false;false;0
+1472;step counter;;false;;;false;;false;false;0
+1473;Sleep Log Automatic;;false;;;false;;false;false;0
+1481;Toothbrush Helper (Lite);;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1491;FitRoid - Lite;body specs,food intake,workout / activities,vital values;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;13
+1493;WW Point Calculator;;false;;;false;;false;false;0
+1507;Depressed?;;false;;;false;;false;false;0
+1509;Simple Meal Reminder;food intake;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;8
+1510;mobiCeliac [mini];;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1518;Relax with Andrew Johnson Lite;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+1529;Natural Beauty Recipe;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1531;Weight Chart v2;body specs;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;9
+1536;What Additives;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1537;WeightPad;;false;;;false;;false;false;0
+1540;Blood Pressure+Pulse Docu;;false;;;false;;false;false;0
+1544;Glasgow Coma Scale;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;true;false;0
+1546;NCCN Guidelines;;false;;analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1549;Insight Timer Free;;false;;;false;;false;false;0
+1560;Power Nap Alarm;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1565;Tabata Sport Interval Timer;workout / activities;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;8
+1566;HeartRate Monitor;;false;;;false;;false;false;0
+1569;Hands-Only CPR;;false;;;false;;false;false;0
+1572;Recall Watch;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1573;moveo pedometer (beta);;false;;;false;;false;false;0
+1583;Blood Alcohol Calculator;body specs,food intake;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;10
+1599;Feng Shui Secrets;;false;;;false;;false;false;0
+1603;Military Body Fat Calculator;body specs;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;9
+1606;Max Bench Press Calculator;workout / activities;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;8
+1612;yourFit Lite;body specs,life status specs,food intake,workout / activities;false;app provider;analytics;true;screenshots,app downloaded,http proxy;true;false;17
+1613;Health to Go inspired by GE;;false;;;false;;false;false;0
+1614;(Free) Herbs of Traditn & Sppl;;false;;;false;screenshots;false;false;0
+1619;Live Sound;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+1629;Baby Growth Tracker;;false;;;false;;false;false;0
+1634;Pregnancy Widget;life status specs;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;10
+1636;Eat This? Diet for weight loss;;false;;;false;;false;false;0
+1637;Yoga Song;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1641;BMI-Calculator Free;;false;;;false;;false;false;0
+1642;Workout Assistant;workout / activities;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;8
+1645;Know Your BMI;;false;;;false;;false;false;0
+1647;Barcode Calorie;food intake;false;;;true;screenshots,app downloaded,http proxy;true;false;0
+1648;YourSport Lite;;false;;;false;;false;false;0
+1650;Refresh Your Brain Relaxation;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1654;ColorTest;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1655;Diary Weight;body specs;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;false;false;19
+1669;My Sleep Diary BETA;;false;;;false;;false;false;0
+1674;MedWeb;;false;;;false;;false;false;0
+1677;Vision Test;;false;;;false;;false;false;0
+1679;Walttend Lite;workout / activities;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;8
+1684;Pregnancy Due Dates Calculator;life status specs;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;10
+1686;Relaxing Night Brain Massage;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1693;Adora AA=> Acupuncture Assist.;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+1713;WWDiary;food intake,workout / activities;false;;;true;screenshots,app downloaded,http proxy;true;false;0
+1715;SmartTraining;workout / activities;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;8
+1717;Move Your Bot!;;false;;;false;;false;false;0
+1718;QuitSM;;false;;;false;;false;false;0
+1720;Menstrual Calendar Tool;;false;;;false;;false;false;0
+1721;DietLog Free;body specs,life status specs,food intake;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;false;false;22
+1722;Food Balance;;false;;;false;;false;false;0
+1723;Brushy - Teeth brushing timer;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+1840;Cancer Preventing Food (Health;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+1841;Contraction Timer;;false;;;false;;false;false;0
+1845;Swine Flu;;false;;;false;;false;false;0
+2096;Calculate ideal weight  (BMI);body specs;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;false;false;19
+2135;EiWeight;body specs;false;;;true;screenshots,app downloaded,http proxy;false;false;0
+2145;Mover (M);;false;;;false;;false;false;0
+2173;MyBodyTime;;false;;;false;;false;false;0
+2265;OM BMI Body Mass Index Calc;;false;;;false;;false;false;0
+2303;Smart Alarm Clock;;false;;;false;;false;false;0
+2305;Instant Heart Rate - Classic;vital values;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;10
+2308;Sleepytime;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+2366;Quit Smoking;life status specs;false;;;true;screenshots;true;false;0
+2409;Enjoy Vibro;;false;;;false;;false;false;0
+2418;Vibrator Pro;;false;;;false;;false;false;0
+2464;Power Nap with Andrew Johnson;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+2473;SportsTracker (by STL);life status specs,body specs,vital values,workout / activity;false;app provider;analytics;true;screenshots,app downloaded,http proxy;true;false;19
+2476;E Numbers;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+2481;"Pharmacist's Letter®";;false;app provider;analytics;false;screenshots,app downloaded,http proxy;false;false;0
+2495;Fitness Coach;;false;;;false;;false;false;0
+2496;Round One Timer;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+2497;Handy Runner;workout / activities;false;;;true;screenshots,app downloaded,http proxy;true;false;0
+2501;Mudras;;false;;;false;;false;false;0
+2502;iGeneric -Generic Drugs & Meds;;false;;;false;;false;false;0
+2504;Kick Counter 1.5;life status specs;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;10
+2509;Skimble GPS Sports Tracker;workout / activities;false;app provider,facebook;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;13
+2534;RxCase Minder;medication intake;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;10
+2552;SolanasTimer;;false;;;false;;false;false;0
+2553;"Your Baby's Development - Week";;false;;;false;app downloaded,http proxy;false;false;0
+2770;3 Day Easy Diet app;;false;;;false;;false;false;0
+2817;Personality Test;personality test;false;;advertisers / marketeers,analytics;true;app downloaded,http proxy;true;false;8
+3005;BodyIMC (BMI Calculator);;false;;;false;;false;false;0
+3009;heartbeat;vital values;false;;;true;app downloaded,http proxy;true;false;0
+3011;Pill Box;;false;;;false;;false;false;0
+3075;Natural Silences Lite;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+3179;Step Counter;;false;;;false;;false;false;0
+3180;NON SMOKING;;false;;;false;;false;false;0
+3954;Ideal Weight Stats - BMI / BFI;body specs;false;;advertisers / marketeers,analytics;true;screenshots,app downloaded,http proxy;true;false;9
+4327;Rx 4 Less;;false;;;false;;false;false;0
+4348;GO Sleeping Free;;false;;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+4489;mobilePDR for Prescribers;;false;;;false;;false;false;0
+4681;Burn the Turkey - Widget;;false;;analytics;false;screenshots,app downloaded,http proxy;false;false;0
+4716;Med Minder - Free;medication intake;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;10
+37392;First Aid;;false;;;false;;false;false;0
+37428;PainKill Free WellWave;;false;;;false;;false;false;0
+37502;eMoods Bipolar Mood Tracker;symptoms,medication intake;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;13
+37526;LAP-BAND Surgery Support Forum;;false;;;false;;false;false;0
+37533;Gastric Sleeve Surgery Support;;false;;;false;;false;false;0
+37557;Gastric Bypass Surgery Support;;false;;;false;;false;false;0
+37558;Sleeve Plication Surgery Forum;;false;;;false;;false;false;0
+37744;Pill Reminder;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+37848;Ideal Weight & Stats BMI / BFI;;false;;;false;;false;false;0
+37855;Cadence Calculator for Cycling;;false;;;false;;false;false;0
+37869;AnabolicMinds.com;;false;app provider;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+37943;Pocket Trainer;;false;;;false;;false;false;0
+38016;Build A Perfect Body Guide;;false;;;false;;false;false;0
+38180;PubMed Mobile;;false;app provider;advertisers / marketeers,analytics;false;screenshots,app downloaded,http proxy;false;false;0
+38228;Sleepmeter Free;sleep metrics;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;8
+38363;Lady Cycle Lite;life status specs,symptoms,body specs;false;;analytics;true;screenshots,app downloaded,http proxy;true;false;14
+38390;OvuView - Period Tracker;life status specs,symptoms,body specs;false;app provider;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;18
+38391;Walkroid - simple pedometer;workout / activities;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;8
+38462;Core Trainer Free;;false;;;false;;false;false;0
+38464;Full Body Circuit Trainer Free;;false;;;false;;false;false;0
+38534;The 21 Day Fitness Plan!;;false;;;false;;false;false;0
+38538;White Noise - Rainy Day;;false;;;false;;false;false;0
+38540;Relaxus Lite;;false;;;false;;false;false;0
+38542;Sleepmeter Widget;sleep metrics;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;8
+38543;Lightning Bug - Sleep Clock;;false;;analytics;false;screenshots,app downloaded,http proxy;false;false;0
+38565;Move! Bike Computer;workout / activities;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;8
+38855;Massager;;false;;;false;;false;false;0
+38892;PillReminder;;false;;;false;;false;false;0
+38906;Heart ECG Handbook - Lite;;false;app provider;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+38908;Pill Box;;false;;;false;;false;false;0
+39065;Relaxing massage;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+39104;Building A Perfect Body Plan;;false;;advertisers / marketeers;false;screenshots,app downloaded,http proxy;false;false;0
+39224;Gym Guide;;false;;;false;screenshots,app downloaded,http proxy;false;false;0
+39225;GPS Walk and Run Tracker;workout / activities;false;;analytics;true;screenshots,app downloaded,http proxy;false;false;18
+39306;Alcohol Calculator;body specs,life status specs,food intake;false;;advertisers / marketeers;true;screenshots,app downloaded,http proxy;true;false;12
+39324;Ideal Weight BMI Adult & Child;;false;;;false;;false;false;0
+4877;First Aid White Cross;;false;;analytics;false;app downloaded,http proxy;false;false;0
+5273;EyeXam;symptoms;true;app provider;;true;app downloaded,http proxy;true;true;13
+5628;Eponyms (for students);;false;;analytics,advertisers / marketeers;false;app downloaded,http proxy;false;false;0
+5637;Epocrates;address;true;;analytics;false;app downloaded,http proxy;false;false;19
+6027;Easy Weight Loss Tips;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+6054;Drug Pronunciations Lite;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+6121;Dream Meanings;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+6126;Dream Interpreter;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+7027;"Davis's Drug Guide for Mobile + Web";;true;;advertisers / marketeers;true;app downloaded,screenshots,description,http proxy;true;false;0
+7174;Cures A-Z;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+8083;Brain Tutor 3D;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+9222;Beauty Tips;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+9271;Best Diet Foods;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+10955;Health Tips 1000;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+13632;Mental Illness;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+17073;Psych Drugs;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+10954;Health Tip of the Day;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+13760;Mind Tricks;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+15851;Phobias;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+22670;Baby Names+;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+23513;Custom Sounds of Nature - Lite;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+25520;Dream: Free;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+29496;"Men's Health Mag";;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+32067;Sleep Pillow Sounds: white noise machine lite;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+32120;SleepStream Classic Lite;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+33847;Relaxing Sounds Of Nature Lite (help with meditation relaxation sleep and spa);;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+33883;"Relax Melodies: A white noise ambience for sleep, meditation &amp; yoga";;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+34128;Relax & Sleep Well by Glenn Harrold: A Relaxation Self-Hypnosis Meditation;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+34144;"Relax Melodies HD: A white noise ambience for sleep, meditation &amp; yoga";;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+34596;White Noise Lite;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+28803;Human Body Facts!;;false;;advertisers / marketeers;false;screenshot,description;false;false;0
+23677;CorePower Yoga;;false;;advertisers / marketeers;false;description;false;false;0
+21113;3D Brain;;false;;advertisers / marketeers;false;description;false;false;0
+21295;"3D4Medical's Images - iPad edition";;false;;advertisers / marketeers;false;description;false;false;0
+19398;X-rays;;false;;advertisers / marketeers;false;description;false;false;0
+17383;Sleepmaker Waves Free;;false;;advertisers / marketeers;false;description;false;false;0
+17385;Sleepmaker Wildlife Free;;false;;advertisers / marketeers;false;description;false;false;0
+17387;Sleepmaker Storms Free;;false;;advertisers / marketeers;false;description;false;false;0
+17389;Sleepmaker Streams Free;;false;;advertisers / marketeers;false;description;false;false;0
+17393;Sleepmaker Rain Free;;false;;advertisers / marketeers;false;description;false;false;0
+17687;Silent Island Relaxation Lite;;false;;advertisers / marketeers;false;description;false;false;0
+16386;Relax Completely;;false;;advertisers / marketeers;false;description;false;false;0
+16388;Relax Dream;;false;;advertisers / marketeers;false;description;false;false;0
+16412;Relax with Andrew Johnson Lite;;false;;advertisers / marketeers;false;description;false;false;0
+16414;Relax Waterfall;;false;;advertisers / marketeers;false;description;false;false;0
+16432;Relax Ocean Waves;;false;;advertisers / marketeers;false;description;false;false;0
+16437;Relax Raindrops;;false;;advertisers / marketeers;false;description;false;false;0
+16438;Relax Peace;;false;;advertisers / marketeers;false;description;false;false;0
+14188;Medical Encyclopedia;;false;;advertisers / marketeers;false;description;false;false;0
+9224;Beauty Tips Full : How to become more beautiful...;;false;;advertisers / marketeers;false;description;false;false;0
+8254;Calculate (Medical Calculator) by QxMD;address,vital values;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;35
+8912;Baby Pregnancy Tracker (Lite);life status specs;false;;;false;app downloaded,http proxy;false;false;0
+9073;Blood Pressure Monitor - Family Lite;body specs,medication intake;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;35
+9842;Amazing Human Calculator FREE;;false;;analytics,advertisers / marketeers;false;description,screenshots;false;false;0
+10108;Anatomy Pronunciations Lite;;false;;;false;description,screenshots;false;false;0
+10638;ABG;body specs,vital values;false;;;true;app downloaded,http proxy;true;false;0
+12029;Instant Heart Rate - Heart Rate Monitor by Azumio Free;vital values;false;;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;false;10
+12357;Lexicomp;medication intake;true;app provider,advertisers / marketeers,research projects;;false;app downloaded,http proxy,privacy policy;true;true;30
+12442;Legal Maps;;false;;;false;description,screenshots;false;false;0
+12757;Marijuana Handbook Lite;;false;;;false;description,screenshots;false;false;0
+13523;Medscape;address,life status specs,medication intake;true;app provider,advertisers / marketeers,research projects;analytics,advertisers / marketeers;false;app downloaded,http proxy,privacy policy;false;true;49
+14732;Nursing Central;;true;;;false;app downloaded,http proxy;false;false;0
+14910;My Baby Today;body specs,life status specs;true;app provider;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;false;29
+15019;"Monthly Cycles - Period Tracker, Menstrual Calendar &amp; Ovulation / Fertility Diary";body specs,symptoms,life status specs;false;app provider;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;true;18
+15277;My Pregnancy Today;;true;;analytics,advertisers / marketeers;false;app downloaded,http proxy;false;false;0
+15318;My Cycles Period and Ovulation Tracker;life status specs,address;true;app provider;analytics,advertisers / marketeers;true;app downloaded,http proxy;false;true;29
+15469;Period Tracker (Pink Pad Free);life status specs;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;false;42
+15994;Orasphere;;false;;;false;description,screenshots;false;false;0
+16792;ReachMD CME;unknown;true;unknown;;false;description,screenshots;false;false;74
+16895;Prognosis : Your Diagnosis;symptoms;true;app provider;advertisers / marketeers;false;app downloaded,http proxy;true;false;28
+17006;PubMed On Tap Lite;;false;;analytics;false;app downloaded,http proxy;false;false;0
+17315;Pregnancy (BabyBump);life status specs,vital values,body specs,symptoms;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;false;true;49
+17837;Skyscape Medical Resources;address;true;app provider,advertisers / marketeers;analytics;false;app downloaded,http proxy,privacy policy;false;false;52
+18231;RxmindMe Prescription / Medicine Reminder and Pill Tracker;medication intake;true;app provider,advertisers / marketeers;;true;app downloaded,http proxy,privacy policy;false;false;48
+18258;Running Log Free;workout / activities;false;;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;false;8
+18773;Teen BMI (Find out how your WEIGHT, HEIGHT and BMI compares with others of the same age);;false;;;false;app downloaded,http proxy;false;false;0
+18891;"Taber's Medical Dictionary for Mobile + Web";;true;;;false;description,screenshots;false;false;0
+18963;Symptom Checker .MD;symptoms;true;app provider;analytics,advertisers / marketeers;true;app downloaded,http proxy;false;true;28
+19125;Stress Check;symptoms,life status specs;false;;;false;app downloaded,http proxy;false;false;0
+19222;STAT ICD-9 LITE;;false;;analytics;false;app downloaded,http proxy;false;false;0
+19336;Speed Bones Lite (Quiz);;false;;;false;description,screenshots;false;false;0
+19615;Waterlogged - Drink More Water, Track Daily Water Intake, Use Remiders;food intake;true;app provider;analytics;true;app downloaded,http proxy;true;true;16
+19670;WebMD;symptoms,life status specs,medication intake,symptoms;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;40
+19671;WebMD for iPad;symptoms,life status specs,medication intake,symptoms;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;40
+21981;BMI Calculator;;false;;;false;app downloaded,http proxy;false;false;0
+22090;BMIapp;;false;;;false;app downloaded,http proxy;false;false;0
+22092;Bmi/BodyFat Calculator+More;body specs;false;;analytics,advertisers / marketeers;false;app downloaded,http proxy;false;false;19
+22549;C25K™ - 5K Trainer FREE;;false;;analytics,advertisers / marketeers;false;app downloaded,http proxy;false;false;0
+24320;Calorie Counter and Diet Tracker by MyFitnessPal HD;body specs,life status specs,food intake,workout / activities;true;app provider;;true;app downloaded,http proxy;true;true;16
+24324;"Calorie Counter &amp; Diet Tracker by MyFitnessPal";body specs,life status specs,food intake,workout / activities;true;app provider;;true;app downloaded,http proxy;true;true;16
+24321;Calorie Counter by FatSecret;body specs,life status specs,food intake,workout / activities;true;app provider;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;true;21
+24329;Calorie Counter*;body specs,life status specs,food intake,workout / activities;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;false;45
+24332;Calorie Counter by FatSecret for iPad;body specs,life status specs,food intake,workout / activities;true;app provider;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;true;21
+24331;Calorie Counter by MyNetDiary;body specs,food intake;true;app provider,advertisers / marketeers,research projects;analytics;true;app downloaded,http proxy,privacy policy;true;true;34
+24457;Contraction Timer Free;;false;;;false;app downloaded,http proxy;false;false;0
+24715;Cigarettes Lite;;false;;;false;app downloaded,http proxy;false;false;0
+25077;Fitness Muscle;;false;;analytics,advertisers / marketeers;false;app downloaded,http proxy;false;false;0
+25351;FemCal Lite: Period and Ovulation Calendar;;false;;;false;app downloaded,http proxy;false;false;0
+25365;Fearless Brain Free;;false;;analytics,advertisers / marketeers;false;app downloaded,http proxy;false;false;0
+25447;First Aid by American Red Cross;;false;;;false;app downloaded,http proxy;false;false;0
+25855;Electric Sheep;;false;;;false;app downloaded,http proxy;false;false;0
+25931;Endomondo Sports Tracker;body specs,workout / activities,food intake;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;false;true;43
+26040;Easy Recipes: See How to Cook Healthy Meals (Videos);;false;;;false;app downloaded,http proxy;false;false;0
+26989;GoMeals;body specs,food intake,vital values,workout / activities;true;app provider,advertisers / marketeers;analytics;true;app downloaded,http proxy,privacy policy;false;true;46
+27150;Footsteps - Pedometer Free;workout / activities;false;;;false;app downloaded,http proxy;false;false;0
+27266;Food Labels With Nutritional Facts;;false;;;false;app downloaded,http proxy;false;false;0
+27502;Free Personality Quiz;;false;;;false;app downloaded,http proxy;false;false;0
+28801;Horoscope & WhereFortune: based on your physical location.;address,body specs;true;unknown;analytics,advertisers / marketeers;false;app downloaded,http proxy;false;true;61
+29052;"My Days - Period &amp; Ovulation ™";life status specs,vital values,symptoms;false;;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;false;15
+29876;MapMyFITNESS GPS Tracking;body specs,food intake,vital values,workout / activities;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;36
+29880;MapMyRIDE GPS Cycling;body specs,food intake,vital values,workout / activities;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;36
+29882;MapMyRUN GPS Running;body specs,food intake,vital values,workout / activities;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;36
+30100;Lose the Belly (Weight Loss for Men);;false;;;false;app downloaded,http proxy,privacy policy;false;false;0
+30102;Lose It!;body specs,food intake,workout / activities;true;app provider,advertisers / marketeers;analytics;true;app downloaded,http proxy,privacy policy;true;true;33
+30105;Lose the Belly (Weight Loss for Women);;false;;;false;app downloaded,http proxy,privacy policy;false;false;0
+30179;LIVESTRONG.COM - Calorie Tracker LITE - Your Free Diet and Fitness Calorie Counter for Better Health;food intake,workout / activities,body specs;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;33
+30562;Period Tracker Lite;symptoms,life status specs;true;app provider,unknown;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;false;62
+30581;Period Planner Lite;life status specs;false;;;false;app downloaded,http proxy;false;false;0
+30940;Nutrisystem;body specs,food intake,workout / activities;true;app provider;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;17
+31224;Nike+ Running;address,workout / activities;true;app provider,advertisers / marketeers;analytics;true;app downloaded,http proxy,privacy policy;true;true;32
+31234;Nike Training Club;address,workout / activities;true;app provider,advertisers / marketeers;analytics;true;app downloaded,http proxy,privacy policy;true;true;32
+31382;Naturespace: Relax Meditate Escape Sleep (3D Sound - The most effective audio therapy for stress rel...;;false;;;false;description,screenshots;false;false;0
+31763;Shake and Squeeze Stress Ball;;false;;;false;description,screenshots;false;false;0
+36228;Test of Life;;false;;;false;description,screenshots;false;false;0
+31570;My24;;false;;analytics;false;app downloaded,http proxy;false;false;0
+36965;Vibrating Massager FREE;;false;;;false;description,screenshots;false;false;0
+36064;Tao Te Ching - Chinese Wisdom;;false;;;false;description,screenshots;false;false;0
+32401;Sports Tracker;body specs,workout / activities,food intake;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;33
+32474;"Splash 'n' Dash Free";;false;;;false;app downloaded,http proxy;false;false;0
+32991;Strava Cycling;workout / activities;true;;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;7
+33172;Pregnancy Tracker from WhatToExpect.com;family;false;;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;false;9
+33579;Quitter;;false;;;false;app downloaded,http proxy;false;false;0
+33586;R-U-Buzzed? BAC Calculator;;false;;;false;app downloaded,http proxy;false;false;0
+33693;Prêt-à-Yoga Lite;;false;;;false;app downloaded,http proxy;false;false;0
+34510;RunKeeper - Track GPS Running, Walking, Cycling and more!;workout / activities;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;31
+34751;What Women Want(USA);;false;;analytics,advertisers / marketeers;false;app downloaded,http proxy;false;false;0
+34892;Woodya Run;;false;;analytics,advertisers / marketeers;false;app downloaded,http proxy;false;false;0
+34907;WomanLog Calendar;life status specs;false;;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;true;10
+34957;Workout Trainer;workout / activities;true;app provider,advertisers / marketeers;analytics,advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;true;31
+35084;Your Ideal Weight;body specs;false;;analytics,advertisers / marketeers;true;app downloaded,http proxy;true;false;9
+35146;Yoga at Home: Videos for Beginners;;false;;advertisers / marketeers;false;app downloaded,http proxy;false;false;0
+35263;ZYRTEC AllergyCast;symptoms;false;;advertisers / marketeers;true;app downloaded,http proxy,privacy policy;true;false;8
+35893;5K Runner: 0 to 5K run training, free;workout / activities;true;app provider;analytics;true;app downloaded,http proxy;true;true;16
+36246;THI Personal Trainer Lite;workout / activities;false;;;true;app downloaded,http proxy;true;false;0
+36678;True Weight Lite;;false;;;false;app downloaded,http proxy;false;false;0
+37098;Virtual Weight Loss Model Lite;;false;;;false;app downloaded,http proxy;false;false;0
+37233;Walgreens;medication intake;true;app provider;analytics;true;app downloaded,http proxy,privacy policy;true;true;17

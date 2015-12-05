@@ -23,8 +23,9 @@ var weights = {
 var personalTargetWeights = {
     "app provider": 0.2,
     "advertisers / marketeers": 0.4,
-    "research": 0.1,
-    "unknown": 0.3
+    "research projects": 0.05,
+    "unknown": 1.0,
+    "facebook": 0.05
 };
 
 var categoryWeights = {
@@ -38,9 +39,11 @@ var categoryWeights = {
     "body specs": 0.082,
     "symptoms": 0.118,
     "workout / activities": 0.029,
+    "workout / activity": 0.029,    // naming gitter
     "sleep metrics": 0.006,
     "personality test": 0.012,
-    "family": 0.059
+    "family": 0.059,
+    "unknown": 0.147    // give an unkown component the highest value
 };
 
 var sourceRatingWeights = {
@@ -51,6 +54,20 @@ var sourceRatingWeights = {
     "privacy policy": 0.1
 };
 
+// lowercases, splits by ",", removes empty entries
+// and trims the options
+function cleanArrayOfData(arr) {
+    return arr
+        .toLowerCase()
+        .split(",")
+        .map(function(item) {
+            return item.trim();
+        })
+        .filter(function(item) {
+            return item.length > 1;
+        });
+}
+
 // pipe in csv data
 fs.createReadStream("data.csv")
     .pipe(csv())
@@ -60,12 +77,12 @@ fs.createReadStream("data.csv")
         ratings.push({
             "id": parseInt(data[0].trim()),
             "name": data[1].trim(),
-            "personal_category": data[2].toLowerCase().split(",").map(function(item) { return item.trim(); }),
+            "personal_category": cleanArrayOfData(data[2]),
             "login": !(data[3].trim() === "" || data[3].trim().toLowerCase() === "none"),
-            "personal_target": data[4].toLowerCase().split(",").map(function(item) { return item.trim(); }),
-            "unspecific_target": data[5].toLowerCase().split(",").map(function(item) { return item.trim(); }),
+            "personal_target": cleanArrayOfData(data[4]),
+            "unspecific_target": cleanArrayOfData(data[5]),
             "personal_description": data[6].trim()  === "1",
-            "rating_source": data[7].toLowerCase().split(",").map(function(item) { return item.trim(); }),
+            "rating_source": cleanArrayOfData(data[7]),
             "data_reasonable": data[8].trim() === "1",
             "secure_transmission": data[9].trim() === "1"
         });
@@ -113,6 +130,14 @@ fs.createReadStream("data.csv")
                 multiplier.personal_target = 0.0;
 
                 for(var j in rating.personal_target) {
+
+                    // if there is an "unknown" target, break the constant
+                    // additions of risks and assign unknown risk
+                    if(rating.personal_target[j] === "unknown") {
+                        multiplier.personal_target = personalTargetWeights[rating.personal_target[j]];
+                        break;
+                    }
+
                     multiplier.personal_target += personalTargetWeights[rating.personal_target[j]];
                 }
 
@@ -139,27 +164,16 @@ fs.createReadStream("data.csv")
                 }
 
                 // source of rating
-                multiplier.rating_source = 0.0;
-                var hasScreenshotOrDescription =  false;
+                multiplier.rating_source = 1.0;
                 for(var l in rating.rating_source) {
 
                     var rs = rating.rating_source[l];
                     if(rs.length <= 2) continue;
 
-                    // is the current source a screenshot or description?
-                    if(rs === "description" || rs === "screenshots") {
-
-                        // screenshot or description already found?
-                        if(hasScreenshotOrDescription === true) {
-                            continue;
-                        }
-                        else {
-                            hasScreenshotOrDescription = true;
-                        }
+                    // always add the smallest number available
+                    if(sourceRatingWeights[rs] < multiplier.rating_source) {
+                        multiplier.rating_source = sourceRatingWeights[rs];
                     }
-
-                    // add rating multi
-                    multiplier.rating_source += sourceRatingWeights[rs];
                 }
 
                 // reasonableness
@@ -174,8 +188,19 @@ fs.createReadStream("data.csv")
                       multiplier.data_reasonable * weights.data_reasonable;
             }
 
-            rating.privacy_index = idx;
+            rating.privacy_index = parseInt(idx * 100);
+
+            if(rating.id === false) {
+                console.log(rating);
+                console.log(multiplier);
+            }
         }
 
-        console.log(ratings);
+        console.log("DONE! Check result.csv");
+
+        // write the result
+        var ws = fs.createWriteStream("result.csv");
+        csv
+           .write(ratings, {headers: true, delimiter: ";"})
+           .pipe(ws);
     });

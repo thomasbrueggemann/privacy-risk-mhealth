@@ -68,139 +68,155 @@ function cleanArrayOfData(arr) {
         });
 }
 
-// pipe in csv data
-fs.createReadStream("data.csv")
-    .pipe(csv())
-    .on("data", function(data){
+module.exports = {
 
-        // add rating from csv file
-        ratings.push({
-            "id": parseInt(data[0].trim()),
-            "name": data[1].trim(),
-            "personal_category": cleanArrayOfData(data[2]),
-            "login": !(data[3].trim() === "" || data[3].trim().toLowerCase() === "none"),
-            "personal_target": cleanArrayOfData(data[4]),
-            "unspecific_target": cleanArrayOfData(data[5]),
-            "personal_description": data[6].trim()  === "1",
-            "rating_source": cleanArrayOfData(data[7]),
-            "data_reasonable": data[8].trim() === "1",
-            "secure_transmission": data[9].trim() === "1"
-        });
-    })
-    .on("end", function() {
+    "import": function(writeResultToCSV, callback) {
 
-        // calculate privacy indizes
-        for(var i in ratings) {
-            var idx = 1.0;
-            var rating = ratings[i];
+        // pipe in csv data
+        fs.createReadStream("data.csv")
+            .pipe(csv())
+            .on("data", function(data){
 
-            if(rating.personal_category.indexOf("none") >= 0) {
-                rating.personal_category = [];
-            }
+                var id = parseInt(data[0].trim());
 
-            if(rating.personal_target.indexOf("none") >= 0) {
-                rating.personal_target = [];
-            }
+                if(id + "" !== "NaN") {
 
-            if(rating.unspecific_target.indexOf("none") >= 0) {
-                rating.unspecific_target = [];
-            }
-
-            // initial "no risk" szenario
-            if((rating.personal_target.length === 0 &&
-               rating.unspecific_target.length === 0) ||
-               rating.personal_category.length === 0)
-            {
-            	idx = 0.0;
-            }
-            else {
-
-                // security multiplier
-                if (rating.login === true &&
-                    rating.secure_transmission === false &&
-                    rating.personal_target.length > 0)
-                {
-                    multiplier.security = 1.0;
+                    // add rating from csv file
+                    ratings.push({
+                        "id": id,
+                        "name": data[1].trim(),
+                        "personal_category": cleanArrayOfData(data[2]),
+                        "login": !(data[3].trim() === "" || data[3].trim().toLowerCase() === "none"),
+                        "personal_target": cleanArrayOfData(data[4]),
+                        "unspecific_target": cleanArrayOfData(data[5]),
+                        "personal_description": data[6].trim()  === "1",
+                        "rating_source": cleanArrayOfData(data[7]),
+                        "data_reasonable": data[8].trim() === "1",
+                        "secure_transmission": data[9].trim() === "1"
+                    });
                 }
-                else {
-                    multiplier.security = 0.0;
-                }
+            })
+            .on("end", function() {
 
-                // personal data target
-                multiplier.personal_target = 0.0;
+                // calculate privacy indizes
+                for(var i in ratings) {
 
-                for(var j in rating.personal_target) {
+                    var idx = 1.0;
+                    var rating = ratings[i];
 
-                    // if there is an "unknown" target, break the constant
-                    // additions of risks and assign unknown risk
-                    if(rating.personal_target[j] === "unknown") {
-                        multiplier.personal_target = personalTargetWeights[rating.personal_target[j]];
-                        break;
+                    if(rating.personal_category.indexOf("none") >= 0) {
+                        rating.personal_category = [];
                     }
 
-                    multiplier.personal_target += personalTargetWeights[rating.personal_target[j]];
-                }
+                    if(rating.personal_target.indexOf("none") >= 0) {
+                        rating.personal_target = [];
+                    }
 
-                if(rating.login === false) {
-                    multiplier.personal_target = multiplier.personal_target / 2.0;
-                }
+                    if(rating.unspecific_target.indexOf("none") >= 0) {
+                        rating.unspecific_target = [];
+                    }
 
-                // category
-                multiplier.category = 0.0;
-                for(var k in rating.personal_category) {
-                    multiplier.category += categoryWeights[rating.personal_category[k]];
-                }
+                    // initial "no risk" szenario
+                    if((rating.personal_target.length === 0 &&
+                       rating.unspecific_target.length === 0) ||
+                       rating.personal_category.length === 0)
+                    {
+                    	idx = 0.0;
+                    }
+                    else {
 
-                // unspecific data target
-                multiplier.unspecific_target = 1.0;
+                        // security multiplier
+                        if (rating.login === true &&
+                            rating.secure_transmission === false &&
+                            rating.personal_target.length > 0)
+                        {
+                            multiplier.security = 1.0;
+                        }
+                        else {
+                            multiplier.security = 0.0;
+                        }
 
-                if(rating.unspecific_target.length === 0) {
-                    multiplier.unspecific_target = 0.0;
-                }
-                else {
-                    if(rating.unspecific_target.length == 1 && rating.unspecific_target[0] === "none") {
-                        multiplier.unspecific_target = 0.0;
+                        // personal data target
+                        multiplier.personal_target = 0.0;
+
+                        for(var j in rating.personal_target) {
+
+                            // if there is an "unknown" target, break the constant
+                            // additions of risks and assign unknown risk
+                            if(rating.personal_target[j] === "unknown") {
+                                multiplier.personal_target = personalTargetWeights[rating.personal_target[j]];
+                                break;
+                            }
+
+                            multiplier.personal_target += personalTargetWeights[rating.personal_target[j]];
+                        }
+
+                        if(rating.login === false) {
+                            multiplier.personal_target = multiplier.personal_target / 2.0;
+                        }
+
+                        // category
+                        multiplier.category = 0.0;
+                        for(var k in rating.personal_category) {
+                            multiplier.category += categoryWeights[rating.personal_category[k]];
+                        }
+
+                        // unspecific data target
+                        multiplier.unspecific_target = 1.0;
+
+                        if(rating.unspecific_target.length === 0) {
+                            multiplier.unspecific_target = 0.0;
+                        }
+                        else {
+                            if(rating.unspecific_target.length == 1 && rating.unspecific_target[0] === "none") {
+                                multiplier.unspecific_target = 0.0;
+                            }
+                        }
+
+                        // source of rating
+                        multiplier.rating_source = 1.0;
+                        for(var l in rating.rating_source) {
+
+                            var rs = rating.rating_source[l];
+                            if(rs.length <= 2) continue;
+
+                            // always add the smallest number available
+                            if(sourceRatingWeights[rs] < multiplier.rating_source) {
+                                multiplier.rating_source = sourceRatingWeights[rs];
+                            }
+                        }
+
+                        // reasonableness
+                        multiplier.data_reasonable = (rating.data_reasonable === true) ? 0.0 : 1.0;
+
+                        // privacy index
+                        idx = multiplier.security * weights.security +
+                              multiplier.personal_target * weights.personal_target +
+                              multiplier.category * weights.category +
+                              multiplier.unspecific_target * weights.unspecific_target +
+                              multiplier.rating_source * weights.rating_source +
+                              multiplier.data_reasonable * weights.data_reasonable;
+                    }
+
+                    rating.privacy_index = parseInt(idx * 100);
+
+                    if(rating.id === false) {
+                        console.log(rating);
+                        console.log(multiplier);
                     }
                 }
 
-                // source of rating
-                multiplier.rating_source = 1.0;
-                for(var l in rating.rating_source) {
+                // write the result
+                if(writeResultToCSV) {
 
-                    var rs = rating.rating_source[l];
-                    if(rs.length <= 2) continue;
-
-                    // always add the smallest number available
-                    if(sourceRatingWeights[rs] < multiplier.rating_source) {
-                        multiplier.rating_source = sourceRatingWeights[rs];
-                    }
+                    console.log("DONE! Check result.csv");
+                    var ws = fs.createWriteStream("result.csv");
+                    csv
+                       .write(ratings, {headers: true, delimiter: ";"})
+                       .pipe(ws);
                 }
 
-                // reasonableness
-                multiplier.data_reasonable = (rating.data_reasonable === true) ? 0.0 : 1.0;
-
-                // privacy index
-                idx = multiplier.security * weights.security +
-                      multiplier.personal_target * weights.personal_target +
-                      multiplier.category * weights.category +
-                      multiplier.unspecific_target * weights.unspecific_target +
-                      multiplier.rating_source * weights.rating_source +
-                      multiplier.data_reasonable * weights.data_reasonable;
-            }
-
-            rating.privacy_index = parseInt(idx * 100);
-
-            if(rating.id === false) {
-                console.log(rating);
-                console.log(multiplier);
-            }
+                return callback(ratings);
+            });
         }
-
-        console.log("DONE! Check result.csv");
-
-        // write the result
-        var ws = fs.createWriteStream("result.csv");
-        csv
-           .write(ratings, {headers: true, delimiter: ";"})
-           .pipe(ws);
-    });
+};

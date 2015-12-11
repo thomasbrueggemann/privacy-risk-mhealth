@@ -9,8 +9,13 @@ var Router = require("react-router");
 var RoutingContext = Router.RoutingContext;
 var routes = require("./app/routes");
 var cookieParser = require("cookie-parser");
+var privacyIdx = require("./privacyidx");
 
 var app = express();
+var ratings = [];
+privacyIdx.import(false, function(imported) {
+	ratings = imported;
+});
 
 app.set("port", process.env.PORT || 3000);
 app.use(logger("dev"));
@@ -21,6 +26,20 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static(path.join(__dirname, "public")));
 
+// API / GET / :ID
+app.get("/api/get/:id", function(req, res) {
+	return res.send(ratings.filter(function(item) {
+		return item.id == req.params.id;
+	}));
+});
+
+// API / SEARCH / :QUERY
+app.get("/api/search/:query", function(req, res) {
+	return res.send(ratings.filter(function(item) {
+		return item.name.toLowerCase().indexOf(req.params.query) >= 0;
+	}));
+});
+
 // REACT MIDDLEWARE
 app.use(function(req, res) {
 
@@ -28,12 +47,12 @@ app.use(function(req, res) {
 
 		// error
 		if(err) {
-			return res.status(500).send(err.message)
+			return res.status(500).send(err.message);
 		}
 
 		// redirect
 		else if(redirectLocation) {
-			return res.status(302).redirect(redirectLocation.pathname + redirectLocation.search)
+			return res.status(302).redirect(redirectLocation.pathname + redirectLocation.search);
 		}
 
 		// render
@@ -45,7 +64,7 @@ app.use(function(req, res) {
 
 		// not found
 		else {
-			return res.status(404).send("Page Not Found")
+			return res.status(404).send("Page Not Found");
 		}
 	});
 });

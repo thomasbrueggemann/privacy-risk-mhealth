@@ -48,6 +48,101 @@ module.exports = exports["default"];
 },{"react":"react"}],2:[function(require,module,exports){
 "use strict";
 
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var Home = (function (_React$Component) {
+    _inherits(Home, _React$Component);
+
+    function Home() {
+        _classCallCheck(this, Home);
+
+        _get(Object.getPrototypeOf(Home.prototype), "constructor", this).apply(this, arguments);
+    }
+
+    _createClass(Home, [{
+        key: "render",
+
+        // RENDER
+        value: function render() {
+            return _react2["default"].createElement(
+                "div",
+                { className: "app" },
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    this.prop.app.name
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    _react2["default"].createElement(
+                        "a",
+                        { href: "#" },
+                        "iTunes AppStore"
+                    )
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    "91%"
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    "Test"
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    _react2["default"].createElement("i", { className: "fa fa-check fa-lg" })
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    "Test"
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    _react2["default"].createElement("i", { className: "fa fa-check fa-lg" })
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    _react2["default"].createElement("i", { className: "fa fa-check fa-lg" })
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    "Test"
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    "Test"
+                )
+            );
+        }
+    }]);
+
+    return Home;
+})(_react2["default"].Component);
+
+},{"react":"react"}],3:[function(require,module,exports){
+"use strict";
+
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
@@ -66,19 +161,110 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _AppRow = require("./AppRow");
+
+var _AppRow2 = _interopRequireDefault(_AppRow);
+
 var Home = (function (_React$Component) {
 	_inherits(Home, _React$Component);
 
-	function Home() {
+	// CONSTRUCTOR
+
+	function Home(props) {
 		_classCallCheck(this, Home);
 
-		_get(Object.getPrototypeOf(Home.prototype), "constructor", this).apply(this, arguments);
+		_get(Object.getPrototypeOf(Home.prototype), "constructor", this).call(this, props);
+		this.state = {
+			"apps": []
+		};
 	}
+
+	// RENDER
 
 	_createClass(Home, [{
 		key: "render",
 		value: function render() {
-			return _react2["default"].createElement("div", { className: "row" });
+			return _react2["default"].createElement(
+				"div",
+				{ className: "apps" },
+				_react2["default"].createElement(
+					"div",
+					{ className: "app-header" },
+					_react2["default"].createElement(
+						"div",
+						{ className: "app-cell" },
+						"Name ",
+						_react2["default"].createElement("i", { className: "fa fa-tag fa-lg fa-fw" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "app-cell" },
+						"Store ",
+						_react2["default"].createElement("i", { className: "fa fa-link fa-lg fa-fw" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "app-cell" },
+						"Privacy index ",
+						_react2["default"].createElement("i", { className: "fa fa-trophy fa-lg fa-fw" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "app-cell" },
+						"Personal data collected ",
+						_react2["default"].createElement("i", { className: "fa fa-user fa-lg fa-fw" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "app-cell" },
+						"Login required ",
+						_react2["default"].createElement("i", { className: "fa fa-sign-in fa-lg fa-fw" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "app-cell" },
+						"Where is my data being sent? ",
+						_react2["default"].createElement("i", { className: "fa fa-wifi fa-lg fa-fw" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "app-cell" },
+						"Does the app track me? ",
+						_react2["default"].createElement("i", { className: "fa fa-search fa-lg fa-fw" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "app-cell" },
+						"Benefits entering personal data? ",
+						_react2["default"].createElement("i", { className: "fa fa-star fa-lg fa-fw" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "app-cell" },
+						"Secure data connection?  ",
+						_react2["default"].createElement("i", { className: "fa fa-lock fa-lg fa-fw" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "app-cell" },
+						"Permissions the apps wants ",
+						_react2["default"].createElement("i", { className: "fa fa-list fa-lg fa-fw" })
+					)
+				),
+				this.state.apps.map(function (a) {
+					return _react2["default"].createElement(_AppRow2["default"], { key: a.id, app: a });
+				}),
+				_react2["default"].createElement(
+					"div",
+					{ className: "plus-column" },
+					_react2["default"].createElement(
+						"span",
+						{ className: "fa-stack" },
+						_react2["default"].createElement("i", { className: "fa fa-circle-o fa-stack-2x" }),
+						_react2["default"].createElement("i", { className: "fa fa-plus fa-stack-1x" })
+					)
+				)
+			);
 		}
 	}]);
 
@@ -88,7 +274,7 @@ var Home = (function (_React$Component) {
 exports["default"] = Home;
 module.exports = exports["default"];
 
-},{"react":"react"}],3:[function(require,module,exports){
+},{"./AppRow":2,"react":"react"}],4:[function(require,module,exports){
 "use strict";
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -122,7 +308,7 @@ _reactDom2["default"].render(_react2["default"].createElement(
   _routes2["default"]
 ), document.getElementById("app"));
 
-},{"./routes":4,"history/lib/createBrowserHistory":11,"react":"react","react-dom":"react-dom","react-router":"react-router"}],4:[function(require,module,exports){
+},{"./routes":5,"history/lib/createBrowserHistory":12,"react":"react","react-dom":"react-dom","react-router":"react-router"}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -152,7 +338,7 @@ exports["default"] = _react2["default"].createElement(
 );
 module.exports = exports["default"];
 
-},{"./components/App":1,"./components/Home":2,"react":"react","react-router":"react-router"}],5:[function(require,module,exports){
+},{"./components/App":1,"./components/Home":3,"react":"react","react-router":"react-router"}],6:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -245,7 +431,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],6:[function(require,module,exports){
+},{}],7:[function(require,module,exports){
 /**
  * Indicates that navigation was caused by a call to history.push.
  */
@@ -277,7 +463,7 @@ exports['default'] = {
   REPLACE: REPLACE,
   POP: POP
 };
-},{}],7:[function(require,module,exports){
+},{}],8:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -304,7 +490,7 @@ function loopAsync(turns, work, callback) {
 
   next();
 }
-},{}],8:[function(require,module,exports){
+},{}],9:[function(require,module,exports){
 (function (process){
 /*eslint-disable no-empty */
 'use strict';
@@ -375,7 +561,7 @@ function readState(key) {
   return null;
 }
 }).call(this,require('_process'))
-},{"_process":5,"warning":23}],9:[function(require,module,exports){
+},{"_process":6,"warning":24}],10:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -456,13 +642,13 @@ function supportsGoWithoutReloadUsingHash() {
   var ua = navigator.userAgent;
   return ua.indexOf('Firefox') === -1;
 }
-},{}],10:[function(require,module,exports){
+},{}],11:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 exports.canUseDOM = canUseDOM;
-},{}],11:[function(require,module,exports){
+},{}],12:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -637,7 +823,7 @@ function createBrowserHistory() {
 exports['default'] = createBrowserHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./Actions":6,"./DOMStateStorage":8,"./DOMUtils":9,"./ExecutionEnvironment":10,"./createDOMHistory":12,"_process":5,"invariant":22}],12:[function(require,module,exports){
+},{"./Actions":7,"./DOMStateStorage":9,"./DOMUtils":10,"./ExecutionEnvironment":11,"./createDOMHistory":13,"_process":6,"invariant":23}],13:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -680,7 +866,7 @@ function createDOMHistory(options) {
 exports['default'] = createDOMHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./DOMUtils":9,"./ExecutionEnvironment":10,"./createHistory":13,"_process":5,"invariant":22}],13:[function(require,module,exports){
+},{"./DOMUtils":10,"./ExecutionEnvironment":11,"./createHistory":14,"_process":6,"invariant":23}],14:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -956,7 +1142,7 @@ function createHistory() {
 
 exports['default'] = createHistory;
 module.exports = exports['default'];
-},{"./Actions":6,"./AsyncUtils":7,"./createLocation":14,"./deprecate":15,"./parsePath":17,"./runTransitionHook":18,"deep-equal":19}],14:[function(require,module,exports){
+},{"./Actions":7,"./AsyncUtils":8,"./createLocation":15,"./deprecate":16,"./parsePath":18,"./runTransitionHook":19,"deep-equal":20}],15:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -996,7 +1182,7 @@ function createLocation() {
 
 exports['default'] = createLocation;
 module.exports = exports['default'];
-},{"./Actions":6,"./parsePath":17}],15:[function(require,module,exports){
+},{"./Actions":7,"./parsePath":18}],16:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1018,7 +1204,7 @@ function deprecate(fn, message) {
 exports['default'] = deprecate;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"_process":5,"warning":23}],16:[function(require,module,exports){
+},{"_process":6,"warning":24}],17:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -1032,7 +1218,7 @@ function extractPath(string) {
 
 exports["default"] = extractPath;
 module.exports = exports["default"];
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1079,7 +1265,7 @@ function parsePath(path) {
 exports['default'] = parsePath;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./extractPath":16,"_process":5,"warning":23}],18:[function(require,module,exports){
+},{"./extractPath":17,"_process":6,"warning":24}],19:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1106,7 +1292,7 @@ function runTransitionHook(hook, location, callback) {
 exports['default'] = runTransitionHook;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"_process":5,"warning":23}],19:[function(require,module,exports){
+},{"_process":6,"warning":24}],20:[function(require,module,exports){
 var pSlice = Array.prototype.slice;
 var objectKeys = require('./lib/keys.js');
 var isArguments = require('./lib/is_arguments.js');
@@ -1202,7 +1388,7 @@ function objEquiv(a, b, opts) {
   return typeof a === typeof b;
 }
 
-},{"./lib/is_arguments.js":20,"./lib/keys.js":21}],20:[function(require,module,exports){
+},{"./lib/is_arguments.js":21,"./lib/keys.js":22}],21:[function(require,module,exports){
 var supportsArgumentsClass = (function(){
   return Object.prototype.toString.call(arguments)
 })() == '[object Arguments]';
@@ -1224,7 +1410,7 @@ function unsupported(object){
     false;
 };
 
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 exports = module.exports = typeof Object.keys === 'function'
   ? Object.keys : shim;
 
@@ -1235,7 +1421,7 @@ function shim (obj) {
   return keys;
 }
 
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -1290,7 +1476,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":5}],23:[function(require,module,exports){
+},{"_process":6}],24:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -1354,4 +1540,4 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = warning;
 
 }).call(this,require('_process'))
-},{"_process":5}]},{},[3]);
+},{"_process":6}]},{},[4]);

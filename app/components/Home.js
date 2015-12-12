@@ -37,35 +37,53 @@ class Home extends React.Component {
 	// RENDER
 	render() {
 
-		return (
-			<div className="mhealth">
+		if(this.state.apps.length > 0) {
 
-				<div className="header">
-					<div className="logo"><img src="/img/logo.png" /></div>
-					<div className="title">Privacy Index for m<b>Health</b> Apps</div>
-					<AddApp addNewApp={this.addNewApp.bind(this)} />
+			return (
+				<div className="mhealth">
+
+					<div className="header">
+						<div className="logo"><img src="/img/logo.png" /></div>
+						<div className="title">Privacy Index for m<b>Health</b> Apps</div>
+						<AddApp addNewApp={this.addNewApp.bind(this)} />
+					</div>
+
+					<div className="apps">
+						<div className="app-header">
+							<div className="app-cell">Name <i className="fa fa-tag fa-lg fa-fw"></i></div>
+							<div className="app-cell">Store <i className="fa fa-link fa-lg fa-fw"></i></div>
+							<div className="app-cell">Privacy risk index <i className="fa fa-trophy fa-lg fa-fw"></i></div>
+							<div className="app-cell">Personal data collected <i className="fa fa-user fa-lg fa-fw"></i></div>
+							<div className="app-cell">Login required <i className="fa fa-sign-in fa-lg fa-fw"></i></div>
+							<div className="app-cell">Where is my data being sent? <i className="fa fa-wifi fa-lg fa-fw"></i></div>
+							<div className="app-cell">Does the app track me? <i className="fa fa-search fa-lg fa-fw"></i></div>
+							<div className="app-cell">Benefits entering personal data? <i className="fa fa-star fa-lg fa-fw"></i></div>
+							<div className="app-cell">Secure data connection?  <i className="fa fa-lock fa-lg fa-fw"></i></div>
+							<div className="app-cell"></div>
+					  	</div>
+
+						{this.state.apps.map(a => (
+							<AppRow key={a.id} app={a} removeApp={this.removeApp.bind(this)} />
+						))}
+					</div>
 				</div>
+			);
+		}
+		else {
 
-				<div className="apps">
-					<div className="app-header">
-						<div className="app-cell">Name <i className="fa fa-tag fa-lg fa-fw"></i></div>
-						<div className="app-cell">Store <i className="fa fa-link fa-lg fa-fw"></i></div>
-						<div className="app-cell">Privacy risk index <i className="fa fa-trophy fa-lg fa-fw"></i></div>
-						<div className="app-cell">Personal data collected <i className="fa fa-user fa-lg fa-fw"></i></div>
-						<div className="app-cell">Login required <i className="fa fa-sign-in fa-lg fa-fw"></i></div>
-						<div className="app-cell">Where is my data being sent? <i className="fa fa-wifi fa-lg fa-fw"></i></div>
-						<div className="app-cell">Does the app track me? <i className="fa fa-search fa-lg fa-fw"></i></div>
-						<div className="app-cell">Benefits entering personal data? <i className="fa fa-star fa-lg fa-fw"></i></div>
-						<div className="app-cell">Secure data connection?  <i className="fa fa-lock fa-lg fa-fw"></i></div>
-						<div className="app-cell"></div>
-				  	</div>
+			return (
+				<div className="mhealth">
+					<div className="header">
+						<div className="logo"><img src="/img/logo.png" /></div>
+						<div className="title">Privacy Index for m<b>Health</b> Apps</div>
+						<AddApp addNewApp={this.addNewApp.bind(this)} />
+					</div>
 
-					{this.state.apps.map(a => (
-						<AppRow key={a.id} app={a} removeApp={this.removeApp.bind(this)} />
-					))}
+					<div className="arrow"><img width="150" src="img/arrow.png" /></div>
+					<div className="infotext">Search for an app that we have reviewed and rated to compare it's privacy risk index with other apps!</div>
 				</div>
-			</div>
-		);
+			);
+		}
 	}
 }
 

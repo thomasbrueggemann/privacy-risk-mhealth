@@ -158,3 +158,17 @@ a {
   position: relative;
   margin-top: -20px;
 }
+
+.arrow {
+  float:right;
+  margin-right:110px;
+  margin-top:20px;
+}
+
+.infotext {
+  float:right;
+  width:250px;
+  font-size: 1.2em;
+  margin-right:40px;
+  margin-top:150px;
+}

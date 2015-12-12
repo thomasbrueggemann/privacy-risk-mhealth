@@ -558,97 +558,137 @@ var Home = (function (_React$Component) {
 		value: function render() {
 			var _this = this;
 
-			return _react2["default"].createElement(
-				"div",
-				{ className: "mhealth" },
-				_react2["default"].createElement(
+			if (this.state.apps.length > 0) {
+
+				return _react2["default"].createElement(
 					"div",
-					{ className: "header" },
+					{ className: "mhealth" },
 					_react2["default"].createElement(
 						"div",
-						{ className: "logo" },
-						_react2["default"].createElement("img", { src: "/img/logo.png" })
-					),
-					_react2["default"].createElement(
-						"div",
-						{ className: "title" },
-						"Privacy Index for m",
+						{ className: "header" },
 						_react2["default"].createElement(
-							"b",
-							null,
-							"Health"
+							"div",
+							{ className: "logo" },
+							_react2["default"].createElement("img", { src: "/img/logo.png" })
 						),
-						" Apps"
+						_react2["default"].createElement(
+							"div",
+							{ className: "title" },
+							"Privacy Index for m",
+							_react2["default"].createElement(
+								"b",
+								null,
+								"Health"
+							),
+							" Apps"
+						),
+						_react2["default"].createElement(_AddApp2["default"], { addNewApp: this.addNewApp.bind(this) })
 					),
-					_react2["default"].createElement(_AddApp2["default"], { addNewApp: this.addNewApp.bind(this) })
-				),
-				_react2["default"].createElement(
+					_react2["default"].createElement(
+						"div",
+						{ className: "apps" },
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-header" },
+							_react2["default"].createElement(
+								"div",
+								{ className: "app-cell" },
+								"Name ",
+								_react2["default"].createElement("i", { className: "fa fa-tag fa-lg fa-fw" })
+							),
+							_react2["default"].createElement(
+								"div",
+								{ className: "app-cell" },
+								"Store ",
+								_react2["default"].createElement("i", { className: "fa fa-link fa-lg fa-fw" })
+							),
+							_react2["default"].createElement(
+								"div",
+								{ className: "app-cell" },
+								"Privacy risk index ",
+								_react2["default"].createElement("i", { className: "fa fa-trophy fa-lg fa-fw" })
+							),
+							_react2["default"].createElement(
+								"div",
+								{ className: "app-cell" },
+								"Personal data collected ",
+								_react2["default"].createElement("i", { className: "fa fa-user fa-lg fa-fw" })
+							),
+							_react2["default"].createElement(
+								"div",
+								{ className: "app-cell" },
+								"Login required ",
+								_react2["default"].createElement("i", { className: "fa fa-sign-in fa-lg fa-fw" })
+							),
+							_react2["default"].createElement(
+								"div",
+								{ className: "app-cell" },
+								"Where is my data being sent? ",
+								_react2["default"].createElement("i", { className: "fa fa-wifi fa-lg fa-fw" })
+							),
+							_react2["default"].createElement(
+								"div",
+								{ className: "app-cell" },
+								"Does the app track me? ",
+								_react2["default"].createElement("i", { className: "fa fa-search fa-lg fa-fw" })
+							),
+							_react2["default"].createElement(
+								"div",
+								{ className: "app-cell" },
+								"Benefits entering personal data? ",
+								_react2["default"].createElement("i", { className: "fa fa-star fa-lg fa-fw" })
+							),
+							_react2["default"].createElement(
+								"div",
+								{ className: "app-cell" },
+								"Secure data connection?  ",
+								_react2["default"].createElement("i", { className: "fa fa-lock fa-lg fa-fw" })
+							),
+							_react2["default"].createElement("div", { className: "app-cell" })
+						),
+						this.state.apps.map(function (a) {
+							return _react2["default"].createElement(_AppRow2["default"], { key: a.id, app: a, removeApp: _this.removeApp.bind(_this) });
+						})
+					)
+				);
+			} else {
+
+				return _react2["default"].createElement(
 					"div",
-					{ className: "apps" },
+					{ className: "mhealth" },
 					_react2["default"].createElement(
 						"div",
-						{ className: "app-header" },
+						{ className: "header" },
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell" },
-							"Name ",
-							_react2["default"].createElement("i", { className: "fa fa-tag fa-lg fa-fw" })
+							{ className: "logo" },
+							_react2["default"].createElement("img", { src: "/img/logo.png" })
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell" },
-							"Store ",
-							_react2["default"].createElement("i", { className: "fa fa-link fa-lg fa-fw" })
+							{ className: "title" },
+							"Privacy Index for m",
+							_react2["default"].createElement(
+								"b",
+								null,
+								"Health"
+							),
+							" Apps"
 						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "app-cell" },
-							"Privacy risk index ",
-							_react2["default"].createElement("i", { className: "fa fa-trophy fa-lg fa-fw" })
-						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "app-cell" },
-							"Personal data collected ",
-							_react2["default"].createElement("i", { className: "fa fa-user fa-lg fa-fw" })
-						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "app-cell" },
-							"Login required ",
-							_react2["default"].createElement("i", { className: "fa fa-sign-in fa-lg fa-fw" })
-						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "app-cell" },
-							"Where is my data being sent? ",
-							_react2["default"].createElement("i", { className: "fa fa-wifi fa-lg fa-fw" })
-						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "app-cell" },
-							"Does the app track me? ",
-							_react2["default"].createElement("i", { className: "fa fa-search fa-lg fa-fw" })
-						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "app-cell" },
-							"Benefits entering personal data? ",
-							_react2["default"].createElement("i", { className: "fa fa-star fa-lg fa-fw" })
-						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "app-cell" },
-							"Secure data connection?  ",
-							_react2["default"].createElement("i", { className: "fa fa-lock fa-lg fa-fw" })
-						),
-						_react2["default"].createElement("div", { className: "app-cell" })
+						_react2["default"].createElement(_AddApp2["default"], { addNewApp: this.addNewApp.bind(this) })
 					),
-					this.state.apps.map(function (a) {
-						return _react2["default"].createElement(_AppRow2["default"], { key: a.id, app: a, removeApp: _this.removeApp.bind(_this) });
-					})
-				)
-			);
+					_react2["default"].createElement(
+						"div",
+						{ className: "arrow" },
+						_react2["default"].createElement("img", { width: "150", src: "img/arrow.png" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "infotext" },
+						"Search for an app that we have reviewed and rated to compare it's privacy risk index with other apps!"
+					)
+				);
+			}
 		}
 	}]);
 

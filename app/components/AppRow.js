@@ -32,12 +32,12 @@ class AppRow extends React.Component {
             <div className="app-cell">{this.props.app.name}</div>
             <div className="app-cell">{store_icon}<a href={store_url} target="_blank">{store_name}</a></div>
             <div className="app-cell"><span className="idx">{this.props.app.privacy_index}</span></div>
-            <div className="app-cell">{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category : "none"}</div>
+            <div className="app-cell">{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category.join(", ") : "none"}</div>
             <div className="app-cell">
                 {(this.props.app.login === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>}
             </div>
-            <div className="app-cell">{(this.props.app.personal_target.length > 0) ? this.props.app.personal_target : "nowhere"}</div>
-            <div className="app-cell">{(this.props.app.unspecific_target.length > 0) ? this.props.app.unspecific_target : "no"}</div>
+            <div className="app-cell">{(this.props.app.personal_target.length > 0) ? this.props.app.personal_target.join(", ") : "nowhere"}</div>
+            <div className="app-cell">{(this.props.app.unspecific_target.length > 0) ? this.props.app.unspecific_target.join(", ") : "no"}</div>
             <div className="app-cell">{data_reasonable}</div>
             <div className="app-cell">{secure_transmission}</div>
             <div className="app-cell"><a href="#" onClick={this.removeApp.bind(this)}>remove</a></div>

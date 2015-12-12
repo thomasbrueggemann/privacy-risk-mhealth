@@ -321,7 +321,7 @@ var AppRow = (function (_React$Component) {
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    this.props.app.personal_category.length > 0 ? this.props.app.personal_category : "none"
+                    this.props.app.personal_category.length > 0 ? this.props.app.personal_category.join(", ") : "none"
                 ),
                 _react2["default"].createElement(
                     "div",
@@ -331,12 +331,12 @@ var AppRow = (function (_React$Component) {
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    this.props.app.personal_target.length > 0 ? this.props.app.personal_target : "nowhere"
+                    this.props.app.personal_target.length > 0 ? this.props.app.personal_target.join(", ") : "nowhere"
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    this.props.app.unspecific_target.length > 0 ? this.props.app.unspecific_target : "no"
+                    this.props.app.unspecific_target.length > 0 ? this.props.app.unspecific_target.join(", ") : "no"
                 ),
                 _react2["default"].createElement(
                     "div",

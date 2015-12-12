@@ -1,23 +1,84 @@
 @import url("sweetalert2.css");
-@import url("https://maxcdn.bootstrapcdn.com/bootstrap/3.3.5/css/bootstrap.min.css");
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
 
 body, html {
   height:100%;
-  background-color:#D73035;
-  color:#ECE9E4;
+  padding:0px;
+  margin:0px;
+  background-color:#ECE9E4;
+  color:#000;
   font-family: "Open Sans", sans-serif;
-  background-image: url("../img/bg.png");
-  background-repeat: repeat;
 }
 
-.plus-column {
-  text-align: center;
-  font-size: 3em;
-  margin-top:258px;
-  float: left;
-  cursor: pointer;
-  margin-left:30px;
+.header {
+  background-image: url("../img/bg.png");
+  background-repeat: repeat;
+  height:80px;
+  width:100%;
+  clear:both;
+  -webkit-box-shadow: 0px 5px 40px -15px rgba(0,0,0,0.4);
+  -moz-box-shadow: 0px 5px 40px -15px rgba(0,0,0,0.4);
+  box-shadow: 0px 5px 40px -15px rgba(0,0,0,0.4);
+}
+
+.logo img {
+  height:80px;
+}
+
+.logo {
+  float:left;
+  height:80px;
+}
+
+.title {
+  float:left;
+  height:80px;
+  color:#ECE9E4;
+  font-size:1.5em;
+  padding-top:22px;
+  padding-left:22px;
+  font-family: "Open Sans", sans-serif;
+}
+
+.addApp {
+  float:right;
+  padding-right:22px;
+  padding-top:20px;
+}
+
+.addApp input {
+    border: 1px solid #ECE9E4;
+    -webkit-box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    -moz-box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    box-shadow:
+      inset 0 0 8px  rgba(0,0,0,0.1),
+            0 0 16px rgba(0,0,0,0.1);
+    padding: 10px;
+    background: rgba(255,255,255,0.5);
+    margin: 0 0 10px 0;
+    width:300px;
+    color:#FFF;
+    font-size: 1.1em;
+}
+
+::-webkit-input-placeholder {
+  color:#ECE9E4;
+}
+
+:-moz-placeholder { /* Firefox 18- */
+  color:#ECE9E4;
+}
+
+::-moz-placeholder {  /* Firefox 19+ */
+  color:#ECE9E4;
+}
+
+:-ms-input-placeholder {
+  color:#ECE9E4;
 }
 
 .apps {
@@ -36,7 +97,8 @@ body, html {
     text-align: right;
     text-transform: uppercase;
     border-bottom:0px;
-    color:rgba(236,235,232,0.75);
+    color:#777;
+    font-weight: lighter;
 }
 
 .app {
@@ -44,6 +106,7 @@ body, html {
   height:100%;
   float:left;
   margin-left:30px;
+  background-color:rgba(0,0,0,0.05);
 }
 
 .app-cell {
@@ -52,7 +115,6 @@ body, html {
   height:60px;
   padding-top:30px;
   border-bottom:1px dotted rgba(236,235,232,0.5);
-  font-weight: lighter;
 }
 
 .app-cell-icon {
@@ -60,5 +122,32 @@ body, html {
 }
 
 a {
-  color:white;
+  color:#DB383D;
+}
+
+.autocomplete-list {
+  width:320px;
+  position:absolute;
+  background-color:white;
+  padding: 0px;
+}
+
+.autocomplete-list li {
+  padding:15px;
+  list-style: none;
+  cursor:pointer;
+}
+
+.autocomplete-list li:hover {
+  text-decoration: underline;
+}
+
+.fa-android {
+  color:#A4C639;
+  margin-right:10px;
+}
+
+.fa-apple {
+  color:#AAA;
+  margin-right:10px;
 }

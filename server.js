@@ -26,13 +26,6 @@ app.use(bodyParser.urlencoded({
 }));
 app.use(express.static(path.join(__dirname, "public")));
 
-// API / GET / :ID
-app.get("/api/get/:id", function(req, res) {
-	return res.send(ratings.filter(function(item) {
-		return item.id == req.params.id;
-	}));
-});
-
 // API / SEARCH / :QUERY
 app.get("/api/search/:query", function(req, res) {
 	return res.send(ratings.filter(function(item) {

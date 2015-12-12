@@ -92,7 +92,8 @@ module.exports = {
                         "personal_description": data[6].trim()  === "1",
                         "rating_source": cleanArrayOfData(data[7]),
                         "data_reasonable": data[8].trim() === "1",
-                        "secure_transmission": data[9].trim() === "1"
+                        "secure_transmission": data[9].trim() === "1",
+                        "rater": data[11].trim().toLowerCase()
                     });
                 }
             })

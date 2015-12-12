@@ -1,12 +1,11 @@
-# Node / ReactJS Template
-A template for a ReactJS webapp that is being served by a node.js express server.
+![mHealth](http://www.xcubelabs.com/blogs/wp-content/uploads/mhealth-03.png)
 
-Also includes:
+# Privacy Index mHealth Apps
+UI for paper "A Privacy Index for mHealth Apps". Easily compare privacy risks between apps
 
-* Bootstrap
-* jQuery
-* Sweetalert
-* MomentJS
+### Building Blocks
+
+* Transpose HTML Table http://jsfiddle.net/XKnKL/3/
 
 ## Install
 

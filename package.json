@@ -44,9 +44,7 @@
     "gulp-plumber": "^1.0.1",
     "gulp-streamify": "1.0.2",
     "gulp-uglify": "^1.4.2",
-    "gulp-util": "^3.0.6"
-  },
-  "devDependencies": {
+    "gulp-util": "^3.0.6",
     "babelify": "^6.3.0",
     "browserify": "^11.2.0",
     "vinyl-source-stream": "^1.1.0",

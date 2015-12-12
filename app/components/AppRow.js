@@ -37,10 +37,10 @@ class AppRow extends React.Component {
                 {(this.props.app.login === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>}
             </div>
             <div className="app-cell">{(this.props.app.personal_target.length > 0) ? this.props.app.personal_target : "nowhere"}</div>
-            <div className="app-cell">{this.props.app.unspecific_target}</div>
+            <div className="app-cell">{(this.props.app.unspecific_target.length > 0) ? this.props.app.unspecific_target : "no"}</div>
             <div className="app-cell">{data_reasonable}</div>
             <div className="app-cell">{secure_transmission}</div>
-            <div className="app-cell"><a href="" onClick={this.removeApp.bind(this)}>remove</a></div>
+            <div className="app-cell"><a href="#" onClick={this.removeApp.bind(this)}>remove</a></div>
         </div>);
     }
 }

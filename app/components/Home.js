@@ -14,7 +14,6 @@ class Home extends React.Component {
 
 	// ADD NEW APP
 	addNewApp(app) {
-		console.log(app);
 		var apps = this.state.apps;
 		apps.push(app);
 
@@ -28,7 +27,7 @@ class Home extends React.Component {
 
 		this.setState({
 			"apps": this.state.apps.filter(function(item) {
-				return item.id === app.id;
+				return item.id !== app.id;
 			})
 		});
 

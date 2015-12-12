@@ -336,7 +336,7 @@ var AppRow = (function (_React$Component) {
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    this.props.app.unspecific_target
+                    this.props.app.unspecific_target.length > 0 ? this.props.app.unspecific_target : "no"
                 ),
                 _react2["default"].createElement(
                     "div",
@@ -353,7 +353,7 @@ var AppRow = (function (_React$Component) {
                     { className: "app-cell" },
                     _react2["default"].createElement(
                         "a",
-                        { href: "", onClick: this.removeApp.bind(this) },
+                        { href: "#", onClick: this.removeApp.bind(this) },
                         "remove"
                     )
                 )
@@ -530,7 +530,6 @@ var Home = (function (_React$Component) {
 	_createClass(Home, [{
 		key: "addNewApp",
 		value: function addNewApp(app) {
-			console.log(app);
 			var apps = this.state.apps;
 			apps.push(app);
 
@@ -546,7 +545,7 @@ var Home = (function (_React$Component) {
 
 			this.setState({
 				"apps": this.state.apps.filter(function (item) {
-					return item.id === app.id;
+					return item.id !== app.id;
 				})
 			});
 

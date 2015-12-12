@@ -89,6 +89,13 @@ body, html {
   font-size: bold;
   float:left;
   margin-left:30px;
+  width:310px;
+}
+
+.scroll-apps-outer {
+  width:calc(100%-310px);
+  overflow: scroll;
+  height:900px;
 }
 
 .app-header .app-cell {
@@ -129,6 +136,7 @@ a {
   position:absolute;
   background-color:white;
   padding: 0px;
+  z-index:9999;
 }
 
 .autocomplete-list li {

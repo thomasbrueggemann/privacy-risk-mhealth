@@ -646,9 +646,17 @@ var Home = (function (_React$Component) {
 							),
 							_react2["default"].createElement("div", { className: "app-cell" })
 						),
-						this.state.apps.map(function (a) {
-							return _react2["default"].createElement(_AppRow2["default"], { key: a.id, app: a, removeApp: _this.removeApp.bind(_this) });
-						})
+						_react2["default"].createElement(
+							"div",
+							{ className: "scroll-apps-outer" },
+							_react2["default"].createElement(
+								"div",
+								{ className: "scroll-apps-inner", style: { "width": this.state.apps.length * 330 } },
+								this.state.apps.map(function (a) {
+									return _react2["default"].createElement(_AppRow2["default"], { key: a.id, app: a, removeApp: _this.removeApp.bind(_this) });
+								})
+							)
+						)
 					)
 				);
 			} else {
@@ -685,7 +693,7 @@ var Home = (function (_React$Component) {
 					_react2["default"].createElement(
 						"div",
 						{ className: "infotext" },
-						"Search for an app that we have reviewed and rated to compare it's privacy risk index with other apps!"
+						"Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!"
 					)
 				);
 			}

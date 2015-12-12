@@ -152,6 +152,9 @@ a {
 }
 
 .idx {
-  text-decoration: underline;
   font-weight: bolder;
+  font-size: 3em;
+  display: block;
+  position: relative;
+  margin-top: -20px;
 }

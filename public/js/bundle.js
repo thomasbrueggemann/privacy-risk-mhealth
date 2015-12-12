@@ -321,7 +321,7 @@ var AppRow = (function (_React$Component) {
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    this.props.app.personal_category
+                    this.props.app.personal_category.length > 0 ? this.props.app.personal_category : "none"
                 ),
                 _react2["default"].createElement(
                     "div",

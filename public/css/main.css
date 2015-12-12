@@ -95,7 +95,7 @@ body, html {
 .scroll-apps-outer {
   width:calc(100%-310px);
   overflow: scroll;
-  height:900px;
+  height:920px;
 }
 
 .app-header .app-cell {

@@ -12,8 +12,12 @@
     "watch": "nodemon --exec babel-node -- server.js",
     "postinstall": "bower install && gulp build"
   },
+  "engines": {
+   "node": "0.10.x"
+  },
   "dependencies": {
     "alt": "^0.17.4",
+    "bower": "^1.6.3",
     "async": "^1.4.2",
     "babel": "^5.8.23",
     "body-parser": "^1.14.1",
@@ -34,7 +38,6 @@
   },
   "devDependencies": {
     "babelify": "^6.3.0",
-    "bower": "^1.6.3",
     "browserify": "^11.2.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",

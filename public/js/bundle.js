@@ -684,7 +684,6 @@ var _routes = require("./routes");
 
 var _routes2 = _interopRequireDefault(_routes);
 
-window.moment.locale("de");
 var history = (0, _historyLibCreateBrowserHistory2["default"])();
 
 _reactDom2["default"].render(_react2["default"].createElement(

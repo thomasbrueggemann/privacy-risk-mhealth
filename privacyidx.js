@@ -2,6 +2,7 @@ var fs = require("fs");
 var csv = require("fast-csv");
 
 var ratings = [];
+var original = [];
 var multiplier = {
     "security": 1.0,
     "personal_target": 1.0,
@@ -70,15 +71,36 @@ function cleanArrayOfData(arr) {
 
 module.exports = {
 
-    "import": function(writeResultToCSV, callback) {
+    "original": function(callback) {
+
+        // pipe in csv data
+        fs.createReadStream("original.csv")
+            .pipe(csv())
+            .on("data", function(data) {
+
+                var id = parseInt(data[0].trim());
+                if(id + "" !== "NaN") {
+
+                    original.push({
+                        "id": id,
+                        "store_id": data[3].trim(),
+                        "package_name": data[22].trim()
+                    });
+                }
+            })
+            .on("end", function() {
+                return callback(original);
+            });
+    },
+
+    "ratings": function(writeResultToCSV, callback) {
 
         // pipe in csv data
         fs.createReadStream("data.csv")
             .pipe(csv())
-            .on("data", function(data){
+            .on("data", function(data) {
 
                 var id = parseInt(data[0].trim());
-
                 if(id + "" !== "NaN") {
 
                     // add rating from csv file

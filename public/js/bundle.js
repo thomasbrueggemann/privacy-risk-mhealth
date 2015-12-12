@@ -261,10 +261,36 @@ var AppRow = (function (_React$Component) {
     }
 
     _createClass(AppRow, [{
-        key: "render",
+        key: "removeApp",
+
+        // REMOVE APP
+        value: function removeApp() {
+            this.props.removeApp(this.props.app);
+        }
 
         // RENDER
+    }, {
+        key: "render",
         value: function render() {
+
+            var secure_transmission = "-",
+                data_reasonable = "-";
+            if (this.props.app.personal_target.length > 0) {
+                secure_transmission = this.props.app.secure_transmission === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
+                data_reasonable = this.props.app.data_reasonable === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
+            }
+
+            var store_url, store_name, store_icon;
+            if (this.props.app.rater === "thomas") {
+                store_name = "Apple AppStore";
+                store_url = "https://itunes.apple.com/app/store/id" + this.props.app.store_id;
+                store_icon = _react2["default"].createElement("i", { className: "fa fa-apple fa-fw" });
+            } else {
+                store_name = "Google PlayStore";
+                store_url = "https://play.google.com/store/apps/details?id=" + this.props.app.package_name;
+                store_icon = _react2["default"].createElement("i", { className: "fa fa-android fa-fw" });
+            }
+
             return _react2["default"].createElement(
                 "div",
                 { className: "app" },
@@ -276,51 +302,60 @@ var AppRow = (function (_React$Component) {
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
+                    store_icon,
                     _react2["default"].createElement(
                         "a",
-                        { href: "#" },
-                        "iTunes AppStore"
+                        { href: store_url, target: "_blank" },
+                        store_name
                     )
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    this.props.app.privacy_index
+                    _react2["default"].createElement(
+                        "span",
+                        { className: "idx" },
+                        this.props.app.privacy_index
+                    )
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    "Test"
+                    this.props.app.personal_category
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    _react2["default"].createElement("i", { className: "fa fa-check fa-lg" })
+                    this.props.app.login === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" })
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    "Test"
+                    this.props.app.personal_target.length > 0 ? this.props.app.personal_target : "nowhere"
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    _react2["default"].createElement("i", { className: "fa fa-check fa-lg" })
+                    this.props.app.unspecific_target
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    _react2["default"].createElement("i", { className: "fa fa-check fa-lg" })
+                    data_reasonable
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    "Test"
+                    secure_transmission
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    "Test"
+                    _react2["default"].createElement(
+                        "a",
+                        { href: "", onClick: this.removeApp.bind(this) },
+                        "remove"
+                    )
                 )
             );
         }
@@ -504,10 +539,25 @@ var Home = (function (_React$Component) {
 			});
 		}
 
+		// REMOVE APP
+	}, {
+		key: "removeApp",
+		value: function removeApp(app) {
+
+			this.setState({
+				"apps": this.state.apps.filter(function (item) {
+					return item.id === app.id;
+				})
+			});
+
+			window.scrollTo(0, 0);
+		}
+
 		// RENDER
 	}, {
 		key: "render",
 		value: function render() {
+			var _this = this;
 
 			return _react2["default"].createElement(
 				"div",
@@ -554,7 +604,7 @@ var Home = (function (_React$Component) {
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell" },
-							"Privacy index ",
+							"Privacy risk index ",
 							_react2["default"].createElement("i", { className: "fa fa-trophy fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
@@ -593,15 +643,10 @@ var Home = (function (_React$Component) {
 							"Secure data connection?  ",
 							_react2["default"].createElement("i", { className: "fa fa-lock fa-lg fa-fw" })
 						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "app-cell" },
-							"Permissions the apps wants ",
-							_react2["default"].createElement("i", { className: "fa fa-list fa-lg fa-fw" })
-						)
+						_react2["default"].createElement("div", { className: "app-cell" })
 					),
 					this.state.apps.map(function (a) {
-						return _react2["default"].createElement(_AppRow2["default"], { key: a.id, app: a });
+						return _react2["default"].createElement(_AppRow2["default"], { key: a.id, app: a, removeApp: _this.removeApp.bind(_this) });
 					})
 				)
 			);

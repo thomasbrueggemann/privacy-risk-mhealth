@@ -10,12 +10,13 @@ var RoutingContext = Router.RoutingContext;
 var routes = require("./app/routes");
 var cookieParser = require("cookie-parser");
 var privacyIdx = require("./privacyidx");
+var extend = require("extend");
 
 var app = express();
 var ratings = [];
-privacyIdx.import(false, function(imported) {
-	ratings = imported;
-});
+var original = [];
+privacyIdx.ratings(false, function(imported) { ratings = imported; });
+privacyIdx.original(function(imported) { original = imported; });
 
 app.set("port", process.env.PORT || 3000);
 app.use(logger("dev"));
@@ -28,9 +29,29 @@ app.use(express.static(path.join(__dirname, "public")));
 
 // API / SEARCH / :QUERY
 app.get("/api/search/:query", function(req, res) {
-	return res.send(ratings.filter(function(item) {
+
+	if(req.params.query.length <= 2) {
+		return res.send([]);
+	}
+
+	var filtered = ratings.filter(function(item) {
 		return item.name.toLowerCase().indexOf(req.params.query) >= 0;
-	}));
+	});
+
+	// add original information
+	for(var f in filtered) {
+
+		// find original data item
+		for(var o in original) {
+			if(original[o].id === filtered[f].id) {
+
+				// extend filtered rating by original information
+				extend(false, filtered[f], original[o]);
+			}
+		}
+	}
+
+	return res.send(filtered);
 });
 
 // REACT MIDDLEWARE

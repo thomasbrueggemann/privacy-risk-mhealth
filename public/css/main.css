@@ -23,7 +23,6 @@ body, html {
 
 .logo img {
   height:80px;
-  opacity:0.4;
 }
 
 .logo {
@@ -185,6 +184,7 @@ a {
   float:right;
   margin-right:110px;
   margin-top:20px;
+  opacity:0.4;
 }
 
 .infotext {

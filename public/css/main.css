@@ -94,8 +94,6 @@ body, html {
 }
 
 .scroll-apps-outer {
-  width:-moz-calc(100%-310px);
-  width:-webkit-calc(100%-310px);
   width:calc(100%-310px);
   overflow: scroll;
   height:940px;

@@ -23,6 +23,7 @@ body, html {
 
 .logo img {
   height:80px;
+  opacity:0.4;
 }
 
 .logo {

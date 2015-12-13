@@ -56,9 +56,14 @@ class AddApp extends React.Component {
     // RENDER
     render() {
 
+        var placeholder = "Search your first app...";
+        if(this.props.numberApps > 0) {
+            placeholder = "Search another app...";
+        }
+
         return (
             <div className="addApp">
-                <input type="text" id="search-app" placeholder="Search for apps..." onKeyUp={this.keyUp.bind(this)} />
+                <input type="text" id="search-app" placeholder={placeholder} onKeyUp={this.keyUp.bind(this)} />
                 <AutoComplete addNewApp={this.addNewApp.bind(this)} apps={this.state.apps} />
             </div>
         );

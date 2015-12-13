@@ -52,7 +52,7 @@ class Home extends React.Component {
 					<div className="header">
 						<div className="logo"><img src="/img/logo.png" /></div>
 						<div className="title">Privacy Index for m<b>Health</b> Apps</div>
-						<AddApp addNewApp={this.addNewApp.bind(this)} />
+						<AddApp numberApps={this.state.apps.length} addNewApp={this.addNewApp.bind(this)} />
 					</div>
 
 					<div className="apps">
@@ -87,7 +87,7 @@ class Home extends React.Component {
 					<div className="header">
 						<div className="logo"><img src="/img/logo.png" /></div>
 						<div className="title">Privacy Index for m<b>Health</b> Apps</div>
-						<AddApp addNewApp={this.addNewApp.bind(this)} />
+						<AddApp numberApps={this.state.apps.length} addNewApp={this.addNewApp.bind(this)} />
 					</div>
 
 					<div className="arrow"><img width="150" src="img/arrow.png" /></div>

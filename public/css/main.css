@@ -99,6 +99,7 @@ body, html {
   width:calc(100%-310px);
   overflow: scroll;
   height:940px;
+  margin-left: 340px;
 }
 
 .app-header .app-cell {

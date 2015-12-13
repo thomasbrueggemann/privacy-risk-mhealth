@@ -291,6 +291,16 @@ var AppRow = (function (_React$Component) {
                 store_icon = _react2["default"].createElement("i", { className: "fa fa-android fa-fw" });
             }
 
+            // determine idx color
+            var idx_class = "idx";
+            if (this.props.app.privacy_index <= 18) {
+                idx_class += " idx_green";
+            } else if (this.props.app.privacy_index > 18 && this.props.app.privacy_index <= 35) {
+                idx_class += " idx_orange";
+            } else {
+                idx_class += " idx_red";
+            }
+
             return _react2["default"].createElement(
                 "div",
                 { className: "app" },
@@ -314,7 +324,7 @@ var AppRow = (function (_React$Component) {
                     { className: "app-cell" },
                     _react2["default"].createElement(
                         "span",
-                        { className: "idx" },
+                        { className: idx_class },
                         this.props.app.privacy_index
                     )
                 ),
@@ -525,9 +535,18 @@ var Home = (function (_React$Component) {
 		};
 	}
 
-	// ADD NEW APP
+	// COMPONENT DID MOUNT
 
 	_createClass(Home, [{
+		key: "componentDidUpdate",
+		value: function componentDidUpdate() {
+			$(".tooltip").tooltipster({
+				"position": "right"
+			});
+		}
+
+		// ADD NEW APP
+	}, {
 		key: "addNewApp",
 		value: function addNewApp(app) {
 			var apps = this.state.apps;
@@ -604,43 +623,43 @@ var Home = (function (_React$Component) {
 							),
 							_react2["default"].createElement(
 								"div",
-								{ className: "app-cell" },
+								{ className: "app-cell tooltip", title: "From 0 to 100. The higher the riskier!" },
 								"Privacy risk index ",
 								_react2["default"].createElement("i", { className: "fa fa-trophy fa-lg fa-fw" })
 							),
 							_react2["default"].createElement(
 								"div",
-								{ className: "app-cell" },
+								{ className: "app-cell tooltip", title: "What personal data you must enter" },
 								"Personal data collected ",
 								_react2["default"].createElement("i", { className: "fa fa-user fa-lg fa-fw" })
 							),
 							_react2["default"].createElement(
 								"div",
-								{ className: "app-cell" },
+								{ className: "app-cell tooltip", title: "Via E-Mail/Password or a Social Network" },
 								"Login required ",
 								_react2["default"].createElement("i", { className: "fa fa-sign-in fa-lg fa-fw" })
 							),
 							_react2["default"].createElement(
 								"div",
-								{ className: "app-cell" },
+								{ className: "app-cell tooltip", title: "The emmediate target of your data" },
 								"Where is my data being sent? ",
 								_react2["default"].createElement("i", { className: "fa fa-wifi fa-lg fa-fw" })
 							),
 							_react2["default"].createElement(
 								"div",
-								{ className: "app-cell" },
+								{ className: "app-cell tooltip", title: "Tracking means show you personalized ads or track your clicks" },
 								"Does the app track me? ",
 								_react2["default"].createElement("i", { className: "fa fa-search fa-lg fa-fw" })
 							),
 							_react2["default"].createElement(
 								"div",
-								{ className: "app-cell" },
-								"Benefits entering personal data? ",
+								{ className: "app-cell tooltip", title: "Sometimes apps ask for data that is not even used, just collected." },
+								"Personal data entering eligible? ",
 								_react2["default"].createElement("i", { className: "fa fa-star fa-lg fa-fw" })
 							),
 							_react2["default"].createElement(
 								"div",
-								{ className: "app-cell" },
+								{ className: "app-cell tooltip", title: "is your data transferred on an encrypted connection?" },
 								"Secure data connection?  ",
 								_react2["default"].createElement("i", { className: "fa fa-lock fa-lg fa-fw" })
 							),

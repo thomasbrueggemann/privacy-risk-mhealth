@@ -12,6 +12,13 @@ class Home extends React.Component {
 		};
 	}
 
+	// COMPONENT DID MOUNT
+	componentDidUpdate() {
+		 $(".tooltip").tooltipster({
+			 "position": "right"
+		 });
+	}
+
 	// ADD NEW APP
 	addNewApp(app) {
 		var apps = this.state.apps;
@@ -52,13 +59,13 @@ class Home extends React.Component {
 						<div className="app-header">
 							<div className="app-cell">Name <i className="fa fa-tag fa-lg fa-fw"></i></div>
 							<div className="app-cell">Store <i className="fa fa-link fa-lg fa-fw"></i></div>
-							<div className="app-cell">Privacy risk index <i className="fa fa-trophy fa-lg fa-fw"></i></div>
-							<div className="app-cell">Personal data collected <i className="fa fa-user fa-lg fa-fw"></i></div>
-							<div className="app-cell">Login required <i className="fa fa-sign-in fa-lg fa-fw"></i></div>
-							<div className="app-cell">Where is my data being sent? <i className="fa fa-wifi fa-lg fa-fw"></i></div>
-							<div className="app-cell">Does the app track me? <i className="fa fa-search fa-lg fa-fw"></i></div>
-							<div className="app-cell">Benefits entering personal data? <i className="fa fa-star fa-lg fa-fw"></i></div>
-							<div className="app-cell">Secure data connection?  <i className="fa fa-lock fa-lg fa-fw"></i></div>
+							<div className="app-cell tooltip" title="From 0 to 100. The higher the riskier!">Privacy risk index <i className="fa fa-trophy fa-lg fa-fw"></i></div>
+							<div className="app-cell tooltip" title="What personal data you must enter">Personal data collected <i className="fa fa-user fa-lg fa-fw"></i></div>
+							<div className="app-cell tooltip" title="Via E-Mail/Password or a Social Network">Login required <i className="fa fa-sign-in fa-lg fa-fw"></i></div>
+							<div className="app-cell tooltip" title="The emmediate target of your data">Where is my data being sent? <i className="fa fa-wifi fa-lg fa-fw"></i></div>
+							<div className="app-cell tooltip" title="Tracking means show you personalized ads or track your clicks">Does the app track me? <i className="fa fa-search fa-lg fa-fw"></i></div>
+							<div className="app-cell tooltip" title="Sometimes apps ask for data that is not even used, just collected.">Personal data entering eligible? <i className="fa fa-star fa-lg fa-fw"></i></div>
+							<div className="app-cell tooltip" title="is your data transferred on an encrypted connection?">Secure data connection?  <i className="fa fa-lock fa-lg fa-fw"></i></div>
 							<div className="app-cell"></div>
 					  	</div>
 

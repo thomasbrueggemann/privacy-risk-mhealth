@@ -1,4 +1,5 @@
 @import url("https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css");
+@import url("../css/tooltipster.css");
 
 body, html {
   height:100%;
@@ -95,7 +96,7 @@ body, html {
 .scroll-apps-outer {
   width:calc(100%-310px);
   overflow: scroll;
-  height:920px;
+  height:940px;
 }
 
 .app-header .app-cell {
@@ -165,6 +166,18 @@ a {
   display: block;
   position: relative;
   margin-top: -20px;
+}
+
+.idx_red {
+  color:##e74c3c;
+}
+
+.idx_orange {
+  color:#f39c12;
+}
+
+.idx_green {
+  color:#2ecc71;
 }
 
 .arrow {

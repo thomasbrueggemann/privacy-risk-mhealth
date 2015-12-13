@@ -22,11 +22,11 @@ var weights = {
 };
 
 var personalTargetWeights = {
-    "app provider": 0.2,
-    "advertisers / marketeers": 0.4,
-    "research projects": 0.05,
+    "app provider": 0.3,
+    "advertisers / marketeers": 0.3,
+    "research projects": 0.1,
     "unknown": 1.0,
-    "facebook": 0.05
+    "facebook": 0.3
 };
 
 var categoryWeights = {

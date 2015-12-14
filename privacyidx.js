@@ -55,6 +55,8 @@ var sourceRatingWeights = {
     "privacy policy": 0.1
 };
 
+var maxRating = 0.0;
+
 // lowercases, splits by ",", removes empty entries
 // and trims the options
 function cleanArrayOfData(arr) {
@@ -219,14 +221,22 @@ module.exports = {
                               multiplier.unspecific_target * weights.unspecific_target +
                               multiplier.rating_source * weights.rating_source +
                               multiplier.data_reasonable * weights.data_reasonable;
+
+                        if(idx > maxRating) maxRating = idx;
                     }
 
-                    rating.privacy_index = parseInt(idx * 100);
+                    rating.privacy_index = parseFloat(idx);
 
                     if(rating.id === false) {
                         console.log(rating);
                         console.log(multiplier);
                     }
+                }
+
+                // apply correction to risk index based on maximum rating
+                var corr = 1.0 / parseFloat(maxRating);
+                for(var m in ratings) {
+                    ratings[m].privacy_index = parseInt(parseFloat(ratings[m].privacy_index) * parseFloat(corr) * 100.0);
                 }
 
                 // write the result
@@ -239,7 +249,7 @@ module.exports = {
                        .pipe(ws);
                 }
 
-                return callback(ratings);
+                if(callback) return callback(ratings);
             });
         }
 };

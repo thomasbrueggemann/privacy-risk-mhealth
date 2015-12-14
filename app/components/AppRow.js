@@ -30,10 +30,10 @@ class AppRow extends React.Component {
 
         // determine idx color
         var idx_class = "idx";
-        if(this.props.app.privacy_index <= 18) {
+        if(this.props.app.privacy_index <= 33) {
             idx_class += " idx_green";
         }
-        else if(this.props.app.privacy_index > 18 && this.props.app.privacy_index <= 35) {
+        else if(this.props.app.privacy_index > 33 && this.props.app.privacy_index <= 66) {
             idx_class += " idx_orange";
         }
         else {

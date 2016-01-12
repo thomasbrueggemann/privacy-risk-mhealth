@@ -61,6 +61,7 @@ class Home extends React.Component {
 							<div className="app-cell">Name <i className="fa fa-tag fa-lg fa-fw"></i></div>
 							<div className="app-cell">Store <i className="fa fa-link fa-lg fa-fw"></i></div>
 							<div className="app-cell tooltip" title="From 0 to 100. The higher the riskier!">Privacy risk index <i className="fa fa-trophy fa-lg fa-fw"></i></div>
+							<div className="app-cell tooltip" title="From 0 to 100. The higher the more confident are we with our risk index calculation.">Index confidence <i className="fa fa-percent fa-lg fa-fw"></i></div>
 							<div className="app-cell tooltip" title="What kind of personal data you have to enter">Personal data collected <i className="fa fa-user fa-lg fa-fw"></i></div>
 							<div className="app-cell tooltip" title="Via mail/password or a social network">Login required <i className="fa fa-sign-in fa-lg fa-fw"></i></div>
 							<div className="app-cell tooltip" title="The emmediate target of your data">Where is my data being sent? <i className="fa fa-wifi fa-lg fa-fw"></i></div>
@@ -91,10 +92,12 @@ class Home extends React.Component {
 						<AddApp numberApps={this.state.apps.length} addNewApp={this.addNewApp.bind(this)} />
 					</div>
 
-					<Weights />
+					<div className="intro">
+						<Weights />
 
-					<div className="arrow"><img width="150" src="img/arrow.png" /></div>
-					<div className="infotext">Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!</div>
+						<div className="arrow"><img width="150" src="img/arrow.png" /></div>
+						<div className="infotext">Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!</div>
+					</div>
 				</div>
 			);
 		}

@@ -393,6 +393,12 @@ var AppRow = (function (_React$Component) {
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
+                    parseInt(this.props.app.privacy_index_confidence * 100),
+                    "%"
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
                     this.props.app.personal_category.length > 0 ? this.props.app.personal_category.join(", ") : "none"
                 ),
                 _react2["default"].createElement(
@@ -695,6 +701,12 @@ var Home = (function (_React$Component) {
 							),
 							_react2["default"].createElement(
 								"div",
+								{ className: "app-cell tooltip", title: "From 0 to 100. The higher the more confident are we with our risk index calculation." },
+								"Index confidence ",
+								_react2["default"].createElement("i", { className: "fa fa-percent fa-lg fa-fw" })
+							),
+							_react2["default"].createElement(
+								"div",
 								{ className: "app-cell tooltip", title: "What kind of personal data you have to enter" },
 								"Personal data collected ",
 								_react2["default"].createElement("i", { className: "fa fa-user fa-lg fa-fw" })
@@ -770,16 +782,20 @@ var Home = (function (_React$Component) {
 						),
 						_react2["default"].createElement(_AddApp2["default"], { numberApps: this.state.apps.length, addNewApp: this.addNewApp.bind(this) })
 					),
-					_react2["default"].createElement(_Weights2["default"], null),
 					_react2["default"].createElement(
 						"div",
-						{ className: "arrow" },
-						_react2["default"].createElement("img", { width: "150", src: "img/arrow.png" })
-					),
-					_react2["default"].createElement(
-						"div",
-						{ className: "infotext" },
-						"Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!"
+						{ className: "intro" },
+						_react2["default"].createElement(_Weights2["default"], null),
+						_react2["default"].createElement(
+							"div",
+							{ className: "arrow" },
+							_react2["default"].createElement("img", { width: "150", src: "img/arrow.png" })
+						),
+						_react2["default"].createElement(
+							"div",
+							{ className: "infotext" },
+							"Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!"
+						)
 					)
 				);
 			}

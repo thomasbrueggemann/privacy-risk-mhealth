@@ -75,6 +75,7 @@ class AppRow extends React.Component {
             <div className="app-cell" dangerouslySetInnerHTML={{__html: this.props.app.name}}></div>
             <div className="app-cell">{store_icon}<a href={store_url} target="_blank">{store_name}</a></div>
             <div className="app-cell"><span className={idx_class}>{this.props.app.privacy_index}</span></div>
+            <div className="app-cell">{parseInt(this.props.app.privacy_index_confidence * 100)}%</div>
             <div className="app-cell">{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category.join(", ") : "none"}</div>
             <div className="app-cell">
                 {(this.props.app.login === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>}

@@ -72,8 +72,6 @@ app.get("/api/idx/:id", function(req, res) {
 		userCache[cacheKey] = privacyIdx.performRating(ratings, userWeights);
 	}
 
-	console.log(userCache[cacheKey]);
-
 	// filter the app that was requested
 	var filteredApp = userCache[cacheKey].filter(function(item) {
 		return item.id === parseInt(req.params.id);

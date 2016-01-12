@@ -199,3 +199,13 @@ a {
   margin-right:40px;
   margin-top:150px;
 }
+
+.weight-row {
+  margin-bottom: 20px;
+  color:#aaa;
+}
+
+.weight-row label {
+  display:block;
+  color:#333;
+}

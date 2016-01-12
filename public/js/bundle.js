@@ -812,7 +812,7 @@ module.exports = exports["default"];
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-	value: true
+    value: true
 });
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -830,35 +830,90 @@ var _react = require("react");
 var _react2 = _interopRequireDefault(_react);
 
 var Weights = (function (_React$Component) {
-	_inherits(Weights, _React$Component);
+    _inherits(Weights, _React$Component);
 
-	function Weights() {
-		_classCallCheck(this, Weights);
+    function Weights() {
+        _classCallCheck(this, Weights);
 
-		_get(Object.getPrototypeOf(Weights.prototype), "constructor", this).apply(this, arguments);
-	}
+        _get(Object.getPrototypeOf(Weights.prototype), "constructor", this).apply(this, arguments);
+    }
 
-	_createClass(Weights, [{
-		key: "render",
-		value: function render() {
-			return _react2["default"].createElement(
-				"div",
-				null,
-				_react2["default"].createElement(
-					"div",
-					{ className: "weight-row" },
-					_react2["default"].createElement(
-						"label",
-						null,
-						"Blabla"
-					),
-					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10" })
-				)
-			);
-		}
-	}]);
+    _createClass(Weights, [{
+        key: "render",
+        value: function render() {
+            return _react2["default"].createElement(
+                "div",
+                null,
+                _react2["default"].createElement(
+                    "h4",
+                    null,
+                    "How important are the following factors to you?"
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "weight-row" },
+                    _react2["default"].createElement(
+                        "label",
+                        null,
+                        "A secure data connection"
+                    ),
+                    "not so much ",
+                    _react2["default"].createElement("input", { type: "range", min: "0", max: "10", steps: "1" }),
+                    " very"
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "weight-row" },
+                    _react2["default"].createElement(
+                        "label",
+                        null,
+                        "The target, data might be sent to"
+                    ),
+                    "not so much ",
+                    _react2["default"].createElement("input", { type: "range", min: "0", max: "10", steps: "1" }),
+                    " very"
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "weight-row" },
+                    _react2["default"].createElement(
+                        "label",
+                        null,
+                        "The types of personal data you have to enter"
+                    ),
+                    "not so much ",
+                    _react2["default"].createElement("input", { type: "range", min: "0", max: "10", steps: "1" }),
+                    " very"
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "weight-row" },
+                    _react2["default"].createElement(
+                        "label",
+                        null,
+                        "The fact that advertisement and analytics services are used"
+                    ),
+                    "not so much ",
+                    _react2["default"].createElement("input", { type: "range", min: "0", max: "10", steps: "1" }),
+                    " very"
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "weight-row" },
+                    _react2["default"].createElement(
+                        "label",
+                        null,
+                        "The reasonableness of data collection"
+                    ),
+                    "not so much ",
+                    _react2["default"].createElement("input", { type: "range", min: "0", max: "10", steps: "1" }),
+                    " very"
+                )
+            );
+        }
+    }]);
 
-	return Weights;
+    return Weights;
 })(_react2["default"].Component);
 
 exports["default"] = Weights;

@@ -11,10 +11,12 @@ var routes = require("./app/routes");
 var cookieParser = require("cookie-parser");
 var privacyIdx = require("./privacyidx");
 var extend = require("extend");
+var crypto = require("crypto");
 
 var app = express();
 var ratings = [];
 var original = [];
+var userCache = {};
 privacyIdx.ratings(false, function(imported) { ratings = imported; });
 privacyIdx.original(function(imported) { original = imported; });
 
@@ -52,6 +54,42 @@ app.get("/api/search/:query", function(req, res) {
 	}
 
 	return res.send(filtered);
+});
+
+// return the index of an app with provided weights
+app.get("/api/idx/:id", function(req, res) {
+
+	// read user weights from cookie
+	// the cookie would look like this:
+	// { "security": 0.1, "personal_target": 0.4, "category": 0.35, "unspecific_target": 0.1, "data_reasonable": 0.05 }
+	var userWeights = (req.cookies.userWeights) ? JSON.parse(req.cookies.userWeights) : privacyIdx.defaultWeights;
+	var cacheKey = crypto.createHash("md5").update(JSON.stringify(userWeights)).digest("hex");
+
+	// data is in cache
+	if(!(cacheKey in userCache)) {
+
+		// generate ratings
+		userCache[cacheKey] = privacyIdx.performRating(ratings, userWeights);
+	}
+
+	console.log(userCache[cacheKey]);
+
+	// filter the app that was requested
+	var filteredApp = userCache[cacheKey].filter(function(item) {
+		return item.id === parseInt(req.params.id);
+	});
+
+	// return the privacy index
+	if(filteredApp.length > 0) {
+
+		return res.send({
+			"id": parseInt(req.params.id),
+			"idx": filteredApp[0].privacy_index
+		});
+	}
+	else {
+		return res.status(500).send("No app found");
+	}
 });
 
 // REACT MIDDLEWARE

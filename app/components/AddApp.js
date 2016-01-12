@@ -39,7 +39,9 @@ class AddApp extends React.Component {
         }
 
         var v = e.target.value;
-        AppActions.searchApps(v);
+        if(v.length > 2) {
+            AppActions.searchApps(v);
+        }
     }
 
     // ADD NEW APP
@@ -48,6 +50,8 @@ class AddApp extends React.Component {
         this.setState({
             "apps": []
         });
+
+        console.log(this.state);
 
         this.props.addNewApp(app);
         $("#search-app").val("");

@@ -12,12 +12,11 @@ var multiplier = {
     "data_reasonable": 1.0
 };
 
-var weights = {
+var defaultWeights = {
     "security": 0.1,
     "personal_target": 0.4,
     "category": 0.35,
-    "unspecific_target": 0.05,
-    "rating_source": 0.05,
+    "unspecific_target": 0.1,
     "data_reasonable": 0.05
 };
 
@@ -71,8 +70,141 @@ function cleanArrayOfData(arr) {
         });
 }
 
+// performes the rating procedure on
+// all apps
+function performRating(data, weights) {
+
+    // copy data
+    var ratings = JSON.parse(JSON.stringify(data));
+
+    // calculate privacy indizes
+    for(var i in ratings) {
+
+        var idx = 1.0;
+        var rating = ratings[i];
+
+        if(rating.personal_category.indexOf("none") >= 0) {
+            rating.personal_category = [];
+        }
+
+        if(rating.personal_target.indexOf("none") >= 0) {
+            rating.personal_target = [];
+        }
+
+        if(rating.unspecific_target.indexOf("none") >= 0) {
+            rating.unspecific_target = [];
+        }
+
+        // initial "no risk" szenario
+        if((rating.personal_target.length === 0 &&
+           rating.unspecific_target.length === 0) ||
+           rating.personal_category.length === 0)
+        {
+            idx = 0.0;
+        }
+        else {
+
+            // security multiplier
+            if (rating.login === true &&
+                rating.secure_transmission === false &&
+                rating.personal_target.length > 0)
+            {
+                multiplier.security = 1.0;
+            }
+            else {
+                multiplier.security = 0.0;
+            }
+
+            // personal data target
+            multiplier.personal_target = 0.0;
+
+            for(var j in rating.personal_target) {
+
+                // if there is an "unknown" target, break the constant
+                // additions of risks and assign unknown risk
+                if(rating.personal_target[j] === "unknown") {
+                    multiplier.personal_target = personalTargetWeights[rating.personal_target[j]];
+                    break;
+                }
+
+                multiplier.personal_target += personalTargetWeights[rating.personal_target[j]];
+            }
+
+            if(rating.login === false) {
+                multiplier.personal_target = multiplier.personal_target / 2.0;
+            }
+
+            // category
+            multiplier.category = 0.0;
+            for(var k in rating.personal_category) {
+                multiplier.category += categoryWeights[rating.personal_category[k]];
+            }
+
+            // unspecific data target
+            multiplier.unspecific_target = 1.0;
+
+            if(rating.unspecific_target.length === 0) {
+                multiplier.unspecific_target = 0.0;
+            }
+            else {
+                if(rating.unspecific_target.length == 1 && rating.unspecific_target[0] === "none") {
+                    multiplier.unspecific_target = 0.0;
+                }
+            }
+
+            // source of rating
+            multiplier.rating_source = 1.0;
+            for(var l in rating.rating_source) {
+
+                var rs = rating.rating_source[l];
+                if(rs.length <= 2) continue;
+
+                // always add the smallest number available
+                if(sourceRatingWeights[rs] < multiplier.rating_source) {
+                    multiplier.rating_source = sourceRatingWeights[rs];
+                }
+            }
+
+            // reasonableness
+            multiplier.data_reasonable = (rating.data_reasonable === true) ? 0.0 : 1.0;
+
+            // privacy index
+            idx = multiplier.security * weights.security +
+                  multiplier.personal_target * weights.personal_target +
+                  multiplier.category * weights.category +
+                  multiplier.unspecific_target * weights.unspecific_target +
+                  multiplier.data_reasonable * weights.data_reasonable;
+
+            if(idx > maxRating) maxRating = idx;
+        }
+
+        rating.privacy_index = parseFloat(idx);
+        rating.privacy_index_confidence = 1 - multiplier.rating_source;
+
+        if(rating.id === false) {
+            console.log(rating);
+            console.log(multiplier);
+        }
+    }
+
+    // apply correction to risk index based on maximum rating
+    var corr = 1.0 / parseFloat(maxRating);
+    for(var m in ratings) {
+        ratings[m].privacy_index = parseInt(parseFloat(ratings[m].privacy_index) * parseFloat(corr) * 100.0);
+    }
+
+    return ratings;
+}
+
 module.exports = {
 
+    // DEFAULT WEIGHTS
+    "defaultWeights": defaultWeights,
+
+    // PERFORM RATING
+    "performRating": performRating,
+
+    // ORIGINAL
     "original": function(callback) {
 
         // pipe in csv data
@@ -95,6 +227,7 @@ module.exports = {
             });
     },
 
+    // RATINGS
     "ratings": function(writeResultToCSV, callback) {
 
         // pipe in csv data
@@ -123,121 +256,7 @@ module.exports = {
             })
             .on("end", function() {
 
-                // calculate privacy indizes
-                for(var i in ratings) {
-
-                    var idx = 1.0;
-                    var rating = ratings[i];
-
-                    if(rating.personal_category.indexOf("none") >= 0) {
-                        rating.personal_category = [];
-                    }
-
-                    if(rating.personal_target.indexOf("none") >= 0) {
-                        rating.personal_target = [];
-                    }
-
-                    if(rating.unspecific_target.indexOf("none") >= 0) {
-                        rating.unspecific_target = [];
-                    }
-
-                    // initial "no risk" szenario
-                    if((rating.personal_target.length === 0 &&
-                       rating.unspecific_target.length === 0) ||
-                       rating.personal_category.length === 0)
-                    {
-                    	idx = 0.0;
-                    }
-                    else {
-
-                        // security multiplier
-                        if (rating.login === true &&
-                            rating.secure_transmission === false &&
-                            rating.personal_target.length > 0)
-                        {
-                            multiplier.security = 1.0;
-                        }
-                        else {
-                            multiplier.security = 0.0;
-                        }
-
-                        // personal data target
-                        multiplier.personal_target = 0.0;
-
-                        for(var j in rating.personal_target) {
-
-                            // if there is an "unknown" target, break the constant
-                            // additions of risks and assign unknown risk
-                            if(rating.personal_target[j] === "unknown") {
-                                multiplier.personal_target = personalTargetWeights[rating.personal_target[j]];
-                                break;
-                            }
-
-                            multiplier.personal_target += personalTargetWeights[rating.personal_target[j]];
-                        }
-
-                        if(rating.login === false) {
-                            multiplier.personal_target = multiplier.personal_target / 2.0;
-                        }
-
-                        // category
-                        multiplier.category = 0.0;
-                        for(var k in rating.personal_category) {
-                            multiplier.category += categoryWeights[rating.personal_category[k]];
-                        }
-
-                        // unspecific data target
-                        multiplier.unspecific_target = 1.0;
-
-                        if(rating.unspecific_target.length === 0) {
-                            multiplier.unspecific_target = 0.0;
-                        }
-                        else {
-                            if(rating.unspecific_target.length == 1 && rating.unspecific_target[0] === "none") {
-                                multiplier.unspecific_target = 0.0;
-                            }
-                        }
-
-                        // source of rating
-                        multiplier.rating_source = 1.0;
-                        for(var l in rating.rating_source) {
-
-                            var rs = rating.rating_source[l];
-                            if(rs.length <= 2) continue;
-
-                            // always add the smallest number available
-                            if(sourceRatingWeights[rs] < multiplier.rating_source) {
-                                multiplier.rating_source = sourceRatingWeights[rs];
-                            }
-                        }
-
-                        // reasonableness
-                        multiplier.data_reasonable = (rating.data_reasonable === true) ? 0.0 : 1.0;
-
-                        // privacy index
-                        idx = multiplier.security * weights.security +
-                              multiplier.personal_target * weights.personal_target +
-                              multiplier.category * weights.category +
-                              multiplier.unspecific_target * weights.unspecific_target +
-                              multiplier.rating_source * weights.rating_source +
-                              multiplier.data_reasonable * weights.data_reasonable;
-
-                        if(idx > maxRating) maxRating = idx;
-                    }
-
-                    rating.privacy_index = parseFloat(idx);
-
-                    if(rating.id === false) {
-                        console.log(rating);
-                        console.log(multiplier);
-                    }
-                }
-
-                // apply correction to risk index based on maximum rating
-                var corr = 1.0 / parseFloat(maxRating);
-                for(var m in ratings) {
-                    ratings[m].privacy_index = parseInt(parseFloat(ratings[m].privacy_index) * parseFloat(corr) * 100.0);
-                }
+                ratings = performRating(ratings, defaultWeights);
 
                 // write the result
                 if(writeResultToCSV) {

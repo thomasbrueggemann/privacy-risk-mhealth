@@ -1,6 +1,7 @@
 import React from "react";
 import AppRow from "./AppRow";
 import AddApp from "./AddApp";
+import Weights from "./Weights";
 
 class Home extends React.Component {
 
@@ -89,6 +90,8 @@ class Home extends React.Component {
 						<div className="title">Privacy Index for m<b>Health</b> Apps</div>
 						<AddApp numberApps={this.state.apps.length} addNewApp={this.addNewApp.bind(this)} />
 					</div>
+
+					<Weights />
 
 					<div className="arrow"><img width="150" src="img/arrow.png" /></div>
 					<div className="infotext">Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!</div>

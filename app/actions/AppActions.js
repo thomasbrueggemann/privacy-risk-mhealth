@@ -6,7 +6,9 @@ class AppActions {
     constructor() {
         this.generateActions(
             "searchAppsSuccess",
-            "searchAppsFail"
+            "searchAppsFail",
+            "getIndexSuccess",
+            "getIndexFail"
         );
     }
 
@@ -23,6 +25,22 @@ class AppActions {
         })
         .fail((jqXhr) => {
             this.actions.searchAppsFail(jqXhr);
+        });
+    }
+
+    // GET INDEX
+    getIndex(id) {
+        
+        $.ajax({
+            "url": "/api/idx/" + id,
+            "dataType": "json",
+            "type": "GET"
+        })
+        .done((data) => {
+            this.actions.getIndexSuccess(data);
+        })
+        .fail((jqXhr) => {
+            this.actions.getIndexFail(jqXhr);
         });
     }
 }

@@ -87,6 +87,7 @@ body, html {
   clear:both;
   display:table;
   padding-top:100px;
+  padding-bottom:20px;
 }
 
 .intro {

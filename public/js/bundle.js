@@ -824,9 +824,26 @@ var Weights = (function (_React$Component) {
 		};
 	}
 
-	// SAVE WEIGHT
+	// COMPONENT DID MOUNT
 
 	_createClass(Weights, [{
+		key: "componentDidMount",
+		value: function componentDidMount() {
+			var defaultWeights = {
+				"security": 0.1,
+				"personal_target": 0.4,
+				"category": 0.35,
+				"unspecific_target": 0.1,
+				"data_reasonable": 0.05
+			};
+
+			for (var i in defaultWeights) {
+				$("[data-weight='" + i + "']").val(defaultWeights[i] * 100);
+			}
+		}
+
+		// SAVE WEIGHT
+	}, {
 		key: "saveWeight",
 		value: function saveWeight() {
 
@@ -840,8 +857,10 @@ var Weights = (function (_React$Component) {
 			var w = this.state.weights;
 			$("[data-weight]").each(function (i, el) {
 				var $el = $(el);
-				w[$el.data("weight")] = $el.val() / (sum / 100);
+				w[$el.data("weight")] = $el.val() / (sum / 100) / 100;
 			});
+
+			console.log(w);
 
 			this.setState({
 				"weights": w

@@ -178,9 +178,7 @@ var AddApp = (function (_React$Component) {
                 "apps": []
             });
 
-            console.log(this.state);
-
-            this.props.addNewApp(app);
+            $(window).trigger("addNewApp", app);
             $("#search-app").val("");
         }
 
@@ -189,10 +187,7 @@ var AddApp = (function (_React$Component) {
         key: "render",
         value: function render() {
 
-            var placeholder = "Search your first app...";
-            if (this.props.numberApps > 0) {
-                placeholder = "Search another app...";
-            }
+            var placeholder = "Search for an app...";
 
             return _react2["default"].createElement(
                 "div",
@@ -230,6 +225,10 @@ var _react = require("react");
 
 var _react2 = _interopRequireDefault(_react);
 
+var _AddApp = require("./AddApp");
+
+var _AddApp2 = _interopRequireDefault(_AddApp);
+
 var App = (function (_React$Component) {
 	_inherits(App, _React$Component);
 
@@ -244,7 +243,28 @@ var App = (function (_React$Component) {
 		value: function render() {
 			return _react2["default"].createElement(
 				"div",
-				null,
+				{ className: "mhealth" },
+				_react2["default"].createElement(
+					"div",
+					{ className: "header" },
+					_react2["default"].createElement(
+						"div",
+						{ className: "logo" },
+						_react2["default"].createElement("img", { src: "/img/logo.png" })
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: "title" },
+						"Privacy Index for m",
+						_react2["default"].createElement(
+							"b",
+							null,
+							"Health"
+						),
+						" Apps"
+					),
+					_react2["default"].createElement(_AddApp2["default"], null)
+				),
 				this.props.children
 			);
 		}
@@ -256,7 +276,7 @@ var App = (function (_React$Component) {
 exports["default"] = App;
 module.exports = exports["default"];
 
-},{"react":"react"}],5:[function(require,module,exports){
+},{"./AddApp":3,"react":"react"}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -585,14 +605,6 @@ var _AppRow = require("./AppRow");
 
 var _AppRow2 = _interopRequireDefault(_AppRow);
 
-var _AddApp = require("./AddApp");
-
-var _AddApp2 = _interopRequireDefault(_AddApp);
-
-var _Weights = require("./Weights");
-
-var _Weights2 = _interopRequireDefault(_Weights);
-
 var Home = (function (_React$Component) {
 	_inherits(Home, _React$Component);
 
@@ -617,10 +629,24 @@ var Home = (function (_React$Component) {
 			});
 		}
 
+		// COMPONENT DID MOUNT
+	}, {
+		key: "componentDidMount",
+		value: function componentDidMount() {
+			$(window).on("addNewApp", this.addNewApp.bind(this));
+		}
+
+		// COMPONENT WILL UNMOUNT
+	}, {
+		key: "componentWillUnmount",
+		value: function componentWillUnmount() {
+			$(window).off("addNewApp");
+		}
+
 		// ADD NEW APP
 	}, {
 		key: "addNewApp",
-		value: function addNewApp(app) {
+		value: function addNewApp(e, app) {
 			var apps = this.state.apps;
 			apps.push(app);
 
@@ -653,106 +679,81 @@ var Home = (function (_React$Component) {
 
 				return _react2["default"].createElement(
 					"div",
-					{ className: "mhealth" },
+					{ className: "apps" },
 					_react2["default"].createElement(
 						"div",
-						{ className: "header" },
+						{ className: "app-header" },
 						_react2["default"].createElement(
 							"div",
-							{ className: "logo" },
-							_react2["default"].createElement("img", { src: "/img/logo.png" })
+							{ className: "app-cell" },
+							"Name ",
+							_react2["default"].createElement("i", { className: "fa fa-tag fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "title" },
-							"Privacy Index for m",
-							_react2["default"].createElement(
-								"b",
-								null,
-								"Health"
-							),
-							" Apps"
+							{ className: "app-cell" },
+							"Store ",
+							_react2["default"].createElement("i", { className: "fa fa-link fa-lg fa-fw" })
 						),
-						_react2["default"].createElement(_AddApp2["default"], { numberApps: this.state.apps.length, addNewApp: this.addNewApp.bind(this) })
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-cell tooltip", title: "From 0 to 100. The higher the riskier!" },
+							"Privacy risk index ",
+							_react2["default"].createElement("i", { className: "fa fa-trophy fa-lg fa-fw" })
+						),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-cell tooltip", title: "From 0 to 100. The higher the more confident are we with the rating of the risk index calculation." },
+							"Rating confidence ",
+							_react2["default"].createElement("i", { className: "fa fa-percent fa-lg fa-fw" })
+						),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-cell tooltip", title: "What kind of personal data you have to enter" },
+							"Personal data collected ",
+							_react2["default"].createElement("i", { className: "fa fa-user fa-lg fa-fw" })
+						),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-cell tooltip", title: "Via mail/password or a social network" },
+							"Login required ",
+							_react2["default"].createElement("i", { className: "fa fa-sign-in fa-lg fa-fw" })
+						),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-cell tooltip", title: "The emmediate target of your data" },
+							"Where is my data being sent? ",
+							_react2["default"].createElement("i", { className: "fa fa-wifi fa-lg fa-fw" })
+						),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-cell tooltip", title: "Tracking means show you personalized ads or track your clicks for analytics" },
+							"Does the app track me? ",
+							_react2["default"].createElement("i", { className: "fa fa-search fa-lg fa-fw" })
+						),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-cell tooltip", title: "Sometimes apps ask for data that is not even used, just collected." },
+							"Personal data entering eligible? ",
+							_react2["default"].createElement("i", { className: "fa fa-star fa-lg fa-fw" })
+						),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-cell tooltip", title: "is your data transferred on an encrypted connection?" },
+							"Secure data connection?  ",
+							_react2["default"].createElement("i", { className: "fa fa-lock fa-lg fa-fw" })
+						),
+						_react2["default"].createElement("div", { className: "app-cell" })
 					),
 					_react2["default"].createElement(
 						"div",
-						{ className: "apps" },
+						{ className: "scroll-apps-outer" },
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-header" },
-							_react2["default"].createElement(
-								"div",
-								{ className: "app-cell" },
-								"Name ",
-								_react2["default"].createElement("i", { className: "fa fa-tag fa-lg fa-fw" })
-							),
-							_react2["default"].createElement(
-								"div",
-								{ className: "app-cell" },
-								"Store ",
-								_react2["default"].createElement("i", { className: "fa fa-link fa-lg fa-fw" })
-							),
-							_react2["default"].createElement(
-								"div",
-								{ className: "app-cell tooltip", title: "From 0 to 100. The higher the riskier!" },
-								"Privacy risk index ",
-								_react2["default"].createElement("i", { className: "fa fa-trophy fa-lg fa-fw" })
-							),
-							_react2["default"].createElement(
-								"div",
-								{ className: "app-cell tooltip", title: "From 0 to 100. The higher the more confident are we with our risk index calculation." },
-								"Index confidence ",
-								_react2["default"].createElement("i", { className: "fa fa-percent fa-lg fa-fw" })
-							),
-							_react2["default"].createElement(
-								"div",
-								{ className: "app-cell tooltip", title: "What kind of personal data you have to enter" },
-								"Personal data collected ",
-								_react2["default"].createElement("i", { className: "fa fa-user fa-lg fa-fw" })
-							),
-							_react2["default"].createElement(
-								"div",
-								{ className: "app-cell tooltip", title: "Via mail/password or a social network" },
-								"Login required ",
-								_react2["default"].createElement("i", { className: "fa fa-sign-in fa-lg fa-fw" })
-							),
-							_react2["default"].createElement(
-								"div",
-								{ className: "app-cell tooltip", title: "The emmediate target of your data" },
-								"Where is my data being sent? ",
-								_react2["default"].createElement("i", { className: "fa fa-wifi fa-lg fa-fw" })
-							),
-							_react2["default"].createElement(
-								"div",
-								{ className: "app-cell tooltip", title: "Tracking means show you personalized ads or track your clicks for analytics" },
-								"Does the app track me? ",
-								_react2["default"].createElement("i", { className: "fa fa-search fa-lg fa-fw" })
-							),
-							_react2["default"].createElement(
-								"div",
-								{ className: "app-cell tooltip", title: "Sometimes apps ask for data that is not even used, just collected." },
-								"Personal data entering eligible? ",
-								_react2["default"].createElement("i", { className: "fa fa-star fa-lg fa-fw" })
-							),
-							_react2["default"].createElement(
-								"div",
-								{ className: "app-cell tooltip", title: "is your data transferred on an encrypted connection?" },
-								"Secure data connection?  ",
-								_react2["default"].createElement("i", { className: "fa fa-lock fa-lg fa-fw" })
-							),
-							_react2["default"].createElement("div", { className: "app-cell" })
-						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "scroll-apps-outer" },
-							_react2["default"].createElement(
-								"div",
-								{ className: "scroll-apps-inner", style: { "width": this.state.apps.length * 330 } },
-								this.state.apps.map(function (a) {
-									return _react2["default"].createElement(_AppRow2["default"], { key: a.id, app: a, removeApp: _this.removeApp.bind(_this) });
-								})
-							)
+							{ className: "scroll-apps-inner", style: { "width": this.state.apps.length * 330 } },
+							this.state.apps.map(function (a) {
+								return _react2["default"].createElement(_AppRow2["default"], { key: a.id, app: a, removeApp: _this.removeApp.bind(_this) });
+							})
 						)
 					)
 				);
@@ -760,42 +761,16 @@ var Home = (function (_React$Component) {
 
 				return _react2["default"].createElement(
 					"div",
-					{ className: "mhealth" },
+					{ className: "intro" },
 					_react2["default"].createElement(
 						"div",
-						{ className: "header" },
-						_react2["default"].createElement(
-							"div",
-							{ className: "logo" },
-							_react2["default"].createElement("img", { src: "/img/logo.png" })
-						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "title" },
-							"Privacy Index for m",
-							_react2["default"].createElement(
-								"b",
-								null,
-								"Health"
-							),
-							" Apps"
-						),
-						_react2["default"].createElement(_AddApp2["default"], { numberApps: this.state.apps.length, addNewApp: this.addNewApp.bind(this) })
+						{ className: "arrow" },
+						_react2["default"].createElement("img", { width: "150", src: "img/arrow.png" })
 					),
 					_react2["default"].createElement(
 						"div",
-						{ className: "intro" },
-						_react2["default"].createElement(_Weights2["default"], null),
-						_react2["default"].createElement(
-							"div",
-							{ className: "arrow" },
-							_react2["default"].createElement("img", { width: "150", src: "img/arrow.png" })
-						),
-						_react2["default"].createElement(
-							"div",
-							{ className: "infotext" },
-							"Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!"
-						)
+						{ className: "infotext" },
+						"Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!"
 					)
 				);
 			}
@@ -808,11 +783,11 @@ var Home = (function (_React$Component) {
 exports["default"] = Home;
 module.exports = exports["default"];
 
-},{"./AddApp":3,"./AppRow":5,"./Weights":9,"react":"react"}],9:[function(require,module,exports){
+},{"./AppRow":5,"react":"react"}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+	value: true
 });
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -830,90 +805,146 @@ var _react = require("react");
 var _react2 = _interopRequireDefault(_react);
 
 var Weights = (function (_React$Component) {
-    _inherits(Weights, _React$Component);
+	_inherits(Weights, _React$Component);
 
-    function Weights() {
-        _classCallCheck(this, Weights);
+	// CONSTRUCTOR
 
-        _get(Object.getPrototypeOf(Weights.prototype), "constructor", this).apply(this, arguments);
-    }
+	function Weights(props) {
+		_classCallCheck(this, Weights);
 
-    _createClass(Weights, [{
-        key: "render",
-        value: function render() {
-            return _react2["default"].createElement(
-                "div",
-                null,
-                _react2["default"].createElement(
-                    "h4",
-                    null,
-                    "How important are the following factors to you?"
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "weight-row" },
-                    _react2["default"].createElement(
-                        "label",
-                        null,
-                        "A secure data connection"
-                    ),
-                    "not so much ",
-                    _react2["default"].createElement("input", { type: "range", min: "0", max: "10", steps: "1" }),
-                    " very"
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "weight-row" },
-                    _react2["default"].createElement(
-                        "label",
-                        null,
-                        "The target, data might be sent to"
-                    ),
-                    "not so much ",
-                    _react2["default"].createElement("input", { type: "range", min: "0", max: "10", steps: "1" }),
-                    " very"
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "weight-row" },
-                    _react2["default"].createElement(
-                        "label",
-                        null,
-                        "The types of personal data you have to enter"
-                    ),
-                    "not so much ",
-                    _react2["default"].createElement("input", { type: "range", min: "0", max: "10", steps: "1" }),
-                    " very"
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "weight-row" },
-                    _react2["default"].createElement(
-                        "label",
-                        null,
-                        "The fact that advertisement and analytics services are used"
-                    ),
-                    "not so much ",
-                    _react2["default"].createElement("input", { type: "range", min: "0", max: "10", steps: "1" }),
-                    " very"
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "weight-row" },
-                    _react2["default"].createElement(
-                        "label",
-                        null,
-                        "The reasonableness of data collection"
-                    ),
-                    "not so much ",
-                    _react2["default"].createElement("input", { type: "range", min: "0", max: "10", steps: "1" }),
-                    " very"
-                )
-            );
-        }
-    }]);
+		_get(Object.getPrototypeOf(Weights.prototype), "constructor", this).call(this, props);
+		this.state = {
+			"weights": {
+				"security": 0.1,
+				"personal_target": 0.4,
+				"category": 0.35,
+				"unspecific_target": 0.1,
+				"data_reasonable": 0.05
+			}
+		};
+	}
 
-    return Weights;
+	// SAVE WEIGHT
+
+	_createClass(Weights, [{
+		key: "saveWeight",
+		value: function saveWeight() {
+
+			// store all new weights
+			var sum = 0;
+			$("[data-weight]").each(function (i, el) {
+				var $el = $(el);
+				sum += parseInt($el.val());
+			});
+
+			var w = this.state.weights;
+			$("[data-weight]").each(function (i, el) {
+				var $el = $(el);
+				w[$el.data("weight")] = $el.val() / (sum / 100);
+			});
+
+			this.setState({
+				"weights": w
+			});
+		}
+
+		// DONE
+	}, {
+		key: "done",
+		value: function done() {
+			Cookies.set("userWeights", this.state.weights);
+
+			// navigate to home screen
+			this.props.history.push({
+				"pathname": "/apps",
+				"search": "",
+				"state": {}
+			});
+		}
+
+		// RENDER
+	}, {
+		key: "render",
+		value: function render() {
+			return _react2["default"].createElement(
+				"div",
+				{ className: "weights" },
+				_react2["default"].createElement(
+					"h2",
+					null,
+					"How important are the following factors to you?"
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "weight-row" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"A secure data connection"
+					),
+					"not so much ",
+					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "security", onChange: this.saveWeight.bind(this) }),
+					" very"
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "weight-row" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"The target, data might be sent to"
+					),
+					"not so much ",
+					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "personal_target", onChange: this.saveWeight.bind(this) }),
+					" very"
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "weight-row" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"The types of personal data you have to enter"
+					),
+					"not so much ",
+					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "category", onChange: this.saveWeight.bind(this) }),
+					" very"
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "weight-row" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"The fact that advertisement and analytics services are used"
+					),
+					"not so much ",
+					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "unspecific_target", onChange: this.saveWeight.bind(this) }),
+					" very"
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "weight-row" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"The reasonableness of data collection"
+					),
+					"not so much ",
+					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "data_reasonable", onChange: this.saveWeight.bind(this) }),
+					" very"
+				),
+				_react2["default"].createElement(
+					"button",
+					{ onClick: this.done.bind(this) },
+					_react2["default"].createElement("i", { className: "fa fa-check" }),
+					" Done"
+				)
+			);
+		}
+	}]);
+
+	return Weights;
 })(_react2["default"].Component);
 
 exports["default"] = Weights;
@@ -975,14 +1006,19 @@ var _componentsHome = require("./components/Home");
 
 var _componentsHome2 = _interopRequireDefault(_componentsHome);
 
+var _componentsWeights = require("./components/Weights");
+
+var _componentsWeights2 = _interopRequireDefault(_componentsWeights);
+
 exports["default"] = _react2["default"].createElement(
 	_reactRouter.Route,
 	{ component: _componentsApp2["default"] },
-	_react2["default"].createElement(_reactRouter.Route, { path: "/", component: _componentsHome2["default"] })
+	_react2["default"].createElement(_reactRouter.Route, { path: "/apps", component: _componentsHome2["default"] }),
+	_react2["default"].createElement(_reactRouter.Route, { path: "/", component: _componentsWeights2["default"] })
 );
 module.exports = exports["default"];
 
-},{"./components/App":4,"./components/Home":8,"react":"react","react-router":"react-router"}],12:[function(require,module,exports){
+},{"./components/App":4,"./components/Home":8,"./components/Weights":9,"react":"react","react-router":"react-router"}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {

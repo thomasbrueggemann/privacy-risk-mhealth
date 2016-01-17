@@ -2,6 +2,7 @@
 	"name": "mhealth-privacy",
 	"dependencies": {
 		"jquery": "2.1.4",
-		"tooltipster": "3.3.0"
+		"tooltipster": "3.3.0",
+		"js-cookie": "2.1.0"
 	}
 }

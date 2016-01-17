@@ -51,19 +51,14 @@ class AddApp extends React.Component {
             "apps": []
         });
 
-        console.log(this.state);
-
-        this.props.addNewApp(app);
+        $(window).trigger("addNewApp", app);
         $("#search-app").val("");
     }
 
     // RENDER
     render() {
 
-        var placeholder = "Search your first app...";
-        if(this.props.numberApps > 0) {
-            placeholder = "Search another app...";
-        }
+        var placeholder = "Search for an app...";
 
         return (
             <div className="addApp">

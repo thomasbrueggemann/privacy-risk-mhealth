@@ -175,6 +175,18 @@ function performRating(data, weights) {
                   multiplier.unspecific_target * weights.unspecific_target +
                   multiplier.data_reasonable * weights.data_reasonable;
 
+            var influence_key = ["security", "personal_target", "category", "unspecific_target", "data_reasonable"];
+            var influence_val = [multiplier.security * weights.security, multiplier.personal_target * weights.personal_target,
+                                multiplier.category * weights.category, multiplier.unspecific_target * weights.unspecific_target,
+                                multiplier.data_reasonable * weights.data_reasonable];
+
+            // find maximum influence value index
+            var max_influence_val = Math.max.apply(null, influence_val);
+            var max_influence_idx = influence_val.indexOf(max_influence_val);
+
+            // store the rating influence key
+            rating.influence_key = influence_key[max_influence_idx];
+
             if(idx > maxRating) maxRating = idx;
         }
 

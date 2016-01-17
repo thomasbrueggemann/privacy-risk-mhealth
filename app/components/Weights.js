@@ -47,8 +47,6 @@ class Weights extends React.Component {
 			w[$el.data("weight")] = ($el.val() / (sum / 100)) / 100;
 		});
 
-		console.log(w);
-
 		this.setState({
 			"weights": w
 		});

@@ -334,6 +334,9 @@ var AppRow = (function (_React$Component) {
 
             // get index
             _actionsAppActions2["default"].getIndex(this.props.app.id);
+
+            // highlight incluence
+            $("#app-" + this.props.app.id).find("[data-weight='" + this.props.app.influence_key + "']").addClass("influence-cell");
         }
 
         // COMPONENT WILL UNMOUNT
@@ -387,9 +390,34 @@ var AppRow = (function (_React$Component) {
                 idx_class += " idx_red";
             }
 
+            var categoryCellClass = "app-cell";
+            if (this.props.app.influence_key === "category") {
+                categoryCellClass += " influence-cell";
+            }
+
+            var personalTargetCellClass = "app-cell";
+            if (this.props.app.influence_key === "personal_target") {
+                personalTargetCellClass += " influence-cell";
+            }
+
+            var unspecificTargetCellClass = "app-cell";
+            if (this.props.app.influence_key === "category") {
+                unspecificTargetCellClass += " influence-cell";
+            }
+
+            var dataReasonableCellClass = "app-cell";
+            if (this.props.app.influence_key === "category") {
+                dataReasonableCellClass += " influence-cell";
+            }
+
+            var secureCellClass = "app-cell";
+            if (this.props.app.influence_key === "category") {
+                secureCellClass += " influence-cell";
+            }
+
             return _react2["default"].createElement(
                 "div",
-                { className: "app" },
+                { className: "app", id: "app" + this.props.app.id },
                 _react2["default"].createElement("div", { className: "app-cell", dangerouslySetInnerHTML: { __html: this.props.app.name } }),
                 _react2["default"].createElement(
                     "div",
@@ -418,7 +446,7 @@ var AppRow = (function (_React$Component) {
                 ),
                 _react2["default"].createElement(
                     "div",
-                    { className: "app-cell" },
+                    { className: categoryCellClass, "data-weight": "category" },
                     this.props.app.personal_category.length > 0 ? this.props.app.personal_category.join(", ") : "none"
                 ),
                 _react2["default"].createElement(
@@ -428,22 +456,22 @@ var AppRow = (function (_React$Component) {
                 ),
                 _react2["default"].createElement(
                     "div",
-                    { className: "app-cell" },
+                    { className: personalTargetCellClass, "data-weight": "personal_target" },
                     this.props.app.personal_target.length > 0 ? this.props.app.personal_target.join(", ") : "nowhere"
                 ),
                 _react2["default"].createElement(
                     "div",
-                    { className: "app-cell" },
+                    { className: unspecificTargetCellClass, "data-weight": "unspecific_target" },
                     this.props.app.unspecific_target.length > 0 ? this.props.app.unspecific_target.join(", ") : "no"
                 ),
                 _react2["default"].createElement(
                     "div",
-                    { className: "app-cell" },
+                    { className: dataReasonableCellClass, "data-weight": "data_reasonable" },
                     data_reasonable
                 ),
                 _react2["default"].createElement(
                     "div",
-                    { className: "app-cell" },
+                    { className: secureCellClass, "data-weight": "secure" },
                     secure_transmission
                 ),
                 _react2["default"].createElement(
@@ -859,8 +887,6 @@ var Weights = (function (_React$Component) {
 				var $el = $(el);
 				w[$el.data("weight")] = $el.val() / (sum / 100) / 100;
 			});
-
-			console.log(w);
 
 			this.setState({
 				"weights": w

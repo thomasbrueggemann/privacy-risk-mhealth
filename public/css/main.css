@@ -120,6 +120,10 @@ body, html {
     font-weight: lighter;
 }
 
+.influence-cell {
+  text-decoration: underline;
+}
+
 .app {
   width:300px;
 

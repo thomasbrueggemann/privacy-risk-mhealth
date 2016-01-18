@@ -124,6 +124,12 @@ body, html {
   text-decoration: underline;
 }
 
+.fa-influence {
+  margin-right:10px;
+  color:#f1c40f;
+  font-size: 1.4em;
+}
+
 .app {
   width:300px;
 

@@ -335,8 +335,10 @@ var AppRow = (function (_React$Component) {
             // get index
             _actionsAppActions2["default"].getIndex(this.props.app.id);
 
-            // highlight incluence
-            $("#app-" + this.props.app.id).find("[data-weight='" + this.props.app.influence_key + "']").addClass("influence-cell");
+            $(".influence-cell").children().tooltipster({
+                "position": "top",
+                "content": "This factor has the most influence on the privacy risk index"
+            });
         }
 
         // COMPONENT WILL UNMOUNT
@@ -391,28 +393,38 @@ var AppRow = (function (_React$Component) {
             }
 
             var categoryCellClass = "app-cell";
+            var categoryCellInfluence = null;
             if (this.props.app.influence_key === "category") {
                 categoryCellClass += " influence-cell";
+                categoryCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
             }
 
             var personalTargetCellClass = "app-cell";
+            var personalTargetCellInfluence = null;
             if (this.props.app.influence_key === "personal_target") {
                 personalTargetCellClass += " influence-cell";
+                personalTargetCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
             }
 
             var unspecificTargetCellClass = "app-cell";
+            var unspecificTargetCellInfluence = null;
             if (this.props.app.influence_key === "category") {
                 unspecificTargetCellClass += " influence-cell";
+                unspecificTargetCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
             }
 
             var dataReasonableCellClass = "app-cell";
+            var dataReasonableCellInfluence = null;
             if (this.props.app.influence_key === "category") {
                 dataReasonableCellClass += " influence-cell";
+                dataReasonableCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
             }
 
             var secureCellClass = "app-cell";
+            var secureCellInfluence = null;
             if (this.props.app.influence_key === "category") {
                 secureCellClass += " influence-cell";
+                secureCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
             }
 
             return _react2["default"].createElement(
@@ -447,6 +459,7 @@ var AppRow = (function (_React$Component) {
                 _react2["default"].createElement(
                     "div",
                     { className: categoryCellClass, "data-weight": "category" },
+                    categoryCellInfluence,
                     this.props.app.personal_category.length > 0 ? this.props.app.personal_category.join(", ") : "none"
                 ),
                 _react2["default"].createElement(
@@ -457,21 +470,25 @@ var AppRow = (function (_React$Component) {
                 _react2["default"].createElement(
                     "div",
                     { className: personalTargetCellClass, "data-weight": "personal_target" },
+                    personalTargetCellInfluence,
                     this.props.app.personal_target.length > 0 ? this.props.app.personal_target.join(", ") : "nowhere"
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: unspecificTargetCellClass, "data-weight": "unspecific_target" },
+                    unspecificTargetCellInfluence,
                     this.props.app.unspecific_target.length > 0 ? this.props.app.unspecific_target.join(", ") : "no"
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: dataReasonableCellClass, "data-weight": "data_reasonable" },
+                    dataReasonableCellInfluence,
                     data_reasonable
                 ),
                 _react2["default"].createElement(
                     "div",
                     { className: secureCellClass, "data-weight": "secure" },
+                    secureCellInfluence,
                     secure_transmission
                 ),
                 _react2["default"].createElement(

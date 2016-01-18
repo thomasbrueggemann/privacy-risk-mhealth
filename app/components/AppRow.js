@@ -23,8 +23,10 @@ class AppRow extends React.Component {
         // get index
         AppActions.getIndex(this.props.app.id);
 
-        // highlight incluence
-        $("#app-" + this.props.app.id).find("[data-weight='" + this.props.app.influence_key + "']").addClass("influence-cell");
+        $(".influence-cell").children().tooltipster({
+            "position": "top",
+            "content": "This factor has the most influence on the privacy risk index"
+        });
 	}
 
 	// COMPONENT WILL UNMOUNT
@@ -75,28 +77,38 @@ class AppRow extends React.Component {
         }
 
         var categoryCellClass = "app-cell";
+        var categoryCellInfluence = null;
         if(this.props.app.influence_key === "category") {
             categoryCellClass += " influence-cell";
+            categoryCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
         }
 
         var personalTargetCellClass = "app-cell";
+        var personalTargetCellInfluence = null;
         if(this.props.app.influence_key === "personal_target") {
             personalTargetCellClass += " influence-cell";
+            personalTargetCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
         }
 
         var unspecificTargetCellClass = "app-cell";
+        var unspecificTargetCellInfluence = null;
         if(this.props.app.influence_key === "category") {
             unspecificTargetCellClass += " influence-cell";
+            unspecificTargetCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
         }
 
         var dataReasonableCellClass = "app-cell";
+        var dataReasonableCellInfluence = null;
         if(this.props.app.influence_key === "category") {
             dataReasonableCellClass += " influence-cell";
+            dataReasonableCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
         }
 
         var secureCellClass = "app-cell";
+        var secureCellInfluence = null;
         if(this.props.app.influence_key === "category") {
             secureCellClass += " influence-cell";
+            secureCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
         }
 
         return (<div className="app" id={"app" + this.props.app.id}>
@@ -104,14 +116,14 @@ class AppRow extends React.Component {
             <div className="app-cell">{store_icon}<a href={store_url} target="_blank">{store_name}</a></div>
             <div className="app-cell"><span className={idx_class}>{this.props.app.privacy_index}</span></div>
             <div className="app-cell">{parseInt(this.props.app.privacy_index_confidence * 100)}%</div>
-            <div className={categoryCellClass} data-weight="category">{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category.join(", ") : "none"}</div>
+            <div className={categoryCellClass} data-weight="category">{categoryCellInfluence}{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category.join(", ") : "none"}</div>
             <div className="app-cell">
                 {(this.props.app.login === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>}
             </div>
-            <div className={personalTargetCellClass} data-weight="personal_target">{(this.props.app.personal_target.length > 0) ? this.props.app.personal_target.join(", ") : "nowhere"}</div>
-            <div className={unspecificTargetCellClass} data-weight="unspecific_target">{(this.props.app.unspecific_target.length > 0) ? this.props.app.unspecific_target.join(", ") : "no"}</div>
-            <div className={dataReasonableCellClass} data-weight="data_reasonable">{data_reasonable}</div>
-            <div className={secureCellClass} data-weight="secure">{secure_transmission}</div>
+            <div className={personalTargetCellClass} data-weight="personal_target">{personalTargetCellInfluence}{(this.props.app.personal_target.length > 0) ? this.props.app.personal_target.join(", ") : "nowhere"}</div>
+            <div className={unspecificTargetCellClass} data-weight="unspecific_target">{unspecificTargetCellInfluence}{(this.props.app.unspecific_target.length > 0) ? this.props.app.unspecific_target.join(", ") : "no"}</div>
+            <div className={dataReasonableCellClass} data-weight="data_reasonable">{dataReasonableCellInfluence}{data_reasonable}</div>
+            <div className={secureCellClass} data-weight="secure">{secureCellInfluence}{secure_transmission}</div>
             <div className="app-cell"><a href="#" onClick={this.removeApp.bind(this)}>remove</a></div>
         </div>);
     }

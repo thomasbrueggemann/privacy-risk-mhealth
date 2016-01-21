@@ -92,7 +92,7 @@ body, html {
 
 .intro, .weights {
   padding-top:100px;
-  min-height: 400px;
+  min-height: 500px;
 }
 
 .weights {
@@ -254,6 +254,8 @@ button {
   -ms-transition: all 0.1s linear;
   -kthtml-transition: all 0.1s linear;
   transition: all 0.1s linear;
+
+  margin:0 10px 0 10px;
 }
 
 button:hover {

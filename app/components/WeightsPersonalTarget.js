@@ -7,23 +7,21 @@ class Weights extends React.Component {
 		super(props);
 		this.state = {
 			"weights": {
-				"security": 0.1,
-			    "personal_target": 0.4,
-			    "category": 0.35,
-			    "unspecific_target": 0.1,
-			    "data_reasonable": 0.05
+			    "app provider": 0.3,
+			    "advertisers / marketeers": 0.3,
+			    "research projects": 0.1,
+			    "facebook": 0.3
 			}
-		};
+		}
 	}
 
 	// COMPONENT DID MOUNT
 	componentDidMount() {
 		var defaultWeights = {
-		    "security": 0.1,
-		    "personal_target": 0.4,
-		    "category": 0.35,
-		    "unspecific_target": 0.1,
-		    "data_reasonable": 0.05
+		    "app provider": 0.3,
+		    "advertisers / marketeers": 0.3,
+		    "research projects": 0.1,
+		    "facebook": 0.3
 		};
 
 		for(var i in defaultWeights) {
@@ -54,7 +52,7 @@ class Weights extends React.Component {
 
 	// DONE
 	done() {
-		Cookies.set("userWeights", this.state.weights);
+		Cookies.set("userWeightsPersonalTarget", this.state.weights);
 
 		// navigate to home screen
 		this.props.history.push({
@@ -68,28 +66,24 @@ class Weights extends React.Component {
 	render() {
 		return (
 			<div className="weights">
-                <h2>How important are the following factors to you?</h2>
+                <h2>How important is the risk to you, where your personal data is potentionally sent?</h2>
 				<div className="weight-row">
-                    <label>A secure data connection</label>
-                    not so much <input type="range" min="0" max="100" steps="10" data-weight="security" onChange={this.saveWeight.bind(this)} /> very
+                    <label>The app provider</label>
+                    not so much <input type="range" min="0" max="100" steps="10" data-weight="app provider" onChange={this.saveWeight.bind(this)} /> very
                 </div>
                 <div className="weight-row">
-                    <label>The target, data might be sent to</label>
-                    not so much <input type="range" min="0" max="100" steps="10" data-weight="personal_target" onChange={this.saveWeight.bind(this)} /> very
+                    <label>To advertisers or marketing companies</label>
+                    not so much <input type="range" min="0" max="100" steps="10" data-weight="advertisers / marketeers" onChange={this.saveWeight.bind(this)} /> very
                 </div>
                 <div className="weight-row">
-                    <label>The types of personal data you have to enter</label>
-                    not so much <input type="range" min="0" max="100" steps="10" data-weight="category" onChange={this.saveWeight.bind(this)} /> very
+                    <label>To research projects</label>
+                    not so much <input type="range" min="0" max="100" steps="10" data-weight="research projects" onChange={this.saveWeight.bind(this)} /> very
                 </div>
                 <div className="weight-row">
-                    <label>The fact that advertisement and analytics services are used</label>
-                    not so much <input type="range" min="0" max="100" steps="10" data-weight="unspecific_target" onChange={this.saveWeight.bind(this)} /> very
-                </div>
-                <div className="weight-row">
-                    <label>The reasonableness of data collection</label>
-                    not so much <input type="range" min="0" max="100" steps="10" data-weight="data_reasonable" onChange={this.saveWeight.bind(this)} /> very
-                </div>
-				<button onClick={this.done.bind(this)}><i className="fa fa-check"></i> Done</button>
+                    <label>To Facebook</label>
+                    not so much <input type="range" min="0" max="100" steps="10" data-weight="facebook" onChange={this.saveWeight.bind(this)} /> very
+                </div>>
+				<button onClick={this.done.bind(this)}><i className="fa fa-check"></i> Save</button>
 			</div>
 		);
 	}

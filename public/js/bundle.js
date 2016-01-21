@@ -204,7 +204,7 @@ var AddApp = (function (_React$Component) {
 exports["default"] = AddApp;
 module.exports = exports["default"];
 
-},{"../actions/AppActions":1,"../stores/AppStore":13,"./AutoComplete":6,"react":"react"}],4:[function(require,module,exports){
+},{"../actions/AppActions":1,"../stores/AppStore":14,"./AutoComplete":6,"react":"react"}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -526,7 +526,7 @@ var AppRow = (function (_React$Component) {
 exports["default"] = AppRow;
 module.exports = exports["default"];
 
-},{"../actions/AppActions":1,"../stores/AppStore":13,"react":"react"}],6:[function(require,module,exports){
+},{"../actions/AppActions":1,"../stores/AppStore":14,"react":"react"}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1066,6 +1066,19 @@ var Weights = (function (_React$Component) {
 		value: function done() {
 			Cookies.set("userWeights", this.state.weights);
 
+			// navigate to next screen
+			this.props.history.push({
+				"pathname": "/weights-personal-target",
+				"search": "",
+				"state": {}
+			});
+		}
+
+		// SKIP
+	}, {
+		key: "skip",
+		value: function skip() {
+
 			// navigate to home screen
 			this.props.history.push({
 				"pathname": "/apps",
@@ -1151,6 +1164,12 @@ var Weights = (function (_React$Component) {
 					{ onClick: this.done.bind(this) },
 					_react2["default"].createElement("i", { className: "fa fa-check" }),
 					" Done"
+				),
+				_react2["default"].createElement(
+					"button",
+					{ onClick: this.skip.bind(this) },
+					_react2["default"].createElement("i", { className: "fa fa-share" }),
+					" Skip"
 				)
 			);
 		}
@@ -1163,6 +1182,177 @@ exports["default"] = Weights;
 module.exports = exports["default"];
 
 },{"react":"react"}],11:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var Weights = (function (_React$Component) {
+	_inherits(Weights, _React$Component);
+
+	// CONSTRUCTOR
+
+	function Weights(props) {
+		_classCallCheck(this, Weights);
+
+		_get(Object.getPrototypeOf(Weights.prototype), "constructor", this).call(this, props);
+		this.state = {
+			"weights": {
+				"app provider": 0.3,
+				"advertisers / marketeers": 0.3,
+				"research projects": 0.1,
+				"facebook": 0.3
+			}
+		};
+	}
+
+	// COMPONENT DID MOUNT
+
+	_createClass(Weights, [{
+		key: "componentDidMount",
+		value: function componentDidMount() {
+			var defaultWeights = {
+				"app provider": 0.3,
+				"advertisers / marketeers": 0.3,
+				"research projects": 0.1,
+				"facebook": 0.3
+			};
+
+			for (var i in defaultWeights) {
+				$("[data-weight='" + i + "']").val(defaultWeights[i] * 100);
+			}
+		}
+
+		// SAVE WEIGHT
+	}, {
+		key: "saveWeight",
+		value: function saveWeight() {
+
+			// store all new weights
+			var sum = 0;
+			$("[data-weight]").each(function (i, el) {
+				var $el = $(el);
+				sum += parseInt($el.val());
+			});
+
+			var w = this.state.weights;
+			$("[data-weight]").each(function (i, el) {
+				var $el = $(el);
+				w[$el.data("weight")] = $el.val() / (sum / 100) / 100;
+			});
+
+			this.setState({
+				"weights": w
+			});
+		}
+
+		// DONE
+	}, {
+		key: "done",
+		value: function done() {
+			Cookies.set("userWeightsPersonalTarget", this.state.weights);
+
+			// navigate to home screen
+			this.props.history.push({
+				"pathname": "/apps",
+				"search": "",
+				"state": {}
+			});
+		}
+
+		// RENDER
+	}, {
+		key: "render",
+		value: function render() {
+			return _react2["default"].createElement(
+				"div",
+				{ className: "weights" },
+				_react2["default"].createElement(
+					"h2",
+					null,
+					"How important is the risk to you, where your personal data is potentionally sent?"
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "weight-row" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"The app provider"
+					),
+					"not so much ",
+					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "app provider", onChange: this.saveWeight.bind(this) }),
+					" very"
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "weight-row" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"To advertisers or marketing companies"
+					),
+					"not so much ",
+					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "advertisers / marketeers", onChange: this.saveWeight.bind(this) }),
+					" very"
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "weight-row" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"To research projects"
+					),
+					"not so much ",
+					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "research projects", onChange: this.saveWeight.bind(this) }),
+					" very"
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "weight-row" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"To Facebook"
+					),
+					"not so much ",
+					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "facebook", onChange: this.saveWeight.bind(this) }),
+					" very"
+				),
+				">",
+				_react2["default"].createElement(
+					"button",
+					{ onClick: this.done.bind(this) },
+					_react2["default"].createElement("i", { className: "fa fa-check" }),
+					" Save"
+				)
+			);
+		}
+	}]);
+
+	return Weights;
+})(_react2["default"].Component);
+
+exports["default"] = Weights;
+module.exports = exports["default"];
+
+},{"react":"react"}],12:[function(require,module,exports){
 "use strict";
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -1195,7 +1385,7 @@ _reactDom2["default"].render(_react2["default"].createElement(
   _routes2["default"]
 ), document.getElementById("app"));
 
-},{"./routes":12,"history/lib/createBrowserHistory":20,"react":"react","react-dom":"react-dom","react-router":"react-router"}],12:[function(require,module,exports){
+},{"./routes":13,"history/lib/createBrowserHistory":21,"react":"react","react-dom":"react-dom","react-router":"react-router"}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1222,6 +1412,10 @@ var _componentsWeights = require("./components/Weights");
 
 var _componentsWeights2 = _interopRequireDefault(_componentsWeights);
 
+var _componentsWeightsPersonalTarget = require("./components/WeightsPersonalTarget");
+
+var _componentsWeightsPersonalTarget2 = _interopRequireDefault(_componentsWeightsPersonalTarget);
+
 var _componentsImpressum = require("./components/Impressum");
 
 var _componentsImpressum2 = _interopRequireDefault(_componentsImpressum);
@@ -1231,11 +1425,12 @@ exports["default"] = _react2["default"].createElement(
 	{ component: _componentsApp2["default"] },
 	_react2["default"].createElement(_reactRouter.Route, { path: "/apps", component: _componentsHome2["default"] }),
 	_react2["default"].createElement(_reactRouter.Route, { path: "/impressum", component: _componentsImpressum2["default"] }),
-	_react2["default"].createElement(_reactRouter.Route, { path: "/", component: _componentsWeights2["default"] })
+	_react2["default"].createElement(_reactRouter.Route, { path: "/", component: _componentsWeights2["default"] }),
+	_react2["default"].createElement(_reactRouter.Route, { path: "/weights-personal-target", component: _componentsWeightsPersonalTarget2["default"] })
 );
 module.exports = exports["default"];
 
-},{"./components/App":4,"./components/Home":8,"./components/Impressum":9,"./components/Weights":10,"react":"react","react-router":"react-router"}],13:[function(require,module,exports){
+},{"./components/App":4,"./components/Home":8,"./components/Impressum":9,"./components/Weights":10,"./components/WeightsPersonalTarget":11,"react":"react","react-router":"react-router"}],14:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1304,7 +1499,7 @@ var AppStore = (function () {
 exports["default"] = _alt2["default"].createStore(AppStore);
 module.exports = exports["default"];
 
-},{"../actions/AppActions":1,"../alt":2}],14:[function(require,module,exports){
+},{"../actions/AppActions":1,"../alt":2}],15:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -1397,7 +1592,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 /**
  * Indicates that navigation was caused by a call to history.push.
  */
@@ -1429,7 +1624,7 @@ exports['default'] = {
   REPLACE: REPLACE,
   POP: POP
 };
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -1456,7 +1651,7 @@ function loopAsync(turns, work, callback) {
 
   next();
 }
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 (function (process){
 /*eslint-disable no-empty */
 'use strict';
@@ -1527,7 +1722,7 @@ function readState(key) {
   return null;
 }
 }).call(this,require('_process'))
-},{"_process":14,"warning":32}],18:[function(require,module,exports){
+},{"_process":15,"warning":33}],19:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -1608,13 +1803,13 @@ function supportsGoWithoutReloadUsingHash() {
   var ua = navigator.userAgent;
   return ua.indexOf('Firefox') === -1;
 }
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 exports.canUseDOM = canUseDOM;
-},{}],20:[function(require,module,exports){
+},{}],21:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1789,7 +1984,7 @@ function createBrowserHistory() {
 exports['default'] = createBrowserHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./Actions":15,"./DOMStateStorage":17,"./DOMUtils":18,"./ExecutionEnvironment":19,"./createDOMHistory":21,"_process":14,"invariant":31}],21:[function(require,module,exports){
+},{"./Actions":16,"./DOMStateStorage":18,"./DOMUtils":19,"./ExecutionEnvironment":20,"./createDOMHistory":22,"_process":15,"invariant":32}],22:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1832,7 +2027,7 @@ function createDOMHistory(options) {
 exports['default'] = createDOMHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./DOMUtils":18,"./ExecutionEnvironment":19,"./createHistory":22,"_process":14,"invariant":31}],22:[function(require,module,exports){
+},{"./DOMUtils":19,"./ExecutionEnvironment":20,"./createHistory":23,"_process":15,"invariant":32}],23:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -2108,7 +2303,7 @@ function createHistory() {
 
 exports['default'] = createHistory;
 module.exports = exports['default'];
-},{"./Actions":15,"./AsyncUtils":16,"./createLocation":23,"./deprecate":24,"./parsePath":26,"./runTransitionHook":27,"deep-equal":28}],23:[function(require,module,exports){
+},{"./Actions":16,"./AsyncUtils":17,"./createLocation":24,"./deprecate":25,"./parsePath":27,"./runTransitionHook":28,"deep-equal":29}],24:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -2148,7 +2343,7 @@ function createLocation() {
 
 exports['default'] = createLocation;
 module.exports = exports['default'];
-},{"./Actions":15,"./parsePath":26}],24:[function(require,module,exports){
+},{"./Actions":16,"./parsePath":27}],25:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2170,7 +2365,7 @@ function deprecate(fn, message) {
 exports['default'] = deprecate;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"_process":14,"warning":32}],25:[function(require,module,exports){
+},{"_process":15,"warning":33}],26:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -2184,7 +2379,7 @@ function extractPath(string) {
 
 exports["default"] = extractPath;
 module.exports = exports["default"];
-},{}],26:[function(require,module,exports){
+},{}],27:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2231,7 +2426,7 @@ function parsePath(path) {
 exports['default'] = parsePath;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./extractPath":25,"_process":14,"warning":32}],27:[function(require,module,exports){
+},{"./extractPath":26,"_process":15,"warning":33}],28:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2258,7 +2453,7 @@ function runTransitionHook(hook, location, callback) {
 exports['default'] = runTransitionHook;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"_process":14,"warning":32}],28:[function(require,module,exports){
+},{"_process":15,"warning":33}],29:[function(require,module,exports){
 var pSlice = Array.prototype.slice;
 var objectKeys = require('./lib/keys.js');
 var isArguments = require('./lib/is_arguments.js');
@@ -2354,7 +2549,7 @@ function objEquiv(a, b, opts) {
   return typeof a === typeof b;
 }
 
-},{"./lib/is_arguments.js":29,"./lib/keys.js":30}],29:[function(require,module,exports){
+},{"./lib/is_arguments.js":30,"./lib/keys.js":31}],30:[function(require,module,exports){
 var supportsArgumentsClass = (function(){
   return Object.prototype.toString.call(arguments)
 })() == '[object Arguments]';
@@ -2376,7 +2571,7 @@ function unsupported(object){
     false;
 };
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 exports = module.exports = typeof Object.keys === 'function'
   ? Object.keys : shim;
 
@@ -2387,7 +2582,7 @@ function shim (obj) {
   return keys;
 }
 
-},{}],31:[function(require,module,exports){
+},{}],32:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -2442,7 +2637,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":14}],32:[function(require,module,exports){
+},{"_process":15}],33:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -2506,4 +2701,4 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = warning;
 
 }).call(this,require('_process'))
-},{"_process":14}]},{},[11]);
+},{"_process":15}]},{},[12]);

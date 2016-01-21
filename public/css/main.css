@@ -123,6 +123,7 @@ body, html {
 
 .influence-cell {
   text-decoration: underline;
+  text-decoration-style: dotted;
 }
 
 .fa-influence {
@@ -227,7 +228,7 @@ a {
 .weight-row label {
   display:block;
   color:#333;
-  font-size:1em!important;
+  font-size:1.1em!important;
   margin-bottom:10px;
 }
 

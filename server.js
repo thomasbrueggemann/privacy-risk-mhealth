@@ -63,7 +63,14 @@ app.get("/api/idx/:id", function(req, res) {
 	// the cookie would look like this:
 	// { "security": 0.1, "personal_target": 0.4, "category": 0.35, "unspecific_target": 0.1, "data_reasonable": 0.05 }
 	var userWeights = (req.cookies.userWeights) ? JSON.parse(req.cookies.userWeights) : privacyIdx.defaultWeights;
-	var cacheKey = crypto.createHash("md5").update(JSON.stringify(userWeights)).digest("hex");
+	var userWeightsPersonalTarget = (req.cookies.userWeightsPersonalTarget) ? JSON.parse(req.cookies.userWeightsPersonalTarget) : privacyIdx.personalTargetWeights;
+	var userWeightsCategory = (req.cookies.userWeightsCategory) ? JSON.parse(req.cookies.userWeightsCategory) : privacyIdx.categoryWeights;
+
+	var cacheKey = crypto.createHash("md5").update(
+		JSON.stringify(userWeights) +
+		JSON.stringify(userWeightsPersonalTarget) +
+		JSON.stringify(userWeightsCategory)
+	).digest("hex");
 
 	// data is in cache
 	if(!(cacheKey in userCache)) {

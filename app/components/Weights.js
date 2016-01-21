@@ -1,4 +1,5 @@
 import React from "react";
+import { Link } from "react-router";
 
 class Weights extends React.Component {
 
@@ -64,17 +65,6 @@ class Weights extends React.Component {
 	  	});
 	}
 
-	// SKIP
-	skip() {
-		
-		// navigate to home screen
-		this.props.history.push({
-			"pathname": "/apps",
-		  	"search": "",
-		  	"state": {}
-	  	});
-	}
-
 	// RENDER
 	render() {
 		return (
@@ -100,8 +90,9 @@ class Weights extends React.Component {
                     <label>The reasonableness of data collection</label>
                     not so much <input type="range" min="0" max="100" steps="10" data-weight="data_reasonable" onChange={this.saveWeight.bind(this)} /> very
                 </div>
-				<button onClick={this.done.bind(this)}><i className="fa fa-check"></i> Done</button>
-				<button onClick={this.skip.bind(this)}><i className="fa fa-share"></i> Skip</button>
+				<button onClick={this.done.bind(this)}><i className="fa fa-check"></i> Save</button>
+				&nbsp;or&nbsp;
+				<Link to={"/apps"}><i className="fa fa-share"></i> Skip the weighting</Link>
 			</div>
 		);
 	}

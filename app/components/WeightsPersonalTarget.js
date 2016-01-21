@@ -1,6 +1,7 @@
 import React from "react";
+import { Link } from "react-router";
 
-class Weights extends React.Component {
+class WeightsPersonalTarget extends React.Component {
 
 	// CONSTRUCTOR
 	constructor(props) {
@@ -12,7 +13,7 @@ class Weights extends React.Component {
 			    "research projects": 0.1,
 			    "facebook": 0.3
 			}
-		}
+		};
 	}
 
 	// COMPONENT DID MOUNT
@@ -56,7 +57,7 @@ class Weights extends React.Component {
 
 		// navigate to home screen
 		this.props.history.push({
-			"pathname": "/apps",
+			"pathname": "/weights-category",
 		  	"search": "",
 		  	"state": {}
 	  	});
@@ -82,11 +83,13 @@ class Weights extends React.Component {
                 <div className="weight-row">
                     <label>To Facebook</label>
                     not so much <input type="range" min="0" max="100" steps="10" data-weight="facebook" onChange={this.saveWeight.bind(this)} /> very
-                </div>>
+                </div>
 				<button onClick={this.done.bind(this)}><i className="fa fa-check"></i> Save</button>
+				&nbsp;or&nbsp;
+				<Link to={"/apps"}><i className="fa fa-share"></i> Skip the weighting</Link>
 			</div>
 		);
 	}
 }
 
-export default Weights;
+export default WeightsPersonalTarget;

@@ -275,7 +275,7 @@ var App = (function (_React$Component) {
 				_react2["default"].createElement(
 					"div",
 					{ className: "footer" },
-					"© 2016  ",
+					"© 2016 · ",
 					_react2["default"].createElement(
 						_reactRouter.Link,
 						{ to: "/impressum" },

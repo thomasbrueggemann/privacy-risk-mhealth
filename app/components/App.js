@@ -19,7 +19,7 @@ class App extends React.Component {
 				{this.props.children}
 
 				<div className="footer">
-					&copy; 2016 &nbsp;
+					&copy; 2016&nbsp;&middot;&nbsp;
 					<Link to={"/impressum"}>Impressum</Link>
 				</div>
 			</div>

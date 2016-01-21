@@ -292,8 +292,9 @@ button:active {
   font-size: 0.9em;
   padding:30px 20px 0 20px;
   margin-top:50px;
+  color:#aaa;
 }
 
 .footer a {
-  color:#555;
+  color:#aaa;
 }

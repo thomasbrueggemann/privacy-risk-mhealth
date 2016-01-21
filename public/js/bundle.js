@@ -204,7 +204,7 @@ var AddApp = (function (_React$Component) {
 exports["default"] = AddApp;
 module.exports = exports["default"];
 
-},{"../actions/AppActions":1,"../stores/AppStore":12,"./AutoComplete":6,"react":"react"}],4:[function(require,module,exports){
+},{"../actions/AppActions":1,"../stores/AppStore":13,"./AutoComplete":6,"react":"react"}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -229,6 +229,8 @@ var _AddApp = require("./AddApp");
 
 var _AddApp2 = _interopRequireDefault(_AddApp);
 
+var _reactRouter = require("react-router");
+
 var App = (function (_React$Component) {
 	_inherits(App, _React$Component);
 
@@ -248,24 +250,38 @@ var App = (function (_React$Component) {
 					"div",
 					{ className: "header" },
 					_react2["default"].createElement(
-						"div",
-						{ className: "logo" },
-						_react2["default"].createElement("img", { src: "/img/logo.png" })
-					),
-					_react2["default"].createElement(
-						"div",
-						{ className: "title" },
-						"Privacy Index for m",
+						_reactRouter.Link,
+						{ to: "/" },
 						_react2["default"].createElement(
-							"b",
-							null,
-							"Health"
+							"div",
+							{ className: "logo" },
+							_react2["default"].createElement("img", { src: "/img/logo.png" })
 						),
-						" Apps"
+						_react2["default"].createElement(
+							"div",
+							{ className: "title" },
+							"Privacy Index for m",
+							_react2["default"].createElement(
+								"b",
+								null,
+								"Health"
+							),
+							" Apps"
+						)
 					),
 					_react2["default"].createElement(_AddApp2["default"], null)
 				),
-				this.props.children
+				this.props.children,
+				_react2["default"].createElement(
+					"div",
+					{ className: "footer" },
+					"© 2016  ",
+					_react2["default"].createElement(
+						_reactRouter.Link,
+						{ to: "/impressum" },
+						"Impressum"
+					)
+				)
 			);
 		}
 	}]);
@@ -276,7 +292,7 @@ var App = (function (_React$Component) {
 exports["default"] = App;
 module.exports = exports["default"];
 
-},{"./AddApp":3,"react":"react"}],5:[function(require,module,exports){
+},{"./AddApp":3,"react":"react","react-router":"react-router"}],5:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -510,7 +526,7 @@ var AppRow = (function (_React$Component) {
 exports["default"] = AppRow;
 module.exports = exports["default"];
 
-},{"../actions/AppActions":1,"../stores/AppStore":12,"react":"react"}],6:[function(require,module,exports){
+},{"../actions/AppActions":1,"../stores/AppStore":13,"react":"react"}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -832,6 +848,140 @@ module.exports = exports["default"];
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
+var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
+
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+function _inherits(subClass, superClass) { if (typeof superClass !== "function" && superClass !== null) { throw new TypeError("Super expression must either be null or a function, not " + typeof superClass); } subClass.prototype = Object.create(superClass && superClass.prototype, { constructor: { value: subClass, enumerable: false, writable: true, configurable: true } }); if (superClass) Object.setPrototypeOf ? Object.setPrototypeOf(subClass, superClass) : subClass.__proto__ = superClass; }
+
+var _react = require("react");
+
+var _react2 = _interopRequireDefault(_react);
+
+var _AddApp = require("./AddApp");
+
+var _AddApp2 = _interopRequireDefault(_AddApp);
+
+var Impressum = (function (_React$Component) {
+  _inherits(Impressum, _React$Component);
+
+  function Impressum() {
+    _classCallCheck(this, Impressum);
+
+    _get(Object.getPrototypeOf(Impressum.prototype), "constructor", this).apply(this, arguments);
+  }
+
+  _createClass(Impressum, [{
+    key: "render",
+    value: function render() {
+      return _react2["default"].createElement(
+        "div",
+        { className: "weights" },
+        _react2["default"].createElement(
+          "h2",
+          null,
+          "Impressum"
+        ),
+        _react2["default"].createElement(
+          "p",
+          null,
+          "The following information (Impressum) is required under German law."
+        ),
+        _react2["default"].createElement(
+          "p",
+          null,
+          "Responsible for this site:"
+        ),
+        _react2["default"].createElement(
+          "p",
+          null,
+          _react2["default"].createElement(
+            "span",
+            { className: "reverse" },
+            "nnameggürB samohT"
+          ),
+          _react2["default"].createElement("br", null),
+          _react2["default"].createElement(
+            "span",
+            { className: "reverse" },
+            "51 eßartsreliewtdiehcS"
+          ),
+          _react2["default"].createElement("br", null),
+          _react2["default"].createElement(
+            "span",
+            { className: "reverse" },
+            "nlöK 33905"
+          ),
+          _react2["default"].createElement("br", null)
+        ),
+        _react2["default"].createElement(
+          "p",
+          null,
+          _react2["default"].createElement(
+            "span",
+            { className: "reverse" },
+            "nesnaH leoJ"
+          ),
+          _react2["default"].createElement("br", null),
+          _react2["default"].createElement(
+            "span",
+            { className: "reverse" },
+            "53 .rtsnellepaK"
+          ),
+          _react2["default"].createElement("br", null),
+          _react2["default"].createElement(
+            "span",
+            { className: "reverse" },
+            "nehcaA 66025"
+          ),
+          _react2["default"].createElement("br", null)
+        ),
+        _react2["default"].createElement(
+          "h3",
+          null,
+          "Legal disclaimer"
+        ),
+        _react2["default"].createElement(
+          "p",
+          null,
+          "The creators of this website cannot assume liability for the timeless accuracy and completeness of the information. This website contains links to external websites. As the contents of these third-party websites are beyond my control, I cannot accept liability for them. ResponsibiIity for the contents of the linked pages is always held by the provider or operator of the pages."
+        ),
+        _react2["default"].createElement(
+          "h3",
+          null,
+          "Data protection"
+        ),
+        _react2["default"].createElement(
+          "p",
+          null,
+          "In general, when visiting the website of “Privacy Index for mHealth Apps”, no personal data are saved. No data will be passed on to third parties without your consent. We point out that in regard to unsecured data transmission in the internet (e.g. via email), security cannot be guaranteed. Such data could possibIy be accessed by third parties."
+        ),
+        _react2["default"].createElement(
+          "p",
+          null,
+          " "
+        )
+      );
+    }
+  }]);
+
+  return Impressum;
+})(_react2["default"].Component);
+
+exports["default"] = Impressum;
+module.exports = exports["default"];
+
+},{"./AddApp":3,"react":"react"}],10:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
@@ -1012,7 +1162,7 @@ var Weights = (function (_React$Component) {
 exports["default"] = Weights;
 module.exports = exports["default"];
 
-},{"react":"react"}],10:[function(require,module,exports){
+},{"react":"react"}],11:[function(require,module,exports){
 "use strict";
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -1045,7 +1195,7 @@ _reactDom2["default"].render(_react2["default"].createElement(
   _routes2["default"]
 ), document.getElementById("app"));
 
-},{"./routes":11,"history/lib/createBrowserHistory":19,"react":"react","react-dom":"react-dom","react-router":"react-router"}],11:[function(require,module,exports){
+},{"./routes":12,"history/lib/createBrowserHistory":20,"react":"react","react-dom":"react-dom","react-router":"react-router"}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1072,15 +1222,20 @@ var _componentsWeights = require("./components/Weights");
 
 var _componentsWeights2 = _interopRequireDefault(_componentsWeights);
 
+var _componentsImpressum = require("./components/Impressum");
+
+var _componentsImpressum2 = _interopRequireDefault(_componentsImpressum);
+
 exports["default"] = _react2["default"].createElement(
 	_reactRouter.Route,
 	{ component: _componentsApp2["default"] },
 	_react2["default"].createElement(_reactRouter.Route, { path: "/apps", component: _componentsHome2["default"] }),
+	_react2["default"].createElement(_reactRouter.Route, { path: "/impressum", component: _componentsImpressum2["default"] }),
 	_react2["default"].createElement(_reactRouter.Route, { path: "/", component: _componentsWeights2["default"] })
 );
 module.exports = exports["default"];
 
-},{"./components/App":4,"./components/Home":8,"./components/Weights":9,"react":"react","react-router":"react-router"}],12:[function(require,module,exports){
+},{"./components/App":4,"./components/Home":8,"./components/Impressum":9,"./components/Weights":10,"react":"react","react-router":"react-router"}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1149,7 +1304,7 @@ var AppStore = (function () {
 exports["default"] = _alt2["default"].createStore(AppStore);
 module.exports = exports["default"];
 
-},{"../actions/AppActions":1,"../alt":2}],13:[function(require,module,exports){
+},{"../actions/AppActions":1,"../alt":2}],14:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -1242,7 +1397,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],14:[function(require,module,exports){
+},{}],15:[function(require,module,exports){
 /**
  * Indicates that navigation was caused by a call to history.push.
  */
@@ -1274,7 +1429,7 @@ exports['default'] = {
   REPLACE: REPLACE,
   POP: POP
 };
-},{}],15:[function(require,module,exports){
+},{}],16:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -1301,7 +1456,7 @@ function loopAsync(turns, work, callback) {
 
   next();
 }
-},{}],16:[function(require,module,exports){
+},{}],17:[function(require,module,exports){
 (function (process){
 /*eslint-disable no-empty */
 'use strict';
@@ -1372,7 +1527,7 @@ function readState(key) {
   return null;
 }
 }).call(this,require('_process'))
-},{"_process":13,"warning":31}],17:[function(require,module,exports){
+},{"_process":14,"warning":32}],18:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -1453,13 +1608,13 @@ function supportsGoWithoutReloadUsingHash() {
   var ua = navigator.userAgent;
   return ua.indexOf('Firefox') === -1;
 }
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 exports.canUseDOM = canUseDOM;
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1634,7 +1789,7 @@ function createBrowserHistory() {
 exports['default'] = createBrowserHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./Actions":14,"./DOMStateStorage":16,"./DOMUtils":17,"./ExecutionEnvironment":18,"./createDOMHistory":20,"_process":13,"invariant":30}],20:[function(require,module,exports){
+},{"./Actions":15,"./DOMStateStorage":17,"./DOMUtils":18,"./ExecutionEnvironment":19,"./createDOMHistory":21,"_process":14,"invariant":31}],21:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -1677,7 +1832,7 @@ function createDOMHistory(options) {
 exports['default'] = createDOMHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./DOMUtils":17,"./ExecutionEnvironment":18,"./createHistory":21,"_process":13,"invariant":30}],21:[function(require,module,exports){
+},{"./DOMUtils":18,"./ExecutionEnvironment":19,"./createHistory":22,"_process":14,"invariant":31}],22:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -1953,7 +2108,7 @@ function createHistory() {
 
 exports['default'] = createHistory;
 module.exports = exports['default'];
-},{"./Actions":14,"./AsyncUtils":15,"./createLocation":22,"./deprecate":23,"./parsePath":25,"./runTransitionHook":26,"deep-equal":27}],22:[function(require,module,exports){
+},{"./Actions":15,"./AsyncUtils":16,"./createLocation":23,"./deprecate":24,"./parsePath":26,"./runTransitionHook":27,"deep-equal":28}],23:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -1993,7 +2148,7 @@ function createLocation() {
 
 exports['default'] = createLocation;
 module.exports = exports['default'];
-},{"./Actions":14,"./parsePath":25}],23:[function(require,module,exports){
+},{"./Actions":15,"./parsePath":26}],24:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2015,7 +2170,7 @@ function deprecate(fn, message) {
 exports['default'] = deprecate;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"_process":13,"warning":31}],24:[function(require,module,exports){
+},{"_process":14,"warning":32}],25:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -2029,7 +2184,7 @@ function extractPath(string) {
 
 exports["default"] = extractPath;
 module.exports = exports["default"];
-},{}],25:[function(require,module,exports){
+},{}],26:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2076,7 +2231,7 @@ function parsePath(path) {
 exports['default'] = parsePath;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./extractPath":24,"_process":13,"warning":31}],26:[function(require,module,exports){
+},{"./extractPath":25,"_process":14,"warning":32}],27:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2103,7 +2258,7 @@ function runTransitionHook(hook, location, callback) {
 exports['default'] = runTransitionHook;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"_process":13,"warning":31}],27:[function(require,module,exports){
+},{"_process":14,"warning":32}],28:[function(require,module,exports){
 var pSlice = Array.prototype.slice;
 var objectKeys = require('./lib/keys.js');
 var isArguments = require('./lib/is_arguments.js');
@@ -2199,7 +2354,7 @@ function objEquiv(a, b, opts) {
   return typeof a === typeof b;
 }
 
-},{"./lib/is_arguments.js":28,"./lib/keys.js":29}],28:[function(require,module,exports){
+},{"./lib/is_arguments.js":29,"./lib/keys.js":30}],29:[function(require,module,exports){
 var supportsArgumentsClass = (function(){
   return Object.prototype.toString.call(arguments)
 })() == '[object Arguments]';
@@ -2221,7 +2376,7 @@ function unsupported(object){
     false;
 };
 
-},{}],29:[function(require,module,exports){
+},{}],30:[function(require,module,exports){
 exports = module.exports = typeof Object.keys === 'function'
   ? Object.keys : shim;
 
@@ -2232,7 +2387,7 @@ function shim (obj) {
   return keys;
 }
 
-},{}],30:[function(require,module,exports){
+},{}],31:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -2287,7 +2442,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":13}],31:[function(require,module,exports){
+},{"_process":14}],32:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -2351,4 +2506,4 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = warning;
 
 }).call(this,require('_process'))
-},{"_process":13}]},{},[10]);
+},{"_process":14}]},{},[11]);

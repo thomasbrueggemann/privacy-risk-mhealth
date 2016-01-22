@@ -96,7 +96,7 @@ app.get("/api/idx/:id", function(req, res) {
 
 			// find other apps with same archetype
 			var other = userCache[cacheKey].filter(function(item) {
-				return item.archetype === app.archetype && item.id !== app.id;
+				return item.archetype == app.archetype;
 			});
 
 			// find minimum privacy index for other apps

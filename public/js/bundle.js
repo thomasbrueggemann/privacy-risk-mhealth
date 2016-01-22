@@ -245,6 +245,9 @@ var App = (function (_React$Component) {
 	_createClass(App, [{
 		key: "render",
 		value: function render() {
+
+			console.log();
+
 			return _react2["default"].createElement(
 				"div",
 				{ className: "mhealth" },
@@ -283,7 +286,7 @@ var App = (function (_React$Component) {
 						_react2["default"].createElement("i", { className: "fa fa-gavel" }),
 						" Impressum"
 					),
-					_react2["default"].createElement(_AddApp2["default"], null)
+					this.props.history.isActive("/apps") === true ? _react2["default"].createElement(_AddApp2["default"], null) : null
 				),
 				this.props.children
 			);

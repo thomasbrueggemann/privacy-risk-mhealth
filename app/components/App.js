@@ -5,6 +5,9 @@ import { Link } from "react-router";
 class App extends React.Component {
 
 	render() {
+
+		console.log();
+
 		return (
 			<div className="mhealth">
 
@@ -16,7 +19,7 @@ class App extends React.Component {
 
 		            <Link to={"/"}><i className="fa fa-sliders"></i> Weight Settings</Link>
 					<Link to={"/impressum"}><i className="fa fa-gavel"></i> Impressum</Link>
-					<AddApp />
+					{(this.props.history.isActive("/apps") === true) ? <AddApp /> : null}
 				</div>
 
 				{this.props.children}

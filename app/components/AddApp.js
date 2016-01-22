@@ -2,6 +2,7 @@ import React from "react";
 import AutoComplete from "./AutoComplete";
 import AppStore from "../stores/AppStore";
 import AppActions from "../actions/AppActions";
+import { Link } from "react-router";
 
 class AddApp extends React.Component {
 

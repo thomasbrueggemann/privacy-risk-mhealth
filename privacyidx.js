@@ -1,5 +1,9 @@
 var fs = require("fs");
 var csv = require("fast-csv");
+var jsonfile = require("jsonfile");
+
+// load archetypes
+var archetypes = jsonfile.readFileSync("archetypes.json");
 
 var ratings = [];
 var original = [];
@@ -190,6 +194,7 @@ function performRating(data, weights) {
             if(idx > maxRating) maxRating = idx;
         }
 
+		rating.archetype = (archetypes[rating.id]) ? archetypes[rating.id] : null;
         rating.privacy_index = parseFloat(idx);
         rating.privacy_index_confidence = 1 - multiplier.rating_source;
 

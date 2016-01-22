@@ -9,19 +9,17 @@ class App extends React.Component {
 			<div className="mhealth">
 
 				<div className="header">
-					<Link to={"/"}>
+					<Link to={"/apps"}>
 						<div className="logo"><img src="/img/logo.png" /></div>
 						<div className="title">Privacy Index for m<b>Health</b> Apps</div>
 					</Link>
+
+		            <Link to={"/"}><i className="fa fa-sliders"></i> Weight Settings</Link>
+					<Link to={"/impressum"}><i className="fa fa-gavel"></i> Impressum</Link>
 					<AddApp />
 				</div>
 
 				{this.props.children}
-
-				<div className="footer">
-					&copy; 2016&nbsp;&middot;&nbsp;
-					<Link to={"/impressum"}>Impressum</Link>
-				</div>
 			</div>
 		);
 	}

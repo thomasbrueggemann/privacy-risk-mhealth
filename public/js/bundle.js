@@ -115,6 +115,8 @@ var _actionsAppActions = require("../actions/AppActions");
 
 var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
 
+var _reactRouter = require("react-router");
+
 var AddApp = (function (_React$Component) {
     _inherits(AddApp, _React$Component);
 
@@ -204,7 +206,7 @@ var AddApp = (function (_React$Component) {
 exports["default"] = AddApp;
 module.exports = exports["default"];
 
-},{"../actions/AppActions":1,"../stores/AppStore":15,"./AutoComplete":6,"react":"react"}],4:[function(require,module,exports){
+},{"../actions/AppActions":1,"../stores/AppStore":15,"./AutoComplete":6,"react":"react","react-router":"react-router"}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -251,7 +253,7 @@ var App = (function (_React$Component) {
 					{ className: "header" },
 					_react2["default"].createElement(
 						_reactRouter.Link,
-						{ to: "/" },
+						{ to: "/apps" },
 						_react2["default"].createElement(
 							"div",
 							{ className: "logo" },
@@ -269,19 +271,21 @@ var App = (function (_React$Component) {
 							" Apps"
 						)
 					),
-					_react2["default"].createElement(_AddApp2["default"], null)
-				),
-				this.props.children,
-				_react2["default"].createElement(
-					"div",
-					{ className: "footer" },
-					"© 2016 · ",
+					_react2["default"].createElement(
+						_reactRouter.Link,
+						{ to: "/" },
+						_react2["default"].createElement("i", { className: "fa fa-sliders" }),
+						" Weight Settings"
+					),
 					_react2["default"].createElement(
 						_reactRouter.Link,
 						{ to: "/impressum" },
-						"Impressum"
-					)
-				)
+						_react2["default"].createElement("i", { className: "fa fa-gavel" }),
+						" Impressum"
+					),
+					_react2["default"].createElement(_AddApp2["default"], null)
+				),
+				this.props.children
 			);
 		}
 	}]);
@@ -831,7 +835,8 @@ var Home = (function (_React$Component) {
 					_react2["default"].createElement(
 						"div",
 						{ className: "infotext" },
-						"Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!"
+						_react2["default"].createElement("i", { className: "fa fa-search" }),
+						" Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!"
 					)
 				);
 			}

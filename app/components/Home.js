@@ -86,7 +86,7 @@ class Home extends React.Component {
 			return (
 				<div className="intro">
 					<div className="arrow"><img width="150" src="img/arrow.png" /></div>
-					<div className="infotext">Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!</div>
+					<div className="infotext"><i className="fa fa-search"></i> Search for an app that we have reviewed and rated to compare it's privacy risk index to other apps!</div>
 				</div>
 			);
 		}

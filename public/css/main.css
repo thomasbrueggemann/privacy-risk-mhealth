@@ -23,6 +23,17 @@ body, html {
   z-index:9999;
 }
 
+.header a {
+  margin-left:30px;
+  top:30px;
+  color:#ECE9E4;
+  position:relative;
+  text-decoration: none;
+}
+.header a:hover {
+  text-decoration: underline;
+}
+
 .logo img {
   height:80px;
 }
@@ -287,17 +298,4 @@ button:active {
     unicode-bidi: bidi-override;
     direction: rtl;
     text-align: left;
-}
-
-.footer {
-  height:50px;
-  text-align: left;
-  font-size: 0.9em;
-  padding:30px 20px 0 20px;
-  margin-top:50px;
-  color:#aaa;
-}
-
-.footer a {
-  color:#aaa;
 }

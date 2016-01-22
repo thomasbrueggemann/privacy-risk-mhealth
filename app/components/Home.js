@@ -60,6 +60,7 @@ class Home extends React.Component {
 					<div className="app-header">
 						<div className="app-cell">Name <i className="fa fa-tag fa-lg fa-fw"></i></div>
 						<div className="app-cell">Store <i className="fa fa-link fa-lg fa-fw"></i></div>
+						<div className="app-cell tooltip" title="The type of app">Type  <i className="fa fa-cube fa-lg fa-fw"></i></div>
 						<div className="app-cell tooltip" title="From 0 to 100. The higher the riskier!">Privacy risk index <i className="fa fa-trophy fa-lg fa-fw"></i></div>
 						<div className="app-cell tooltip" title="From 0 to 100. The higher the more confident are we with the rating of the risk index calculation.">Rating confidence <i className="fa fa-percent fa-lg fa-fw"></i></div>
 						<div className="app-cell tooltip" title="What kind of personal data you have to enter">Personal data collected <i className="fa fa-user fa-lg fa-fw"></i></div>

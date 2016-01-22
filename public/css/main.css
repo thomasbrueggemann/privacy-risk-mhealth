@@ -34,6 +34,10 @@ body, html {
   text-decoration: underline;
 }
 
+.text-bold {
+	font-weight: bold;
+}
+
 .logo img {
   height:80px;
 }
@@ -198,9 +202,34 @@ a {
 .idx {
   font-weight: bolder;
   font-size: 3em;
-  display: block;
   position: relative;
-  margin-top: -20px;
+  top: -20px;
+	background: #e1ded9;
+  padding: 0 15px 0 15px;
+	text-align: center;
+}
+
+.idx_min, .idx_max {
+	color:#888;
+	font-size: 1.2em;
+}
+
+.idx_min {
+	float:left;
+	margin-left:20px;
+}
+
+.idx_max {
+	float:right;
+	margin-right: 20px;
+}
+
+.idx_line {
+	border-bottom: 1px solid #888;
+	width: 200px;
+	position: absolute;
+	margin-left: -60px;
+	margin-top: -10px;
 }
 
 .idx_red {
@@ -244,6 +273,7 @@ a {
 }
 
 button {
+	cursor: pointer;
   background-image: url("../img/bg.png");
   background-repeat: repeat;
   border:0px solid #FFF;

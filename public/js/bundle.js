@@ -355,6 +355,7 @@ var AppRow = (function (_React$Component) {
             // get index
             _actionsAppActions2["default"].getIndex(this.props.app.id);
 
+            // tooltip
             $(".influence-cell").children().tooltipster({
                 "position": "top",
                 "content": "This factor has the most influence on the privacy risk index"
@@ -373,6 +374,40 @@ var AppRow = (function (_React$Component) {
         key: "onChange",
         value: function onChange(state) {
             this.setState(state);
+        }
+
+        // MAP ARCHETYPE
+    }, {
+        key: "mapArchetype",
+        value: function mapArchetype(type) {
+            switch (type) {
+                case 1:
+                    return "Casual Tool";
+                case 2:
+                    return "Common Knowledge Provider";
+                case 3:
+                    return "Treatment Guide";
+                case 4:
+                    return "Fitness Ad-Hoc Tool";
+                case 5:
+                    return "Fitness Tracker";
+                case 6:
+                    return "Treatment Support Tool";
+                case 7:
+                    return "Intimate Ad-Hoc Tool";
+                case 8:
+                    return "State of Health Test";
+                case 9:
+                    return "Intimate Tracker";
+                case 10:
+                    return "Health Monitor";
+                case 11:
+                    return "Treatment Reminder";
+                case 12:
+                    return "Health Record";
+                default:
+                    return "-";
+            }
         }
 
         // RENDER
@@ -399,8 +434,10 @@ var AppRow = (function (_React$Component) {
                 store_icon = _react2["default"].createElement("i", { className: "fa fa-android fa-fw" });
             }
 
+            if (!this.state.idx[this.props.app.id]) return null;
+
             // fetch index
-            this.props.app.privacy_index = this.state.idx[this.props.app.id];
+            this.props.app.privacy_index = this.state.idx[this.props.app.id].idx;
 
             // determine idx color
             var idx_class = "idx";
@@ -447,10 +484,30 @@ var AppRow = (function (_React$Component) {
                 secureCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
             }
 
+            console.log(this.state.idx[this.props.app.id].continuum);
+
+            var min = null;
+            if (this.state.idx[this.props.app.id].continuum.min !== null) {
+                min = _react2["default"].createElement(
+                    "span",
+                    { className: "idx_min" },
+                    this.state.idx[this.props.app.id].continuum.min
+                );
+            }
+
+            var max = null;
+            if (this.state.idx[this.props.app.id].continuum.max !== null) {
+                max = _react2["default"].createElement(
+                    "span",
+                    { className: "idx_max" },
+                    this.state.idx[this.props.app.id].continuum.max
+                );
+            }
+
             return _react2["default"].createElement(
                 "div",
                 { className: "app", id: "app" + this.props.app.id },
-                _react2["default"].createElement("div", { className: "app-cell", dangerouslySetInnerHTML: { __html: this.props.app.name } }),
+                _react2["default"].createElement("div", { className: "app-cell text-bold", dangerouslySetInnerHTML: { __html: this.props.app.name } }),
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
@@ -464,11 +521,23 @@ var AppRow = (function (_React$Component) {
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
+                    this.mapArchetype(this.props.app.archetype)
+                ),
+                _react2["default"].createElement(
+                    "div",
+                    { className: "app-cell" },
+                    _react2["default"].createElement(
+                        "span",
+                        { className: "idx_line" },
+                        " "
+                    ),
+                    min,
                     _react2["default"].createElement(
                         "span",
                         { className: idx_class },
                         this.props.app.privacy_index
-                    )
+                    ),
+                    max
                 ),
                 _react2["default"].createElement(
                     "div",
@@ -759,6 +828,12 @@ var Home = (function (_React$Component) {
 							{ className: "app-cell" },
 							"Store ",
 							_react2["default"].createElement("i", { className: "fa fa-link fa-lg fa-fw" })
+						),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-cell tooltip", title: "The type of app" },
+							"Type  ",
+							_react2["default"].createElement("i", { className: "fa fa-cube fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
@@ -1797,7 +1872,7 @@ var AppStore = (function () {
   }, {
     key: "getIndexSuccess",
     value: function getIndexSuccess(data) {
-      this.idx[data.id] = data.idx;
+      this.idx[data.id] = data;
       this.apps = [];
     }
 

@@ -22,7 +22,7 @@ class AppStore {
 
 	// GET INDEX SUCCESS
 	getIndexSuccess(data) {
-    	this.idx[data.id] = data.idx;
+    	this.idx[data.id] = data;
 		this.apps = [];
   	}
 

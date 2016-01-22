@@ -87,9 +87,36 @@ app.get("/api/idx/:id", function(req, res) {
 	// return the privacy index
 	if(filteredApp.length > 0) {
 
+		var app = filteredApp[0];
+		var min_idx = null;
+		var max_idx = null;
+
+		// find archetype continuum
+		if(app.archetype) {
+
+			// find other apps with same archetype
+			var other = userCache[cacheKey].filter(function(item) {
+				return item.archetype === app.archetype && item.id !== app.id;
+			});
+
+			// find minimum privacy index for other apps
+			min_idx = Math.min.apply(Math, other.map(function(item) {
+				return item.privacy_index;
+			}));
+
+			// find maximum privacy index for other apps
+			max_idx = Math.max.apply(Math, other.map(function(item) {
+				return item.privacy_index;
+			}));
+		}
+
 		return res.send({
 			"id": parseInt(req.params.id),
-			"idx": filteredApp[0].privacy_index
+			"idx": app.privacy_index,
+			"continuum": {
+				"min": min_idx,
+				"max": max_idx
+			}
 		});
 	}
 	else {

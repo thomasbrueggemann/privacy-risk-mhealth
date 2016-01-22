@@ -23,6 +23,7 @@ class AppRow extends React.Component {
         // get index
         AppActions.getIndex(this.props.app.id);
 
+		// tooltip
         $(".influence-cell").children().tooltipster({
             "position": "top",
             "content": "This factor has the most influence on the privacy risk index"
@@ -37,6 +38,25 @@ class AppRow extends React.Component {
 	// ON CHANGE
 	onChange(state) {
 		this.setState(state);
+	}
+
+	// MAP ARCHETYPE
+	mapArchetype(type) {
+		switch(type) {
+			case 1: return "Casual Tool";
+			case 2: return "Common Knowledge Provider";
+			case 3: return "Treatment Guide";
+			case 4: return "Fitness Ad-Hoc Tool";
+			case 5: return "Fitness Tracker";
+			case 6: return "Treatment Support Tool";
+			case 7: return "Intimate Ad-Hoc Tool";
+			case 8: return "State of Health Test";
+			case 9: return "Intimate Tracker";
+			case 10: return "Health Monitor";
+			case 11: return "Treatment Reminder";
+			case 12: return "Health Record";
+			default: return "-";
+		}
 	}
 
     // RENDER
@@ -61,8 +81,10 @@ class AppRow extends React.Component {
             store_icon = <i className="fa fa-android fa-fw"></i>;
         }
 
+		if(!this.state.idx[this.props.app.id]) return null;
+
         // fetch index
-        this.props.app.privacy_index = this.state.idx[this.props.app.id];
+        this.props.app.privacy_index = this.state.idx[this.props.app.id].idx;
 
         // determine idx color
         var idx_class = "idx";
@@ -111,10 +133,28 @@ class AppRow extends React.Component {
             secureCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
         }
 
+		console.log(this.state.idx[this.props.app.id].continuum);
+
+		var min = null;
+		if(this.state.idx[this.props.app.id].continuum.min !== null) {
+			min = <span className="idx_min">{this.state.idx[this.props.app.id].continuum.min}</span>;
+		}
+
+		var max = null;
+		if(this.state.idx[this.props.app.id].continuum.max !== null) {
+			max = <span className="idx_max">{this.state.idx[this.props.app.id].continuum.max}</span>;
+		}
+
         return (<div className="app" id={"app" + this.props.app.id}>
-            <div className="app-cell" dangerouslySetInnerHTML={{__html: this.props.app.name}}></div>
+            <div className="app-cell text-bold" dangerouslySetInnerHTML={{__html: this.props.app.name}}></div>
             <div className="app-cell">{store_icon}<a href={store_url} target="_blank">{store_name}</a></div>
-            <div className="app-cell"><span className={idx_class}>{this.props.app.privacy_index}</span></div>
+			<div className="app-cell">{this.mapArchetype(this.props.app.archetype)}</div>
+            <div className="app-cell">
+				<span className="idx_line">&nbsp;</span>
+				{min}
+				<span className={idx_class}>{this.props.app.privacy_index}</span>
+				{max}
+			</div>
             <div className="app-cell">{parseInt(this.props.app.privacy_index_confidence * 100)}%</div>
             <div className={categoryCellClass} data-weight="category">{categoryCellInfluence}{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category.join(", ") : "none"}</div>
             <div className="app-cell">

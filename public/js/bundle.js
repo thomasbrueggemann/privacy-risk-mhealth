@@ -206,7 +206,7 @@ var AddApp = (function (_React$Component) {
 exports["default"] = AddApp;
 module.exports = exports["default"];
 
-},{"../actions/AppActions":1,"../stores/AppStore":15,"./AutoComplete":6,"react":"react","react-router":"react-router"}],4:[function(require,module,exports){
+},{"../actions/AppActions":1,"../stores/AppStore":16,"./AutoComplete":6,"react":"react","react-router":"react-router"}],4:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -328,6 +328,10 @@ var _actionsAppActions = require("../actions/AppActions");
 
 var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
 
+var _Tooltips = require("./Tooltips");
+
+var _Tooltips2 = _interopRequireDefault(_Tooltips);
+
 var AppRow = (function (_React$Component) {
     _inherits(AppRow, _React$Component);
 
@@ -358,11 +362,18 @@ var AppRow = (function (_React$Component) {
             // get index
             _actionsAppActions2["default"].getIndex(this.props.app.id);
 
-            // tooltip
-            $(".influence-cell").children().tooltipster({
-                "position": "top",
-                "content": "This factor has the most influence on the privacy risk index"
-            });
+            // tooltips
+            window.setTimeout(function () {
+
+                $(".influence-cell").tooltipster({
+                    "position": "top",
+                    "content": "This factor has the most influence on the privacy risk index"
+                });
+
+                $(".tooltip").tooltipster({
+                    "position": "top"
+                });
+            }, 1000);
         }
 
         // COMPONENT WILL UNMOUNT
@@ -409,8 +420,15 @@ var AppRow = (function (_React$Component) {
                 case 12:
                     return "Health Record";
                 default:
-                    return "-";
+                    return "none";
             }
+        }
+
+        // ESCAPE HTML
+    }, {
+        key: "escapeHtml",
+        value: function escapeHtml(unsafe) {
+            return unsafe.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
         }
 
         // RENDER
@@ -487,14 +505,18 @@ var AppRow = (function (_React$Component) {
                 secureCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
             }
 
-            console.log(this.state.idx[this.props.app.id].continuum);
-
             var min = null;
+            var line = null;
             if (this.state.idx[this.props.app.id].continuum.min !== null) {
                 min = _react2["default"].createElement(
                     "span",
                     { className: "idx_min" },
                     this.state.idx[this.props.app.id].continuum.min
+                );
+                line = _react2["default"].createElement(
+                    "span",
+                    { className: "idx_line" },
+                    " "
                 );
             }
 
@@ -505,7 +527,14 @@ var AppRow = (function (_React$Component) {
                     { className: "idx_max" },
                     this.state.idx[this.props.app.id].continuum.max
                 );
+                line = _react2["default"].createElement(
+                    "span",
+                    { className: "idx_line" },
+                    " "
+                );
             }
+
+            console.log(_Tooltips2["default"].confidence);
 
             return _react2["default"].createElement(
                 "div",
@@ -529,11 +558,7 @@ var AppRow = (function (_React$Component) {
                 _react2["default"].createElement(
                     "div",
                     { className: "app-cell" },
-                    _react2["default"].createElement(
-                        "span",
-                        { className: "idx_line" },
-                        " "
-                    ),
+                    line,
                     min,
                     _react2["default"].createElement(
                         "span",
@@ -544,7 +569,7 @@ var AppRow = (function (_React$Component) {
                 ),
                 _react2["default"].createElement(
                     "div",
-                    { className: "app-cell" },
+                    { className: "app-cell tooltip", title: _Tooltips2["default"].confidence },
                     parseInt(this.props.app.privacy_index_confidence * 100),
                     "%"
                 ),
@@ -602,7 +627,7 @@ var AppRow = (function (_React$Component) {
 exports["default"] = AppRow;
 module.exports = exports["default"];
 
-},{"../actions/AppActions":1,"../stores/AppStore":15,"react":"react"}],6:[function(require,module,exports){
+},{"../actions/AppActions":1,"../stores/AppStore":16,"./Tooltips":10,"react":"react"}],6:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1068,6 +1093,24 @@ Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
+
+var Tooltips = function Tooltips() {
+	_classCallCheck(this, Tooltips);
+
+	this.confidence = "Possible values are 10% = we looked at the screenshots";
+};
+
+exports["default"] = Tooltips;
+module.exports = exports["default"];
+
+},{}],11:[function(require,module,exports){
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+	value: true
+});
+
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
 
 var _get = function get(_x, _x2, _x3) { var _again = true; _function: while (_again) { var object = _x, property = _x2, receiver = _x3; _again = false; if (object === null) object = Function.prototype; var desc = Object.getOwnPropertyDescriptor(object, property); if (desc === undefined) { var parent = Object.getPrototypeOf(object); if (parent === null) { return undefined; } else { _x = parent; _x2 = property; _x3 = receiver; _again = true; desc = parent = undefined; continue _function; } } else if ("value" in desc) { return desc.value; } else { var getter = desc.get; if (getter === undefined) { return undefined; } return getter.call(receiver); } } };
@@ -1117,8 +1160,18 @@ var Weights = (function (_React$Component) {
 				"data_reasonable": 0.05
 			};
 
+			// find maximum
+			var maxW = 0;
+			for (var j in defaultWeights) {
+				if (defaultWeights[j] > maxW) {
+					maxW = defaultWeights[j];
+				}
+			}
+
+			var mulFactor = 1 / maxW;
+
 			for (var i in defaultWeights) {
-				$("[data-weight='" + i + "']").val(defaultWeights[i] * 100);
+				$("[data-weight='" + i + "']").val(defaultWeights[i] * mulFactor * 100);
 			}
 		}
 
@@ -1254,7 +1307,7 @@ var Weights = (function (_React$Component) {
 exports["default"] = Weights;
 module.exports = exports["default"];
 
-},{"react":"react","react-router":"react-router"}],11:[function(require,module,exports){
+},{"react":"react","react-router":"react-router"}],12:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1330,8 +1383,18 @@ var WeightsCategory = (function (_React$Component) {
 				"unknown": 0.147 // give an unkown component the highest value
 			};
 
+			// find maximum
+			var maxW = 0;
+			for (var j in defaultWeights) {
+				if (defaultWeights[j] > maxW) {
+					maxW = defaultWeights[j];
+				}
+			}
+
+			var mulFactor = 1 / maxW;
+
 			for (var i in defaultWeights) {
-				$("[data-weight='" + i + "']").val(defaultWeights[i] * 100);
+				$("[data-weight='" + i + "']").val(defaultWeights[i] * mulFactor * 100);
 			}
 		}
 
@@ -1563,7 +1626,7 @@ var WeightsCategory = (function (_React$Component) {
 exports["default"] = WeightsCategory;
 module.exports = exports["default"];
 
-},{"react":"react","react-router":"react-router"}],12:[function(require,module,exports){
+},{"react":"react","react-router":"react-router"}],13:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1617,8 +1680,18 @@ var WeightsPersonalTarget = (function (_React$Component) {
 				"facebook": 0.3
 			};
 
+			// find maximum
+			var maxW = 0;
+			for (var j in defaultWeights) {
+				if (defaultWeights[j] > maxW) {
+					maxW = defaultWeights[j];
+				}
+			}
+
+			var mulFactor = 1 / maxW;
+
 			for (var i in defaultWeights) {
-				$("[data-weight='" + i + "']").val(defaultWeights[i] * 100);
+				$("[data-weight='" + i + "']").val(defaultWeights[i] * mulFactor * 100);
 			}
 		}
 
@@ -1742,7 +1815,7 @@ var WeightsPersonalTarget = (function (_React$Component) {
 exports["default"] = WeightsPersonalTarget;
 module.exports = exports["default"];
 
-},{"react":"react","react-router":"react-router"}],13:[function(require,module,exports){
+},{"react":"react","react-router":"react-router"}],14:[function(require,module,exports){
 "use strict";
 
 function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { "default": obj }; }
@@ -1775,7 +1848,7 @@ _reactDom2["default"].render(_react2["default"].createElement(
   _routes2["default"]
 ), document.getElementById("app"));
 
-},{"./routes":14,"history/lib/createBrowserHistory":22,"react":"react","react-dom":"react-dom","react-router":"react-router"}],14:[function(require,module,exports){
+},{"./routes":15,"history/lib/createBrowserHistory":23,"react":"react","react-dom":"react-dom","react-router":"react-router"}],15:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1825,7 +1898,7 @@ exports["default"] = _react2["default"].createElement(
 );
 module.exports = exports["default"];
 
-},{"./components/App":4,"./components/Home":8,"./components/Impressum":9,"./components/Weights":10,"./components/WeightsCategory":11,"./components/WeightsPersonalTarget":12,"react":"react","react-router":"react-router"}],15:[function(require,module,exports){
+},{"./components/App":4,"./components/Home":8,"./components/Impressum":9,"./components/Weights":11,"./components/WeightsCategory":12,"./components/WeightsPersonalTarget":13,"react":"react","react-router":"react-router"}],16:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1894,7 +1967,7 @@ var AppStore = (function () {
 exports["default"] = _alt2["default"].createStore(AppStore);
 module.exports = exports["default"];
 
-},{"../actions/AppActions":1,"../alt":2}],16:[function(require,module,exports){
+},{"../actions/AppActions":1,"../alt":2}],17:[function(require,module,exports){
 // shim for using process in browser
 
 var process = module.exports = {};
@@ -1987,7 +2060,7 @@ process.chdir = function (dir) {
 };
 process.umask = function() { return 0; };
 
-},{}],17:[function(require,module,exports){
+},{}],18:[function(require,module,exports){
 /**
  * Indicates that navigation was caused by a call to history.push.
  */
@@ -2019,7 +2092,7 @@ exports['default'] = {
   REPLACE: REPLACE,
   POP: POP
 };
-},{}],18:[function(require,module,exports){
+},{}],19:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -2046,7 +2119,7 @@ function loopAsync(turns, work, callback) {
 
   next();
 }
-},{}],19:[function(require,module,exports){
+},{}],20:[function(require,module,exports){
 (function (process){
 /*eslint-disable no-empty */
 'use strict';
@@ -2117,7 +2190,7 @@ function readState(key) {
   return null;
 }
 }).call(this,require('_process'))
-},{"_process":16,"warning":34}],20:[function(require,module,exports){
+},{"_process":17,"warning":35}],21:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -2198,13 +2271,13 @@ function supportsGoWithoutReloadUsingHash() {
   var ua = navigator.userAgent;
   return ua.indexOf('Firefox') === -1;
 }
-},{}],21:[function(require,module,exports){
+},{}],22:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
 var canUseDOM = !!(typeof window !== 'undefined' && window.document && window.document.createElement);
 exports.canUseDOM = canUseDOM;
-},{}],22:[function(require,module,exports){
+},{}],23:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2379,7 +2452,7 @@ function createBrowserHistory() {
 exports['default'] = createBrowserHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./Actions":17,"./DOMStateStorage":19,"./DOMUtils":20,"./ExecutionEnvironment":21,"./createDOMHistory":23,"_process":16,"invariant":33}],23:[function(require,module,exports){
+},{"./Actions":18,"./DOMStateStorage":20,"./DOMUtils":21,"./ExecutionEnvironment":22,"./createDOMHistory":24,"_process":17,"invariant":34}],24:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2422,7 +2495,7 @@ function createDOMHistory(options) {
 exports['default'] = createDOMHistory;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./DOMUtils":20,"./ExecutionEnvironment":21,"./createHistory":24,"_process":16,"invariant":33}],24:[function(require,module,exports){
+},{"./DOMUtils":21,"./ExecutionEnvironment":22,"./createHistory":25,"_process":17,"invariant":34}],25:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -2698,7 +2771,7 @@ function createHistory() {
 
 exports['default'] = createHistory;
 module.exports = exports['default'];
-},{"./Actions":17,"./AsyncUtils":18,"./createLocation":25,"./deprecate":26,"./parsePath":28,"./runTransitionHook":29,"deep-equal":30}],25:[function(require,module,exports){
+},{"./Actions":18,"./AsyncUtils":19,"./createLocation":26,"./deprecate":27,"./parsePath":29,"./runTransitionHook":30,"deep-equal":31}],26:[function(require,module,exports){
 'use strict';
 
 exports.__esModule = true;
@@ -2738,7 +2811,7 @@ function createLocation() {
 
 exports['default'] = createLocation;
 module.exports = exports['default'];
-},{"./Actions":17,"./parsePath":28}],26:[function(require,module,exports){
+},{"./Actions":18,"./parsePath":29}],27:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2760,7 +2833,7 @@ function deprecate(fn, message) {
 exports['default'] = deprecate;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"_process":16,"warning":34}],27:[function(require,module,exports){
+},{"_process":17,"warning":35}],28:[function(require,module,exports){
 "use strict";
 
 exports.__esModule = true;
@@ -2774,7 +2847,7 @@ function extractPath(string) {
 
 exports["default"] = extractPath;
 module.exports = exports["default"];
-},{}],28:[function(require,module,exports){
+},{}],29:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2821,7 +2894,7 @@ function parsePath(path) {
 exports['default'] = parsePath;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"./extractPath":27,"_process":16,"warning":34}],29:[function(require,module,exports){
+},{"./extractPath":28,"_process":17,"warning":35}],30:[function(require,module,exports){
 (function (process){
 'use strict';
 
@@ -2848,7 +2921,7 @@ function runTransitionHook(hook, location, callback) {
 exports['default'] = runTransitionHook;
 module.exports = exports['default'];
 }).call(this,require('_process'))
-},{"_process":16,"warning":34}],30:[function(require,module,exports){
+},{"_process":17,"warning":35}],31:[function(require,module,exports){
 var pSlice = Array.prototype.slice;
 var objectKeys = require('./lib/keys.js');
 var isArguments = require('./lib/is_arguments.js');
@@ -2944,7 +3017,7 @@ function objEquiv(a, b, opts) {
   return typeof a === typeof b;
 }
 
-},{"./lib/is_arguments.js":31,"./lib/keys.js":32}],31:[function(require,module,exports){
+},{"./lib/is_arguments.js":32,"./lib/keys.js":33}],32:[function(require,module,exports){
 var supportsArgumentsClass = (function(){
   return Object.prototype.toString.call(arguments)
 })() == '[object Arguments]';
@@ -2966,7 +3039,7 @@ function unsupported(object){
     false;
 };
 
-},{}],32:[function(require,module,exports){
+},{}],33:[function(require,module,exports){
 exports = module.exports = typeof Object.keys === 'function'
   ? Object.keys : shim;
 
@@ -2977,7 +3050,7 @@ function shim (obj) {
   return keys;
 }
 
-},{}],33:[function(require,module,exports){
+},{}],34:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2013-2015, Facebook, Inc.
@@ -3032,7 +3105,7 @@ var invariant = function(condition, format, a, b, c, d, e, f) {
 module.exports = invariant;
 
 }).call(this,require('_process'))
-},{"_process":16}],34:[function(require,module,exports){
+},{"_process":17}],35:[function(require,module,exports){
 (function (process){
 /**
  * Copyright 2014-2015, Facebook, Inc.
@@ -3096,4 +3169,4 @@ if (process.env.NODE_ENV !== 'production') {
 module.exports = warning;
 
 }).call(this,require('_process'))
-},{"_process":16}]},{},[13]);
+},{"_process":17}]},{},[14]);

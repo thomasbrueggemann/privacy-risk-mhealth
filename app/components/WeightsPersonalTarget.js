@@ -25,8 +25,18 @@ class WeightsPersonalTarget extends React.Component {
 		    "facebook": 0.3
 		};
 
+		// find maximum
+		var maxW = 0;
+		for(var j in defaultWeights) {
+			if(defaultWeights[j] > maxW) {
+				maxW = defaultWeights[j];
+			}
+		}
+
+		var mulFactor = 1 / maxW;
+
 		for(var i in defaultWeights) {
-			$("[data-weight='" + i + "']").val(defaultWeights[i] * 100);
+			$("[data-weight='" + i + "']").val(defaultWeights[i] * mulFactor * 100);
 		}
 	}
 

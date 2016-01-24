@@ -47,8 +47,18 @@ class WeightsCategory extends React.Component {
 		    "unknown": 0.147    // give an unkown component the highest value
 		};
 
+		// find maximum
+		var maxW = 0;
+		for(var j in defaultWeights) {
+			if(defaultWeights[j] > maxW) {
+				maxW = defaultWeights[j];
+			}
+		}
+
+		var mulFactor = 1 / maxW;
+
 		for(var i in defaultWeights) {
-			$("[data-weight='" + i + "']").val(defaultWeights[i] * 100);
+			$("[data-weight='" + i + "']").val(defaultWeights[i] * mulFactor * 100);
 		}
 	}
 

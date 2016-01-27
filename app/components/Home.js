@@ -61,7 +61,7 @@ class Home extends React.Component {
 					<div className="app-header">
 						<div className="app-cell">Name <i className="fa fa-lg fa-fw"></i></div>
 						<div className="app-cell">Store <i className="fa fa-lg fa-fw"></i></div>
-						<div className="app-cell tooltip" title="The archetype of app. Possible values are:
+						<div className="app-cell tooltip" title="Possible categories are:
 Casual Tool,
 Common Knowledge Provider,
 Treatment Guide,
@@ -73,7 +73,7 @@ State of Health Test,
 Intimate Tracker,
 Health Monitor,
 Treatment Reminder,
-Health Record">Archetype  <i className="fa fa-question-circle fa-lg fa-fw"></i></div>
+Health Record">Category  <i className="fa fa-question-circle fa-lg fa-fw"></i></div>
 						<div className="app-cell tooltip" title="From 0 to 100. The higher the greater the privacy risk!">Privacy risk index <i className="fa fa-question-circle fa-lg fa-fw"></i></div>
 						<div className="app-cell tooltip" title="From 0 to 100. The higher the more confident are we with the rating of the risk index calculation.">Rating confidence <i className="fa fa-question-circle fa-lg fa-fw"></i></div>
 						<div className="app-cell tooltip" title="What kind of personal data you have to enter. Possible entries are: Address,

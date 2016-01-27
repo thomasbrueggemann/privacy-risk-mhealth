@@ -205,8 +205,9 @@ a {
   position: relative;
   top: -20px;
 	background: #e1ded9;
-  padding: 0 15px 0 15px;
-	text-align: center;
+	margin: 0 15px 0 25px;
+	text-align: right;
+	padding: 0 10px;
 }
 
 .idx_min, .idx_max {
@@ -228,7 +229,7 @@ a {
 	border-bottom: 1px solid #888;
 	width: 200px;
 	position: absolute;
-	margin-left: -60px;
+	margin-left: -40px;
 	margin-top: -10px;
 }
 

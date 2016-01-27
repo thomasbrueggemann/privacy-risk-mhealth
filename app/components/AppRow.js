@@ -86,7 +86,7 @@ class AppRow extends React.Component {
         var secure_transmission = "no data connection",
 			data_reasonable = "-",
 			unspecific_target = "-";
-			
+
         if(this.props.app.personal_target.length > 0) {
             secure_transmission = (this.props.app.secure_transmission === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>;
         }
@@ -177,7 +177,7 @@ class AppRow extends React.Component {
 			<div className="app-cell">
 				{this.mapArchetype(this.props.app.archetype)}
 			</div>
-            <div className="app-cell">
+            <div className="app-cell tooltip" title={this.tooltips.privacyIdx(this.state.idx[this.props.app.id].continuum, this.mapArchetype(this.props.app.archetype), this.props.app.privacy_index)}>
 				{line}
 				{min}
 				<span className={idx_class}>{this.props.app.privacy_index}</span>

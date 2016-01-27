@@ -560,7 +560,7 @@ var AppRow = (function (_React$Component) {
                 ),
                 _react2["default"].createElement(
                     "div",
-                    { className: "app-cell" },
+                    { className: "app-cell tooltip", title: this.tooltips.privacyIdx(this.state.idx[this.props.app.id].continuum, this.mapArchetype(this.props.app.archetype), this.props.app.privacy_index) },
                     line,
                     min,
                     _react2["default"].createElement(
@@ -863,8 +863,8 @@ var Home = (function (_React$Component) {
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "The archetype of app. Possible values are:\nCasual Tool,\nCommon Knowledge Provider,\nTreatment Guide,\nFitness Ad-Hoc Tool,\nFitness Tracker,\nTreatment Support Tool,\nIntimate Ad-Hoc Tool,\nState of Health Test,\nIntimate Tracker,\nHealth Monitor,\nTreatment Reminder,\nHealth Record" },
-							"Archetype  ",
+							{ className: "app-cell tooltip", title: "Possible categories are:\nCasual Tool,\nCommon Knowledge Provider,\nTreatment Guide,\nFitness Ad-Hoc Tool,\nFitness Tracker,\nTreatment Support Tool,\nIntimate Ad-Hoc Tool,\nState of Health Test,\nIntimate Tracker,\nHealth Monitor,\nTreatment Reminder,\nHealth Record" },
+							"Category  ",
 							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
@@ -1108,10 +1108,10 @@ var Tooltips = (function () {
 		_classCallCheck(this, Tooltips);
 	}
 
-	// CONFIDENCE
-
 	_createClass(Tooltips, [{
 		key: "confidence",
+
+		// CONFIDENCE
 		value: function confidence(value) {
 			console.log(value);
 			switch (value) {
@@ -1167,6 +1167,22 @@ var Tooltips = (function () {
 				}
 
 				title += "; ";
+			}
+
+			return title;
+		}
+
+		// PRIVACY IDX
+	}, {
+		key: "privacyIdx",
+		value: function privacyIdx(continuum, archetype, val) {
+			var title = "The privacy risk index of this app is " + val + ". ";
+
+			if (archetype !== "non" && continuum.min !== null && continuum.max !== null) {
+				title += "Within the category \"" + archetype + "\" the lowest privacy risk index is ";
+				title += continuum.min;
+				title += " and the highest is ";
+				title += continuum.max + "";
 			}
 
 			return title;

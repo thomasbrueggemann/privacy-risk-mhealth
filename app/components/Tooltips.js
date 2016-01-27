@@ -2,9 +2,6 @@
 /*** TOOLTIPS ***/
 class Tooltips {
 
-	constructor() {
-	}
-
 	// CONFIDENCE
 	confidence(value) {
 		console.log(value);
@@ -42,6 +39,20 @@ class Tooltips {
 			}
 
 			title += "; ";
+		}
+
+		return title;
+	}
+
+	// PRIVACY IDX
+	privacyIdx(continuum, archetype, val) {
+		var title = "The privacy risk index of this app is " + val + ". ";
+
+		if(archetype !== "non" && continuum.min !== null && continuum.max !== null) {
+			title += "Within the category \"" + archetype + "\" the lowest privacy risk index is ";
+			title += continuum.min;
+			title += " and the highest is ";
+			title += continuum.max + "";
 		}
 
 		return title;

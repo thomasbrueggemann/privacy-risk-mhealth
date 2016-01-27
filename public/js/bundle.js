@@ -853,67 +853,67 @@ var Home = (function (_React$Component) {
 							"div",
 							{ className: "app-cell" },
 							"Name ",
-							_react2["default"].createElement("i", { className: "fa fa-tag fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell" },
 							"Store ",
-							_react2["default"].createElement("i", { className: "fa fa-link fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell tooltip", title: "The archetype of app. Possible values are:\nCasual Tool,\nCommon Knowledge Provider,\nTreatment Guide,\nFitness Ad-Hoc Tool,\nFitness Tracker,\nTreatment Support Tool,\nIntimate Ad-Hoc Tool,\nState of Health Test,\nIntimate Tracker,\nHealth Monitor,\nTreatment Reminder,\nHealth Record" },
 							"Archetype  ",
-							_react2["default"].createElement("i", { className: "fa fa-cube fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell tooltip", title: "From 0 to 100. The higher the greater the privacy risk!" },
 							"Privacy risk index ",
-							_react2["default"].createElement("i", { className: "fa fa-trophy fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell tooltip", title: "From 0 to 100. The higher the more confident are we with the rating of the risk index calculation." },
 							"Rating confidence ",
-							_react2["default"].createElement("i", { className: "fa fa-percent fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell tooltip", title: "What kind of personal data you have to enter. Possible entries are: Address,\nMedication intake,\nVital values,\nDiseases,\nMedical appointments,\nLife status specs,\nFood intake,\nBody specs,\nSymptoms,\nWorkout / Activities,\nSleep Metrics,\nPersonality Test,\nFamily" },
 							"Personal data collected ",
-							_react2["default"].createElement("i", { className: "fa fa-user fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell tooltip", title: "Is a ia mail / password or a social network required to use the app effectively?" },
 							"Login required ",
-							_react2["default"].createElement("i", { className: "fa fa-sign-in fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell tooltip", title: "The target, where your data is being sent. Possible values:\nApp provider,\nAdvertisers / Marketeers,\nResearch,\nUnknown" },
 							"Where is my data being sent? ",
-							_react2["default"].createElement("i", { className: "fa fa-wifi fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell tooltip", title: "Tracking means, apps show you personalized ads or track your clicks for analytics purposes" },
 							"Does the app track me? ",
-							_react2["default"].createElement("i", { className: "fa fa-search fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell tooltip", title: "Sometimes apps ask for data that is not even used, just collected." },
 							"Personal data input reasonable? ",
-							_react2["default"].createElement("i", { className: "fa fa-star fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell tooltip", title: "is your data transferred via an encrypted connection?" },
 							"Secure data connection?  ",
-							_react2["default"].createElement("i", { className: "fa fa-lock fa-lg fa-fw" })
+							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
 						_react2["default"].createElement("div", { className: "app-cell" })
 					),

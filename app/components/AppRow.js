@@ -10,6 +10,7 @@ class AppRow extends React.Component {
         super(props);
         this.state = AppStore.getState();
         this.onChange = this.onChange.bind(this);
+		this.tooltips = new Tooltips();
     }
 
     // REMOVE APP
@@ -27,13 +28,14 @@ class AppRow extends React.Component {
 		// tooltips
 		window.setTimeout(() => {
 
-			$(".influence-cell").tooltipster({
+			$(".fa-influence").tooltipster({
 	            "position": "top",
 	            "content": "This factor has the most influence on the privacy risk index"
 	        });
 
-			$(".tooltip").tooltipster({
-	            "position": "top"
+			$(".app > .tooltip").tooltipster({
+	            "position": "top",
+				"maxWidth": 400
 	        });
 
 		}, 1000);
@@ -81,12 +83,16 @@ class AppRow extends React.Component {
     // RENDER
     render() {
 
-        var secure_transmission = "no data connection", data_reasonable = "-";
+        var secure_transmission = "no data connection",
+			data_reasonable = "-",
+			unspecific_target = "-";
+			
         if(this.props.app.personal_target.length > 0) {
             secure_transmission = (this.props.app.secure_transmission === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>;
         }
 
         data_reasonable = (this.props.app.data_reasonable === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>;
+		unspecific_target = (this.props.app.unspecific_target.length > 0) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>;
 
         var store_url, store_name, store_icon;
         if(this.props.app.rater === "thomas") {
@@ -117,7 +123,7 @@ class AppRow extends React.Component {
             idx_class += " idx_red";
         }
 
-        var categoryCellClass = "app-cell";
+        var categoryCellClass = "app-cell tooltip";
         var categoryCellInfluence = null;
         if(this.props.app.influence_key === "category") {
             categoryCellClass += " influence-cell";
@@ -131,7 +137,7 @@ class AppRow extends React.Component {
             personalTargetCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
         }
 
-        var unspecificTargetCellClass = "app-cell";
+        var unspecificTargetCellClass = "app-cell tooltip";
         var unspecificTargetCellInfluence = null;
         if(this.props.app.influence_key === "category") {
             unspecificTargetCellClass += " influence-cell";
@@ -165,27 +171,39 @@ class AppRow extends React.Component {
 			line = <span className="idx_line">&nbsp;</span>;
 		}
 
-		console.log(Tooltips.confidence);
-
         return (<div className="app" id={"app" + this.props.app.id}>
             <div className="app-cell text-bold" dangerouslySetInnerHTML={{__html: this.props.app.name}}></div>
             <div className="app-cell">{store_icon}<a href={store_url} target="_blank">{store_name}</a></div>
-			<div className="app-cell">{this.mapArchetype(this.props.app.archetype)}</div>
+			<div className="app-cell">
+				{this.mapArchetype(this.props.app.archetype)}
+			</div>
             <div className="app-cell">
 				{line}
 				{min}
 				<span className={idx_class}>{this.props.app.privacy_index}</span>
 				{max}
 			</div>
-            <div className="app-cell tooltip" title={Tooltips.confidence}>{parseInt(this.props.app.privacy_index_confidence * 100)}%</div>
-            <div className={categoryCellClass} data-weight="category">{categoryCellInfluence}{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category.join(", ") : "none"}</div>
+            <div className="app-cell tooltip" title={this.tooltips.confidence(this.props.app.privacy_index_confidence)}>
+				{parseInt(this.props.app.privacy_index_confidence * 100)}%
+			</div>
+            <div className={categoryCellClass} data-weight="category" title={this.tooltips.categories(this.props.app.personal_category)}>
+				{categoryCellInfluence}{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category.join(", ") : "none"}
+			</div>
             <div className="app-cell">
                 {(this.props.app.login === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>}
             </div>
-            <div className={personalTargetCellClass} data-weight="personal_target">{personalTargetCellInfluence}{(this.props.app.personal_target.length > 0) ? this.props.app.personal_target.join(", ") : "nowhere"}</div>
-            <div className={unspecificTargetCellClass} data-weight="unspecific_target">{unspecificTargetCellInfluence}{(this.props.app.unspecific_target.length > 0) ? this.props.app.unspecific_target.join(", ") : "no"}</div>
-            <div className={dataReasonableCellClass} data-weight="data_reasonable">{dataReasonableCellInfluence}{data_reasonable}</div>
-            <div className={secureCellClass} data-weight="secure">{secureCellInfluence}{secure_transmission}</div>
+            <div className={personalTargetCellClass} data-weight="personal_target">
+				{personalTargetCellInfluence}{(this.props.app.personal_target.length > 0) ? this.props.app.personal_target.join(", ") : "nowhere"}
+			</div>
+            <div className={unspecificTargetCellClass} data-weight="unspecific_target">
+				{unspecificTargetCellInfluence}{unspecific_target}
+			</div>
+            <div className={dataReasonableCellClass} data-weight="data_reasonable">
+				{dataReasonableCellInfluence}{data_reasonable}
+			</div>
+            <div className={secureCellClass} data-weight="secure">
+				{secureCellInfluence}{secure_transmission}
+			</div>
             <div className="app-cell"><a href="#" onClick={this.removeApp.bind(this)}>remove</a></div>
         </div>);
     }

@@ -343,6 +343,7 @@ var AppRow = (function (_React$Component) {
         _get(Object.getPrototypeOf(AppRow.prototype), "constructor", this).call(this, props);
         this.state = _storesAppStore2["default"].getState();
         this.onChange = this.onChange.bind(this);
+        this.tooltips = new _Tooltips2["default"]();
     }
 
     // REMOVE APP
@@ -365,13 +366,14 @@ var AppRow = (function (_React$Component) {
             // tooltips
             window.setTimeout(function () {
 
-                $(".influence-cell").tooltipster({
+                $(".fa-influence").tooltipster({
                     "position": "top",
                     "content": "This factor has the most influence on the privacy risk index"
                 });
 
-                $(".tooltip").tooltipster({
-                    "position": "top"
+                $(".app > .tooltip").tooltipster({
+                    "position": "top",
+                    "maxWidth": 400
                 });
             }, 1000);
         }
@@ -437,12 +439,15 @@ var AppRow = (function (_React$Component) {
         value: function render() {
 
             var secure_transmission = "no data connection",
-                data_reasonable = "-";
+                data_reasonable = "-",
+                unspecific_target = "-";
+
             if (this.props.app.personal_target.length > 0) {
                 secure_transmission = this.props.app.secure_transmission === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
             }
 
             data_reasonable = this.props.app.data_reasonable === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
+            unspecific_target = this.props.app.unspecific_target.length > 0 ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
 
             var store_url, store_name, store_icon;
             if (this.props.app.rater === "thomas") {
@@ -470,7 +475,7 @@ var AppRow = (function (_React$Component) {
                 idx_class += " idx_red";
             }
 
-            var categoryCellClass = "app-cell";
+            var categoryCellClass = "app-cell tooltip";
             var categoryCellInfluence = null;
             if (this.props.app.influence_key === "category") {
                 categoryCellClass += " influence-cell";
@@ -484,7 +489,7 @@ var AppRow = (function (_React$Component) {
                 personalTargetCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
             }
 
-            var unspecificTargetCellClass = "app-cell";
+            var unspecificTargetCellClass = "app-cell tooltip";
             var unspecificTargetCellInfluence = null;
             if (this.props.app.influence_key === "category") {
                 unspecificTargetCellClass += " influence-cell";
@@ -534,8 +539,6 @@ var AppRow = (function (_React$Component) {
                 );
             }
 
-            console.log(_Tooltips2["default"].confidence);
-
             return _react2["default"].createElement(
                 "div",
                 { className: "app", id: "app" + this.props.app.id },
@@ -569,13 +572,13 @@ var AppRow = (function (_React$Component) {
                 ),
                 _react2["default"].createElement(
                     "div",
-                    { className: "app-cell tooltip", title: _Tooltips2["default"].confidence },
+                    { className: "app-cell tooltip", title: this.tooltips.confidence(this.props.app.privacy_index_confidence) },
                     parseInt(this.props.app.privacy_index_confidence * 100),
                     "%"
                 ),
                 _react2["default"].createElement(
                     "div",
-                    { className: categoryCellClass, "data-weight": "category" },
+                    { className: categoryCellClass, "data-weight": "category", title: this.tooltips.categories(this.props.app.personal_category) },
                     categoryCellInfluence,
                     this.props.app.personal_category.length > 0 ? this.props.app.personal_category.join(", ") : "none"
                 ),
@@ -594,7 +597,7 @@ var AppRow = (function (_React$Component) {
                     "div",
                     { className: unspecificTargetCellClass, "data-weight": "unspecific_target" },
                     unspecificTargetCellInfluence,
-                    this.props.app.unspecific_target.length > 0 ? this.props.app.unspecific_target.join(", ") : "no"
+                    unspecific_target
                 ),
                 _react2["default"].createElement(
                     "div",
@@ -781,13 +784,14 @@ var Home = (function (_React$Component) {
 		};
 	}
 
-	// COMPONENT DID MOUNT
+	// COMPONENT DID UPDATE
 
 	_createClass(Home, [{
 		key: "componentDidUpdate",
 		value: function componentDidUpdate() {
-			$(".tooltip").tooltipster({
-				"position": "right"
+			$(".app-header > .tooltip").tooltipster({
+				"position": "right",
+				"maxWidth": 400
 			});
 		}
 
@@ -859,13 +863,13 @@ var Home = (function (_React$Component) {
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "The type of app" },
-							"Type  ",
+							{ className: "app-cell tooltip", title: "The archetype of app. Possible values are:\nCasual Tool,\nCommon Knowledge Provider,\nTreatment Guide,\nFitness Ad-Hoc Tool,\nFitness Tracker,\nTreatment Support Tool,\nIntimate Ad-Hoc Tool,\nState of Health Test,\nIntimate Tracker,\nHealth Monitor,\nTreatment Reminder,\nHealth Record" },
+							"Archetype  ",
 							_react2["default"].createElement("i", { className: "fa fa-cube fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "From 0 to 100. The higher the riskier!" },
+							{ className: "app-cell tooltip", title: "From 0 to 100. The higher the greater the privacy risk!" },
 							"Privacy risk index ",
 							_react2["default"].createElement("i", { className: "fa fa-trophy fa-lg fa-fw" })
 						),
@@ -877,37 +881,37 @@ var Home = (function (_React$Component) {
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "What kind of personal data you have to enter" },
+							{ className: "app-cell tooltip", title: "What kind of personal data you have to enter. Possible entries are: Address,\nMedication intake,\nVital values,\nDiseases,\nMedical appointments,\nLife status specs,\nFood intake,\nBody specs,\nSymptoms,\nWorkout / Activities,\nSleep Metrics,\nPersonality Test,\nFamily" },
 							"Personal data collected ",
 							_react2["default"].createElement("i", { className: "fa fa-user fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "Via mail/password or a social network" },
+							{ className: "app-cell tooltip", title: "Is a ia mail / password or a social network required to use the app effectively?" },
 							"Login required ",
 							_react2["default"].createElement("i", { className: "fa fa-sign-in fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "The emmediate target of your data" },
+							{ className: "app-cell tooltip", title: "The target, where your data is being sent. Possible values:\nApp provider,\nAdvertisers / Marketeers,\nResearch,\nUnknown" },
 							"Where is my data being sent? ",
 							_react2["default"].createElement("i", { className: "fa fa-wifi fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "Tracking means show you personalized ads or track your clicks for analytics" },
+							{ className: "app-cell tooltip", title: "Tracking means, apps show you personalized ads or track your clicks for analytics purposes" },
 							"Does the app track me? ",
 							_react2["default"].createElement("i", { className: "fa fa-search fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-cell tooltip", title: "Sometimes apps ask for data that is not even used, just collected." },
-							"Personal data entering eligible? ",
+							"Personal data input reasonable? ",
 							_react2["default"].createElement("i", { className: "fa fa-star fa-lg fa-fw" })
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "is your data transferred on an encrypted connection?" },
+							{ className: "app-cell tooltip", title: "is your data transferred via an encrypted connection?" },
 							"Secure data connection?  ",
 							_react2["default"].createElement("i", { className: "fa fa-lock fa-lg fa-fw" })
 						),
@@ -1087,19 +1091,90 @@ exports["default"] = Impressum;
 module.exports = exports["default"];
 
 },{"./AddApp":3,"react":"react"}],10:[function(require,module,exports){
+
+/*** TOOLTIPS ***/
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
 	value: true
 });
 
+var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
+
 function _classCallCheck(instance, Constructor) { if (!(instance instanceof Constructor)) { throw new TypeError("Cannot call a class as a function"); } }
 
-var Tooltips = function Tooltips() {
-	_classCallCheck(this, Tooltips);
+var Tooltips = (function () {
+	function Tooltips() {
+		_classCallCheck(this, Tooltips);
+	}
 
-	this.confidence = "Possible values are 10% = we looked at the screenshots";
-};
+	// CONFIDENCE
+
+	_createClass(Tooltips, [{
+		key: "confidence",
+		value: function confidence(value) {
+			console.log(value);
+			switch (value) {
+				case 0.1:
+					return "We inspected the screenshots or the description of the app";
+				case 0.6:
+					return "We downloaded the app and used it";
+				case 0.8:
+					return "We downloaded the app and inspected the HTTP connections";
+				case 0.9:
+					return "We downloaded the app, inspected the HTTP connections and read the privacy policy";
+			}
+		}
+
+		// CATEGORIES
+	}, {
+		key: "categories",
+		value: function categories(values) {
+
+			var title = "";
+			for (var i in values) {
+
+				title += "\"" + values[i] + "\": e.g. ";
+
+				// what category values are available?
+				switch (values[i]) {
+					case "address":
+						title += "Country, State, Street";break;
+					case "medication intake":
+						title += "Pills / recipes, Medication dosage";break;
+					case "vital values":
+						title += "Blood pressure, Heart rate, Blood sugar, Blood values";break;
+					case "diseases":
+						title += "Kind of disease";break;
+					case "medical appointments":
+						title += "Date, Doctor";break;
+					case "life status specs":
+						title += "Pregnancy, Lifestyle (activity), Smoking habit";break;
+					case "food intake":
+						title += "Calories, diet plan, drinks";break;
+					case "body specs":
+						title += "Weight, Height, Body frame, Body fat, Temperature etc.";break;
+					case "symptoms":
+						title += "All acute, chronic, relapsing or remitting symptoms. For example: Mood changes, rash, swellings";break;
+					case "workout / activities":
+						title += "Goals, Steps, Distance covered / GPS Tracking";break;
+					case "sleep metrics":
+						title += "Sleep sound, dream description";break;
+					case "personality test":
+						title += "Questions about own behavior";break;
+					case "family":
+						title += "Medical condition of children or ancestors, Family size";break;
+				}
+
+				title += "; ";
+			}
+
+			return title;
+		}
+	}]);
+
+	return Tooltips;
+})();
 
 exports["default"] = Tooltips;
 module.exports = exports["default"];

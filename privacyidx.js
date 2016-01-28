@@ -100,8 +100,8 @@ function performRating(data, weights) {
         }
 
         // initial "no risk" szenario
-        if((rating.personal_target.length === 0 &&
-           rating.unspecific_target.length === 0) ||
+        if(rating.personal_target.length === 0 &&
+           rating.unspecific_target.length === 0 &&
            rating.personal_category.length === 0)
         {
             idx = 0.0;
@@ -109,8 +109,7 @@ function performRating(data, weights) {
         else {
 
             // security multiplier
-            if (rating.login === true &&
-                rating.secure_transmission === false &&
+            if (rating.secure_transmission === false &&
                 rating.personal_target.length > 0)
             {
                 multiplier.security = 1.0;
@@ -134,17 +133,13 @@ function performRating(data, weights) {
                 multiplier.personal_target += personalTargetWeights[rating.personal_target[j]];
             }
 
-            if(rating.login === false) {
-                multiplier.personal_target = multiplier.personal_target / 2.0;
-            }
-
             // category
             multiplier.category = 0.0;
             for(var k in rating.personal_category) {
                 multiplier.category += categoryWeights[rating.personal_category[k]];
             }
 
-            // unspecific data target
+            // unspecific data targe
             multiplier.unspecific_target = 1.0;
 
             if(rating.unspecific_target.length === 0) {
@@ -170,7 +165,7 @@ function performRating(data, weights) {
             }
 
             // reasonableness
-            multiplier.data_reasonable = (rating.data_reasonable === true) ? 0.0 : 1.0;
+            multiplier.data_reasonable = (rating.data_reasonable === false) ? 1.0 : 0.0;
 
             // privacy index
             idx = multiplier.security * weights.security +
@@ -207,7 +202,7 @@ function performRating(data, weights) {
     // apply correction to risk index based on maximum rating
     var corr = 1.0 / parseFloat(maxRating);
     for(var m in ratings) {
-        ratings[m].privacy_index = parseInt(parseFloat(ratings[m].privacy_index) * parseFloat(corr) * 100.0);
+        ratings[m].privacy_index = parseInt(ratings[m].privacy_index * 100); //parseInt(parseFloat(ratings[m].privacy_index) * parseFloat(corr) * 100.0);
     }
 
     return ratings;
@@ -265,8 +260,8 @@ module.exports = {
                         "unspecific_target": cleanArrayOfData(data[5]),
                         "personal_description": data[6].trim()  === "1",
                         "rating_source": cleanArrayOfData(data[7]),
-                        "data_reasonable": data[8].trim() === "1",
-                        "secure_transmission": data[9].trim() === "1",
+                        "data_reasonable": (data[8].trim().length > 0) ? data[8].trim() === "1" : null,
+                        "secure_transmission": (data[9].trim().length > 0) ? data[9].trim() === "1" : null,
                         "rater": data[11].trim().toLowerCase()
                     });
                 }

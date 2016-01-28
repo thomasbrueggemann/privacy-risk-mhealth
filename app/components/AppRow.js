@@ -80,6 +80,18 @@ class AppRow extends React.Component {
 	         .replace(/'/g, "&#039;");
 	}
 
+	// PICK MAX
+	pickMax() {
+		var idx = this.state.idx[this.props.app.id].continuum.max;
+		AppActions.getByCategoryAndIdx(this.props.app.archetype, idx);
+	}
+
+	// PICK MIN
+	pickMin() {
+		var idx = this.state.idx[this.props.app.id].continuum.min;
+		AppActions.getByCategoryAndIdx(this.props.app.archetype, idx);
+	}
+
     // RENDER
     render() {
 
@@ -161,51 +173,54 @@ class AppRow extends React.Component {
 		var min = null;
 		var line = null;
 		if(this.state.idx[this.props.app.id].continuum.min !== null) {
-			min = <span className="idx_min">{this.state.idx[this.props.app.id].continuum.min}</span>;
+			min = <span className="idx_min" onClick={this.pickMin.bind(this)}>{this.state.idx[this.props.app.id].continuum.min}</span>;
 			line = <span className="idx_line">&nbsp;</span>;
 		}
 
 		var max = null;
 		if(this.state.idx[this.props.app.id].continuum.max !== null) {
-			max = <span className="idx_max">{this.state.idx[this.props.app.id].continuum.max}</span>;
+			max = <span className="idx_max" onClick={this.pickMax.bind(this)}>{this.state.idx[this.props.app.id].continuum.max}</span>;
 			line = <span className="idx_line">&nbsp;</span>;
 		}
 
-        return (<div className="app" id={"app" + this.props.app.id}>
-            <div className="app-cell text-bold" dangerouslySetInnerHTML={{__html: this.props.app.name}}></div>
-            <div className="app-cell">{store_icon}<a href={store_url} target="_blank">{store_name}</a></div>
-			<div className="app-cell">
-				{this.mapArchetype(this.props.app.archetype)}
-			</div>
-            <div className="app-cell tooltip" title={this.tooltips.privacyIdx(this.state.idx[this.props.app.id].continuum, this.mapArchetype(this.props.app.archetype), this.props.app.privacy_index)}>
-				{line}
-				{min}
-				<span className={idx_class}>{this.props.app.privacy_index}</span>
-				{max}
-			</div>
-            <div className="app-cell tooltip" title={this.tooltips.confidence(this.props.app.privacy_index_confidence)}>
-				{parseInt(this.props.app.privacy_index_confidence * 100)}%
-			</div>
-            <div className={categoryCellClass} data-weight="category" title={this.tooltips.categories(this.props.app.personal_category)}>
-				{categoryCellInfluence}{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category.join(", ") : "none"}
-			</div>
-            <div className="app-cell">
-                {(this.props.app.login === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>}
-            </div>
-            <div className={personalTargetCellClass} data-weight="personal_target">
-				{personalTargetCellInfluence}{(this.props.app.personal_target.length > 0) ? this.props.app.personal_target.join(", ") : "nowhere"}
-			</div>
-            <div className={unspecificTargetCellClass} data-weight="unspecific_target">
-				{unspecificTargetCellInfluence}{unspecific_target}
-			</div>
-            <div className={dataReasonableCellClass} data-weight="data_reasonable">
-				{dataReasonableCellInfluence}{data_reasonable}
-			</div>
-            <div className={secureCellClass} data-weight="secure">
-				{secureCellInfluence}{secure_transmission}
-			</div>
-            <div className="app-cell"><a href="#" onClick={this.removeApp.bind(this)}>remove</a></div>
-        </div>);
+        return (
+			<div className="app" id={"app" + this.props.app.id}>
+
+            	<div className="app-cell text-bold" dangerouslySetInnerHTML={{__html: this.props.app.name}}></div>
+	            <div className="app-cell">{store_icon}<a href={store_url} target="_blank">{store_name}</a></div>
+				<div className="app-cell">
+					{this.mapArchetype(this.props.app.archetype)}
+				</div>
+	            <div className="app-cell tooltip" title={this.tooltips.privacyIdx(this.state.idx[this.props.app.id].continuum, this.mapArchetype(this.props.app.archetype), this.props.app.privacy_index)}>
+					{line}
+					{min}
+					<span className={idx_class}>{this.props.app.privacy_index}</span>
+					{max}
+				</div>
+	            <div className="app-cell tooltip" title={this.tooltips.confidence(this.props.app.privacy_index_confidence)}>
+					{parseInt(this.props.app.privacy_index_confidence * 100)}%
+				</div>
+	            <div className={categoryCellClass} data-weight="category" title={this.tooltips.categories(this.props.app.personal_category)}>
+					{categoryCellInfluence}{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category.join(", ") : "none"}
+				</div>
+	            <div className="app-cell">
+	                {(this.props.app.login === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>}
+	            </div>
+	            <div className={personalTargetCellClass} data-weight="personal_target">
+					{personalTargetCellInfluence}{(this.props.app.personal_target.length > 0) ? this.props.app.personal_target.join(", ") : "nowhere"}
+				</div>
+	            <div className={unspecificTargetCellClass} data-weight="unspecific_target">
+					{unspecificTargetCellInfluence}{unspecific_target}
+				</div>
+	            <div className={dataReasonableCellClass} data-weight="data_reasonable">
+					{dataReasonableCellInfluence}{data_reasonable}
+				</div>
+	            <div className={secureCellClass} data-weight="secure">
+					{secureCellInfluence}{secure_transmission}
+				</div>
+	            <div className="app-cell"><a href="#" onClick={this.removeApp.bind(this)}>remove</a></div>
+	        </div>
+		);
     }
 }
 

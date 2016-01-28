@@ -4,7 +4,7 @@ class Tooltips {
 
 	// CONFIDENCE
 	confidence(value) {
-		console.log(value);
+		
 		switch(value) {
 			case 0.1: return "We inspected the screenshots or the description of the app";
 			case 0.6: return "We downloaded the app and used it";

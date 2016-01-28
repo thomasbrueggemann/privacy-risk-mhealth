@@ -21,7 +21,7 @@ var AppActions = (function () {
     function AppActions() {
         _classCallCheck(this, AppActions);
 
-        this.generateActions("searchAppsSuccess", "searchAppsFail", "getIndexSuccess", "getIndexFail");
+        this.generateActions("searchAppsSuccess", "searchAppsFail", "getIndexSuccess", "getIndexFail", "getByCategoryAndIndexSuccess", "getByCategoryAndIndexFail");
     }
 
     // GET SESSIONS
@@ -56,6 +56,23 @@ var AppActions = (function () {
                 _this2.actions.getIndexSuccess(data);
             }).fail(function (jqXhr) {
                 _this2.actions.getIndexFail(jqXhr);
+            });
+        }
+
+        // GET BY CATEGORY AND IDX
+    }, {
+        key: "getByCategoryAndIdx",
+        value: function getByCategoryAndIdx(category, idx) {
+            var _this3 = this;
+
+            $.ajax({
+                "url": "/api/cat/" + category + "/idx/" + idx,
+                "dataType": "json",
+                "type": "GET"
+            }).done(function (data) {
+                _this3.actions.getByCategoryAndIndexSuccess(data);
+            }).fail(function (jqXhr) {
+                _this3.actions.getByCategoryAndIndexFail(jqXhr);
             });
         }
     }]);
@@ -246,8 +263,6 @@ var App = (function (_React$Component) {
 		key: "render",
 		value: function render() {
 
-			console.log();
-
 			return _react2["default"].createElement(
 				"div",
 				{ className: "mhealth" },
@@ -303,7 +318,7 @@ module.exports = exports["default"];
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-    value: true
+				value: true
 });
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -333,298 +348,314 @@ var _Tooltips = require("./Tooltips");
 var _Tooltips2 = _interopRequireDefault(_Tooltips);
 
 var AppRow = (function (_React$Component) {
-    _inherits(AppRow, _React$Component);
+				_inherits(AppRow, _React$Component);
 
-    // CONSTRUCTOR
+				// CONSTRUCTOR
 
-    function AppRow(props) {
-        _classCallCheck(this, AppRow);
+				function AppRow(props) {
+								_classCallCheck(this, AppRow);
 
-        _get(Object.getPrototypeOf(AppRow.prototype), "constructor", this).call(this, props);
-        this.state = _storesAppStore2["default"].getState();
-        this.onChange = this.onChange.bind(this);
-        this.tooltips = new _Tooltips2["default"]();
-    }
+								_get(Object.getPrototypeOf(AppRow.prototype), "constructor", this).call(this, props);
+								this.state = _storesAppStore2["default"].getState();
+								this.onChange = this.onChange.bind(this);
+								this.tooltips = new _Tooltips2["default"]();
+				}
 
-    // REMOVE APP
+				// REMOVE APP
 
-    _createClass(AppRow, [{
-        key: "removeApp",
-        value: function removeApp() {
-            this.props.removeApp(this.props.app);
-        }
+				_createClass(AppRow, [{
+								key: "removeApp",
+								value: function removeApp() {
+												this.props.removeApp(this.props.app);
+								}
 
-        // COMPONENT DID MOUNT
-    }, {
-        key: "componentDidMount",
-        value: function componentDidMount() {
-            _storesAppStore2["default"].listen(this.onChange);
+								// COMPONENT DID MOUNT
+				}, {
+								key: "componentDidMount",
+								value: function componentDidMount() {
+												_storesAppStore2["default"].listen(this.onChange);
 
-            // get index
-            _actionsAppActions2["default"].getIndex(this.props.app.id);
+												// get index
+												_actionsAppActions2["default"].getIndex(this.props.app.id);
 
-            // tooltips
-            window.setTimeout(function () {
+												// tooltips
+												window.setTimeout(function () {
 
-                $(".fa-influence").tooltipster({
-                    "position": "top",
-                    "content": "This factor has the most influence on the privacy risk index"
-                });
+																$(".fa-influence").tooltipster({
+																				"position": "top",
+																				"content": "This factor has the most influence on the privacy risk index"
+																});
 
-                $(".app > .tooltip").tooltipster({
-                    "position": "top",
-                    "maxWidth": 400
-                });
-            }, 1000);
-        }
+																$(".app > .tooltip").tooltipster({
+																				"position": "top",
+																				"maxWidth": 400
+																});
+												}, 1000);
+								}
 
-        // COMPONENT WILL UNMOUNT
-    }, {
-        key: "componentWillUnmount",
-        value: function componentWillUnmount() {
-            _storesAppStore2["default"].unlisten(this.onChange);
-        }
+								// COMPONENT WILL UNMOUNT
+				}, {
+								key: "componentWillUnmount",
+								value: function componentWillUnmount() {
+												_storesAppStore2["default"].unlisten(this.onChange);
+								}
 
-        // ON CHANGE
-    }, {
-        key: "onChange",
-        value: function onChange(state) {
-            this.setState(state);
-        }
+								// ON CHANGE
+				}, {
+								key: "onChange",
+								value: function onChange(state) {
+												this.setState(state);
+								}
 
-        // MAP ARCHETYPE
-    }, {
-        key: "mapArchetype",
-        value: function mapArchetype(type) {
-            switch (type) {
-                case 1:
-                    return "Casual Tool";
-                case 2:
-                    return "Common Knowledge Provider";
-                case 3:
-                    return "Treatment Guide";
-                case 4:
-                    return "Fitness Ad-Hoc Tool";
-                case 5:
-                    return "Fitness Tracker";
-                case 6:
-                    return "Treatment Support Tool";
-                case 7:
-                    return "Intimate Ad-Hoc Tool";
-                case 8:
-                    return "State of Health Test";
-                case 9:
-                    return "Intimate Tracker";
-                case 10:
-                    return "Health Monitor";
-                case 11:
-                    return "Treatment Reminder";
-                case 12:
-                    return "Health Record";
-                default:
-                    return "none";
-            }
-        }
+								// MAP ARCHETYPE
+				}, {
+								key: "mapArchetype",
+								value: function mapArchetype(type) {
+												switch (type) {
+																case 1:
+																				return "Casual Tool";
+																case 2:
+																				return "Common Knowledge Provider";
+																case 3:
+																				return "Treatment Guide";
+																case 4:
+																				return "Fitness Ad-Hoc Tool";
+																case 5:
+																				return "Fitness Tracker";
+																case 6:
+																				return "Treatment Support Tool";
+																case 7:
+																				return "Intimate Ad-Hoc Tool";
+																case 8:
+																				return "State of Health Test";
+																case 9:
+																				return "Intimate Tracker";
+																case 10:
+																				return "Health Monitor";
+																case 11:
+																				return "Treatment Reminder";
+																case 12:
+																				return "Health Record";
+																default:
+																				return "none";
+												}
+								}
 
-        // ESCAPE HTML
-    }, {
-        key: "escapeHtml",
-        value: function escapeHtml(unsafe) {
-            return unsafe.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
-        }
+								// ESCAPE HTML
+				}, {
+								key: "escapeHtml",
+								value: function escapeHtml(unsafe) {
+												return unsafe.replace(/&/g, "&amp;").replace(/</g, "&lt;").replace(/>/g, "&gt;").replace(/"/g, "&quot;").replace(/'/g, "&#039;");
+								}
 
-        // RENDER
-    }, {
-        key: "render",
-        value: function render() {
+								// PICK MAX
+				}, {
+								key: "pickMax",
+								value: function pickMax() {
+												var idx = this.state.idx[this.props.app.id].continuum.max;
+												_actionsAppActions2["default"].getByCategoryAndIdx(this.props.app.archetype, idx);
+								}
 
-            var secure_transmission = "no data connection",
-                data_reasonable = "-",
-                unspecific_target = "-";
+								// PICK MIN
+				}, {
+								key: "pickMin",
+								value: function pickMin() {
+												var idx = this.state.idx[this.props.app.id].continuum.min;
+												_actionsAppActions2["default"].getByCategoryAndIdx(this.props.app.archetype, idx);
+								}
 
-            if (this.props.app.personal_target.length > 0) {
-                secure_transmission = this.props.app.secure_transmission === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
-            }
+								// RENDER
+				}, {
+								key: "render",
+								value: function render() {
 
-            data_reasonable = this.props.app.data_reasonable === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
-            unspecific_target = this.props.app.unspecific_target.length > 0 ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
+												var secure_transmission = "no data connection",
+												    data_reasonable = "-",
+												    unspecific_target = "-";
 
-            var store_url, store_name, store_icon;
-            if (this.props.app.rater === "thomas") {
-                store_name = "Apple AppStore";
-                store_url = "https://itunes.apple.com/app/store/id" + this.props.app.store_id;
-                store_icon = _react2["default"].createElement("i", { className: "fa fa-apple fa-fw" });
-            } else {
-                store_name = "Google PlayStore";
-                store_url = "https://play.google.com/store/apps/details?id=" + this.props.app.package_name;
-                store_icon = _react2["default"].createElement("i", { className: "fa fa-android fa-fw" });
-            }
+												if (this.props.app.personal_target.length > 0) {
+																secure_transmission = this.props.app.secure_transmission === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
+												}
 
-            if (!this.state.idx[this.props.app.id]) return null;
+												data_reasonable = this.props.app.data_reasonable === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
+												unspecific_target = this.props.app.unspecific_target.length > 0 ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" });
 
-            // fetch index
-            this.props.app.privacy_index = this.state.idx[this.props.app.id].idx;
+												var store_url, store_name, store_icon;
+												if (this.props.app.rater === "thomas") {
+																store_name = "Apple AppStore";
+																store_url = "https://itunes.apple.com/app/store/id" + this.props.app.store_id;
+																store_icon = _react2["default"].createElement("i", { className: "fa fa-apple fa-fw" });
+												} else {
+																store_name = "Google PlayStore";
+																store_url = "https://play.google.com/store/apps/details?id=" + this.props.app.package_name;
+																store_icon = _react2["default"].createElement("i", { className: "fa fa-android fa-fw" });
+												}
 
-            // determine idx color
-            var idx_class = "idx";
-            if (this.props.app.privacy_index <= 15) {
-                idx_class += " idx_green";
-            } else if (this.props.app.privacy_index > 15 && this.props.app.privacy_index <= 50) {
-                idx_class += " idx_orange";
-            } else {
-                idx_class += " idx_red";
-            }
+												if (!this.state.idx[this.props.app.id]) return null;
 
-            var categoryCellClass = "app-cell tooltip";
-            var categoryCellInfluence = null;
-            if (this.props.app.influence_key === "category") {
-                categoryCellClass += " influence-cell";
-                categoryCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
-            }
+												// fetch index
+												this.props.app.privacy_index = this.state.idx[this.props.app.id].idx;
 
-            var personalTargetCellClass = "app-cell";
-            var personalTargetCellInfluence = null;
-            if (this.props.app.influence_key === "personal_target") {
-                personalTargetCellClass += " influence-cell";
-                personalTargetCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
-            }
+												// determine idx color
+												var idx_class = "idx";
+												if (this.props.app.privacy_index <= 15) {
+																idx_class += " idx_green";
+												} else if (this.props.app.privacy_index > 15 && this.props.app.privacy_index <= 50) {
+																idx_class += " idx_orange";
+												} else {
+																idx_class += " idx_red";
+												}
 
-            var unspecificTargetCellClass = "app-cell tooltip";
-            var unspecificTargetCellInfluence = null;
-            if (this.props.app.influence_key === "category") {
-                unspecificTargetCellClass += " influence-cell";
-                unspecificTargetCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
-            }
+												var categoryCellClass = "app-cell tooltip";
+												var categoryCellInfluence = null;
+												if (this.props.app.influence_key === "category") {
+																categoryCellClass += " influence-cell";
+																categoryCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
+												}
 
-            var dataReasonableCellClass = "app-cell";
-            var dataReasonableCellInfluence = null;
-            if (this.props.app.influence_key === "category") {
-                dataReasonableCellClass += " influence-cell";
-                dataReasonableCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
-            }
+												var personalTargetCellClass = "app-cell";
+												var personalTargetCellInfluence = null;
+												if (this.props.app.influence_key === "personal_target") {
+																personalTargetCellClass += " influence-cell";
+																personalTargetCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
+												}
 
-            var secureCellClass = "app-cell";
-            var secureCellInfluence = null;
-            if (this.props.app.influence_key === "category") {
-                secureCellClass += " influence-cell";
-                secureCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
-            }
+												var unspecificTargetCellClass = "app-cell tooltip";
+												var unspecificTargetCellInfluence = null;
+												if (this.props.app.influence_key === "category") {
+																unspecificTargetCellClass += " influence-cell";
+																unspecificTargetCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
+												}
 
-            var min = null;
-            var line = null;
-            if (this.state.idx[this.props.app.id].continuum.min !== null) {
-                min = _react2["default"].createElement(
-                    "span",
-                    { className: "idx_min" },
-                    this.state.idx[this.props.app.id].continuum.min
-                );
-                line = _react2["default"].createElement(
-                    "span",
-                    { className: "idx_line" },
-                    " "
-                );
-            }
+												var dataReasonableCellClass = "app-cell";
+												var dataReasonableCellInfluence = null;
+												if (this.props.app.influence_key === "category") {
+																dataReasonableCellClass += " influence-cell";
+																dataReasonableCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
+												}
 
-            var max = null;
-            if (this.state.idx[this.props.app.id].continuum.max !== null) {
-                max = _react2["default"].createElement(
-                    "span",
-                    { className: "idx_max" },
-                    this.state.idx[this.props.app.id].continuum.max
-                );
-                line = _react2["default"].createElement(
-                    "span",
-                    { className: "idx_line" },
-                    " "
-                );
-            }
+												var secureCellClass = "app-cell";
+												var secureCellInfluence = null;
+												if (this.props.app.influence_key === "category") {
+																secureCellClass += " influence-cell";
+																secureCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
+												}
 
-            return _react2["default"].createElement(
-                "div",
-                { className: "app", id: "app" + this.props.app.id },
-                _react2["default"].createElement("div", { className: "app-cell text-bold", dangerouslySetInnerHTML: { __html: this.props.app.name } }),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "app-cell" },
-                    store_icon,
-                    _react2["default"].createElement(
-                        "a",
-                        { href: store_url, target: "_blank" },
-                        store_name
-                    )
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "app-cell" },
-                    this.mapArchetype(this.props.app.archetype)
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "app-cell tooltip", title: this.tooltips.privacyIdx(this.state.idx[this.props.app.id].continuum, this.mapArchetype(this.props.app.archetype), this.props.app.privacy_index) },
-                    line,
-                    min,
-                    _react2["default"].createElement(
-                        "span",
-                        { className: idx_class },
-                        this.props.app.privacy_index
-                    ),
-                    max
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "app-cell tooltip", title: this.tooltips.confidence(this.props.app.privacy_index_confidence) },
-                    parseInt(this.props.app.privacy_index_confidence * 100),
-                    "%"
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: categoryCellClass, "data-weight": "category", title: this.tooltips.categories(this.props.app.personal_category) },
-                    categoryCellInfluence,
-                    this.props.app.personal_category.length > 0 ? this.props.app.personal_category.join(", ") : "none"
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "app-cell" },
-                    this.props.app.login === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" })
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: personalTargetCellClass, "data-weight": "personal_target" },
-                    personalTargetCellInfluence,
-                    this.props.app.personal_target.length > 0 ? this.props.app.personal_target.join(", ") : "nowhere"
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: unspecificTargetCellClass, "data-weight": "unspecific_target" },
-                    unspecificTargetCellInfluence,
-                    unspecific_target
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: dataReasonableCellClass, "data-weight": "data_reasonable" },
-                    dataReasonableCellInfluence,
-                    data_reasonable
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: secureCellClass, "data-weight": "secure" },
-                    secureCellInfluence,
-                    secure_transmission
-                ),
-                _react2["default"].createElement(
-                    "div",
-                    { className: "app-cell" },
-                    _react2["default"].createElement(
-                        "a",
-                        { href: "#", onClick: this.removeApp.bind(this) },
-                        "remove"
-                    )
-                )
-            );
-        }
-    }]);
+												var min = null;
+												var line = null;
+												if (this.state.idx[this.props.app.id].continuum.min !== null) {
+																min = _react2["default"].createElement(
+																				"span",
+																				{ className: "idx_min", onClick: this.pickMin.bind(this) },
+																				this.state.idx[this.props.app.id].continuum.min
+																);
+																line = _react2["default"].createElement(
+																				"span",
+																				{ className: "idx_line" },
+																				" "
+																);
+												}
 
-    return AppRow;
+												var max = null;
+												if (this.state.idx[this.props.app.id].continuum.max !== null) {
+																max = _react2["default"].createElement(
+																				"span",
+																				{ className: "idx_max", onClick: this.pickMax.bind(this) },
+																				this.state.idx[this.props.app.id].continuum.max
+																);
+																line = _react2["default"].createElement(
+																				"span",
+																				{ className: "idx_line" },
+																				" "
+																);
+												}
+
+												return _react2["default"].createElement(
+																"div",
+																{ className: "app", id: "app" + this.props.app.id },
+																_react2["default"].createElement("div", { className: "app-cell text-bold", dangerouslySetInnerHTML: { __html: this.props.app.name } }),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: "app-cell" },
+																				store_icon,
+																				_react2["default"].createElement(
+																								"a",
+																								{ href: store_url, target: "_blank" },
+																								store_name
+																				)
+																),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: "app-cell" },
+																				this.mapArchetype(this.props.app.archetype)
+																),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: "app-cell tooltip", title: this.tooltips.privacyIdx(this.state.idx[this.props.app.id].continuum, this.mapArchetype(this.props.app.archetype), this.props.app.privacy_index) },
+																				line,
+																				min,
+																				_react2["default"].createElement(
+																								"span",
+																								{ className: idx_class },
+																								this.props.app.privacy_index
+																				),
+																				max
+																),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: "app-cell tooltip", title: this.tooltips.confidence(this.props.app.privacy_index_confidence) },
+																				parseInt(this.props.app.privacy_index_confidence * 100),
+																				"%"
+																),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: categoryCellClass, "data-weight": "category", title: this.tooltips.categories(this.props.app.personal_category) },
+																				categoryCellInfluence,
+																				this.props.app.personal_category.length > 0 ? this.props.app.personal_category.join(", ") : "none"
+																),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: "app-cell" },
+																				this.props.app.login === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" })
+																),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: personalTargetCellClass, "data-weight": "personal_target" },
+																				personalTargetCellInfluence,
+																				this.props.app.personal_target.length > 0 ? this.props.app.personal_target.join(", ") : "nowhere"
+																),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: unspecificTargetCellClass, "data-weight": "unspecific_target" },
+																				unspecificTargetCellInfluence,
+																				unspecific_target
+																),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: dataReasonableCellClass, "data-weight": "data_reasonable" },
+																				dataReasonableCellInfluence,
+																				data_reasonable
+																),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: secureCellClass, "data-weight": "secure" },
+																				secureCellInfluence,
+																				secure_transmission
+																),
+																_react2["default"].createElement(
+																				"div",
+																				{ className: "app-cell" },
+																				_react2["default"].createElement(
+																								"a",
+																								{ href: "#", onClick: this.removeApp.bind(this) },
+																								"remove"
+																				)
+																)
+												);
+								}
+				}]);
+
+				return AppRow;
 })(_react2["default"].Component);
 
 exports["default"] = AppRow;
@@ -770,6 +801,10 @@ var _AppRow = require("./AppRow");
 
 var _AppRow2 = _interopRequireDefault(_AppRow);
 
+var _AutoCompleteItem = require("./AutoCompleteItem");
+
+var _AutoCompleteItem2 = _interopRequireDefault(_AutoCompleteItem);
+
 var Home = (function (_React$Component) {
 	_inherits(Home, _React$Component);
 
@@ -780,7 +815,8 @@ var Home = (function (_React$Component) {
 
 		_get(Object.getPrototypeOf(Home.prototype), "constructor", this).call(this, props);
 		this.state = {
-			apps: []
+			apps: [],
+			catidx: []
 		};
 	}
 
@@ -800,6 +836,7 @@ var Home = (function (_React$Component) {
 		key: "componentDidMount",
 		value: function componentDidMount() {
 			$(window).on("addNewApp", this.addNewApp.bind(this));
+			$(window).on("addCatIdx", this.addCatIdx.bind(this));
 		}
 
 		// COMPONENT WILL UNMOUNT
@@ -817,8 +854,16 @@ var Home = (function (_React$Component) {
 			apps.push(app);
 
 			this.setState({
-				"apps": apps
+				"apps": apps,
+				"catidx": []
 			});
+		}
+
+		// ADD APP
+	}, {
+		key: "addApp",
+		value: function addApp(app) {
+			$(window).trigger("addNewApp", app);
 		}
 
 		// REMOVE APP
@@ -835,17 +880,66 @@ var Home = (function (_React$Component) {
 			window.scrollTo(0, 0);
 		}
 
+		// ADD CAT IDX
+	}, {
+		key: "addCatIdx",
+		value: function addCatIdx(e, data) {
+			console.log(data);
+			var s = this.state;
+			s.catidx = data.data;
+
+			this.setState(s);
+		}
+
+		// EMPTY CAT IDX
+	}, {
+		key: "emptyCatIdx",
+		value: function emptyCatIdx() {
+			var s = this.state;
+			s.catidx = [];
+
+			this.setState(s);
+		}
+
 		// RENDER
 	}, {
 		key: "render",
 		value: function render() {
 			var _this = this;
 
+			var overlayClasses = "app-overlay autocomplete-list";
+			if (this.state.catidx.length <= 0) {
+				overlayClasses += " hidden";
+			}
+
+			console.log(this.state.catidx);
+
 			if (this.state.apps.length > 0) {
 
 				return _react2["default"].createElement(
 					"div",
 					{ className: "apps" },
+					_react2["default"].createElement(
+						"div",
+						{ className: overlayClasses },
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-overlay-text" },
+							"You can choose one of these apps to add to the comparison table view:"
+						),
+						this.state.catidx.map(function (a) {
+							return _react2["default"].createElement(_AutoCompleteItem2["default"], { key: a.id, app: a, addNewApp: _this.addApp });
+						}),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-overlay-text" },
+							_react2["default"].createElement(
+								"button",
+								{ onClick: this.emptyCatIdx.bind(this), className: "btn-grey" },
+								"Close"
+							)
+						)
+					),
 					_react2["default"].createElement(
 						"div",
 						{ className: "app-header" },
@@ -863,7 +957,7 @@ var Home = (function (_React$Component) {
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "Possible categories are:\nCasual Tool,\nCommon Knowledge Provider,\nTreatment Guide,\nFitness Ad-Hoc Tool,\nFitness Tracker,\nTreatment Support Tool,\nIntimate Ad-Hoc Tool,\nState of Health Test,\nIntimate Tracker,\nHealth Monitor,\nTreatment Reminder,\nHealth Record" },
+							{ className: "app-cell tooltip", title: "Possible categories are: Casual Tool, Common Knowledge Provider, Treatment Guide, Fitness Ad-Hoc Tool, Fitness Tracker, Treatment Support Tool, Intimate Ad-Hoc Tool, State of Health Test, Intimate Tracker, Health Monitor, Treatment Reminder, Health Record" },
 							"Category  ",
 							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
@@ -881,7 +975,7 @@ var Home = (function (_React$Component) {
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "What kind of personal data you have to enter. Possible entries are: Address,\nMedication intake,\nVital values,\nDiseases,\nMedical appointments,\nLife status specs,\nFood intake,\nBody specs,\nSymptoms,\nWorkout / Activities,\nSleep Metrics,\nPersonality Test,\nFamily" },
+							{ className: "app-cell tooltip", title: "What kind of personal data you have to enter. Possible entries are: Address, Medication intake, Vital values, Diseases, Medical appointments, Life status specs, Food intake, Body specs, Symptoms, Workout / Activities, Sleep Metrics, Personality Test, Family" },
 							"Personal data collected ",
 							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
@@ -893,7 +987,7 @@ var Home = (function (_React$Component) {
 						),
 						_react2["default"].createElement(
 							"div",
-							{ className: "app-cell tooltip", title: "The target, where your data is being sent. Possible values:\nApp provider,\nAdvertisers / Marketeers,\nResearch,\nUnknown" },
+							{ className: "app-cell tooltip", title: "The target, where your data is being sent. Possible values: App provider, Advertisers / Marketeers, Research, Unknown" },
 							"Where is my data being sent? ",
 							_react2["default"].createElement("i", { className: "fa fa-question-circle fa-lg fa-fw" })
 						),
@@ -956,7 +1050,7 @@ var Home = (function (_React$Component) {
 exports["default"] = Home;
 module.exports = exports["default"];
 
-},{"./AppRow":5,"react":"react"}],9:[function(require,module,exports){
+},{"./AppRow":5,"./AutoCompleteItem":7,"react":"react"}],9:[function(require,module,exports){
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
@@ -1113,7 +1207,7 @@ var Tooltips = (function () {
 
 		// CONFIDENCE
 		value: function confidence(value) {
-			console.log(value);
+
 			switch (value) {
 				case 0.1:
 					return "We inspected the screenshots or the description of the app";
@@ -1993,7 +2087,7 @@ module.exports = exports["default"];
 "use strict";
 
 Object.defineProperty(exports, "__esModule", {
-  value: true
+	value: true
 });
 
 var _createClass = (function () { function defineProperties(target, props) { for (var i = 0; i < props.length; i++) { var descriptor = props[i]; descriptor.enumerable = descriptor.enumerable || false; descriptor.configurable = true; if ("value" in descriptor) descriptor.writable = true; Object.defineProperty(target, descriptor.key, descriptor); } } return function (Constructor, protoProps, staticProps) { if (protoProps) defineProperties(Constructor.prototype, protoProps); if (staticProps) defineProperties(Constructor, staticProps); return Constructor; }; })();
@@ -2011,48 +2105,66 @@ var _actionsAppActions = require("../actions/AppActions");
 var _actionsAppActions2 = _interopRequireDefault(_actionsAppActions);
 
 var AppStore = (function () {
-  function AppStore() {
-    _classCallCheck(this, AppStore);
+	function AppStore() {
+		_classCallCheck(this, AppStore);
 
-    this.bindActions(_actionsAppActions2["default"]);
-    this.apps = [];
-    this.idx = {};
-  }
+		this.bindActions(_actionsAppActions2["default"]);
+		this.apps = [];
+		this.idx = {};
+	}
 
-  // SEARCH APPS SUCCESS
+	// SEARCH APPS SUCCESS
 
-  _createClass(AppStore, [{
-    key: "searchAppsSuccess",
-    value: function searchAppsSuccess(data) {
-      this.apps = data;
-    }
+	_createClass(AppStore, [{
+		key: "searchAppsSuccess",
+		value: function searchAppsSuccess(data) {
+			this.apps = data;
+		}
 
-    // SEARCH APPS FAIL
-  }, {
-    key: "searchAppsFail",
-    value: function searchAppsFail(jqXhr) {
-      // Handle multiple response formats, fallback to HTTP status code number.
-      console.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
-    }
+		// SEARCH APPS FAIL
+	}, {
+		key: "searchAppsFail",
+		value: function searchAppsFail(jqXhr) {
+			// Handle multiple response formats, fallback to HTTP status code number.
+			console.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+		}
 
-    // GET INDEX SUCCESS
-  }, {
-    key: "getIndexSuccess",
-    value: function getIndexSuccess(data) {
-      this.idx[data.id] = data;
-      this.apps = [];
-    }
+		// GET INDEX SUCCESS
+	}, {
+		key: "getIndexSuccess",
+		value: function getIndexSuccess(data) {
+			this.idx[data.id] = data;
+			this.apps = [];
+		}
 
-    // GET INDEX FAIL
-  }, {
-    key: "getIndexFail",
-    value: function getIndexFail(jqXhr) {
-      // Handle multiple response formats, fallback to HTTP status code number.
-      console.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
-    }
-  }]);
+		// GET INDEX FAIL
+	}, {
+		key: "getIndexFail",
+		value: function getIndexFail(jqXhr) {
+			// Handle multiple response formats, fallback to HTTP status code number.
+			console.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+		}
 
-  return AppStore;
+		// GET BY CATEGORY AND INDEX SUCCESS
+	}, {
+		key: "getByCategoryAndIndexSuccess",
+		value: function getByCategoryAndIndexSuccess(data) {
+			console.log(data);
+			$(window).trigger("addCatIdx", {
+				"data": data
+			});
+		}
+
+		// GET BY CATEGORY AND INDEX FAIL
+	}, {
+		key: "getByCategoryAndIndexFail",
+		value: function getByCategoryAndIndexFail(jqXhr) {
+			// Handle multiple response formats, fallback to HTTP status code number.
+			console.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+		}
+	}]);
+
+	return AppStore;
 })();
 
 exports["default"] = _alt2["default"].createStore(AppStore);

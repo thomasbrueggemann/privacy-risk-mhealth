@@ -124,6 +124,37 @@ app.get("/api/idx/:id", function(req, res) {
 	}
 });
 
+// return apps that have a specific category and privacy index
+app.get("/api/cat/:cat/idx/:idx", function(req, res) {
+
+	// read user weights from cookie
+	// the cookie would look like this:
+	// { "security": 0.1, "personal_target": 0.4, "category": 0.35, "unspecific_target": 0.1, "data_reasonable": 0.05 }
+	var userWeights = (req.cookies.userWeights) ? JSON.parse(req.cookies.userWeights) : privacyIdx.defaultWeights;
+	var userWeightsPersonalTarget = (req.cookies.userWeightsPersonalTarget) ? JSON.parse(req.cookies.userWeightsPersonalTarget) : privacyIdx.personalTargetWeights;
+	var userWeightsCategory = (req.cookies.userWeightsCategory) ? JSON.parse(req.cookies.userWeightsCategory) : privacyIdx.categoryWeights;
+
+	var cacheKey = crypto.createHash("md5").update(
+		JSON.stringify(userWeights) +
+		JSON.stringify(userWeightsPersonalTarget) +
+		JSON.stringify(userWeightsCategory)
+	).digest("hex");
+
+	// data is in cache
+	if(!(cacheKey in userCache)) {
+
+		// generate ratings
+		userCache[cacheKey] = privacyIdx.performRating(ratings, userWeights);
+	}
+
+	// filter the app that was requested
+	var filteredApp = userCache[cacheKey].filter(function(item) {
+		return item.privacy_index === parseInt(req.params.idx) && item.archetype === parseInt(req.params.cat);
+	});
+
+	return res.send(filteredApp);
+});
+
 // REACT MIDDLEWARE
 app.use(function(req, res) {
 

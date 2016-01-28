@@ -8,7 +8,9 @@ class AppActions {
             "searchAppsSuccess",
             "searchAppsFail",
             "getIndexSuccess",
-            "getIndexFail"
+            "getIndexFail",
+			"getByCategoryAndIndexSuccess",
+			"getByCategoryAndIndexFail"
         );
     }
 
@@ -30,7 +32,7 @@ class AppActions {
 
     // GET INDEX
     getIndex(id) {
-        
+
         $.ajax({
             "url": "/api/idx/" + id,
             "dataType": "json",
@@ -43,6 +45,22 @@ class AppActions {
             this.actions.getIndexFail(jqXhr);
         });
     }
+
+	// GET BY CATEGORY AND IDX
+	getByCategoryAndIdx(category, idx) {
+
+		$.ajax({
+            "url": "/api/cat/" + category + "/idx/" + idx,
+            "dataType": "json",
+            "type": "GET"
+        })
+        .done((data) => {
+            this.actions.getByCategoryAndIndexSuccess(data);
+        })
+        .fail((jqXhr) => {
+            this.actions.getByCategoryAndIndexFail(jqXhr);
+        });
+	}
 }
 
 export default alt.createActions(AppActions);

@@ -31,6 +31,20 @@ class AppStore {
     	// Handle multiple response formats, fallback to HTTP status code number.
     	console.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
   	}
+
+	// GET BY CATEGORY AND INDEX SUCCESS
+	getByCategoryAndIndexSuccess(data) {
+		console.log(data);
+		$(window).trigger("addCatIdx", {
+			"data": data
+		});
+	}
+
+	// GET BY CATEGORY AND INDEX FAIL
+	getByCategoryAndIndexFail(jqXhr) {
+    	// Handle multiple response formats, fallback to HTTP status code number.
+    	console.error(jqXhr.responseJSON && jqXhr.responseJSON.message || jqXhr.responseText || jqXhr.statusText);
+  	}
 }
 
 export default alt.createStore(AppStore);

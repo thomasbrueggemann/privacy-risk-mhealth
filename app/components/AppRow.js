@@ -151,23 +151,30 @@ class AppRow extends React.Component {
 
         var unspecificTargetCellClass = "app-cell tooltip";
         var unspecificTargetCellInfluence = null;
-        if(this.props.app.influence_key === "category") {
+        if(this.props.app.influence_key === "unspecific_target") {
             unspecificTargetCellClass += " influence-cell";
             unspecificTargetCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
         }
 
         var dataReasonableCellClass = "app-cell";
         var dataReasonableCellInfluence = null;
-        if(this.props.app.influence_key === "category") {
+        if(this.props.app.influence_key === "data_reasonable") {
             dataReasonableCellClass += " influence-cell";
             dataReasonableCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
         }
 
         var secureCellClass = "app-cell";
         var secureCellInfluence = null;
-        if(this.props.app.influence_key === "category") {
+        if(this.props.app.influence_key === "security") {
             secureCellClass += " influence-cell";
             secureCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
+        }
+
+		var loginCellClass = "app-cell";
+        var loginCellInfluence = null;
+        if(this.props.app.influence_key === "login_required") {
+            loginCellClass += " influence-cell";
+            loginCellInfluence = <i className="fa fa-bolt fa-influence"></i>;
         }
 
 		var min = null;
@@ -203,7 +210,8 @@ class AppRow extends React.Component {
 	            <div className={categoryCellClass} data-weight="category" title={this.tooltips.categories(this.props.app.personal_category)}>
 					{categoryCellInfluence}{(this.props.app.personal_category.length > 0) ? this.props.app.personal_category.join(", ") : "none"}
 				</div>
-	            <div className="app-cell">
+	            <div className={loginCellClass} data-weight="login_required">
+					{loginCellInfluence}
 	                {(this.props.app.login === true) ? <i className="fa fa-check fa-lg"></i> : <i className="fa fa-times fa-lg"></i>}
 	            </div>
 	            <div className={personalTargetCellClass} data-weight="personal_target">

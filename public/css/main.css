@@ -137,8 +137,8 @@ body, html {
 }
 
 .influence-cell {
-  text-decoration: underline;
-  text-decoration-style: dotted;
+  /*text-decoration: underline;
+  text-decoration-style: dotted;*/
 }
 
 .fa-influence {

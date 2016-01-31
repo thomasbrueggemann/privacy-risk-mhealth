@@ -10,8 +10,9 @@ class Weights extends React.Component {
 			"weights": {
 				"security": 0.1,
 			    "personal_target": 0.4,
-			    "category": 0.35,
-			    "unspecific_target": 0.1,
+			    "category": 0.3,
+				"login_required": 0.1,
+			    "unspecific_target": 0.05,
 			    "data_reasonable": 0.05
 			}
 		};
@@ -20,10 +21,11 @@ class Weights extends React.Component {
 	// COMPONENT DID MOUNT
 	componentDidMount() {
 		var defaultWeights = {
-		    "security": 0.1,
+			"security": 0.1,
 		    "personal_target": 0.4,
-		    "category": 0.35,
-		    "unspecific_target": 0.1,
+		    "category": 0.3,
+			"login_required": 0.1,
+		    "unspecific_target": 0.05,
 		    "data_reasonable": 0.05
 		};
 
@@ -95,6 +97,10 @@ class Weights extends React.Component {
                 <div className="weight-row">
                     <label>The fact that advertisement and analytics services are used</label>
                     not so much <input type="range" min="0" max="100" steps="10" data-weight="unspecific_target" onChange={this.saveWeight.bind(this)} /> very
+                </div>
+				<div className="weight-row">
+                    <label>The fact that you have to login to the app with an eMail or Facebook</label>
+                    not so much <input type="range" min="0" max="100" steps="10" data-weight="login_required" onChange={this.saveWeight.bind(this)} /> very
                 </div>
                 <div className="weight-row">
                     <label>The reasonableness of data collection</label>

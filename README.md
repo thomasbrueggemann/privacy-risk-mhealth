@@ -24,8 +24,23 @@ Compile and watch changes in files with
 gulp
 ```
 
-from home directory. Simultaneously open another shell and serve the nodejs express application with
+from home directory. Simultaneously open another shell and serve the Nodejs express application with
 
 ```
 npm run watch
+```
+
+## Calculate
+
+In order to calculate the privacy index for every app in our dataset, open a shell in the application root directory.
+Open the node shell
+
+```
+node
+```
+
+and use the ratings() command of the privacyidx module to generate the CSV file.
+
+```
+require("./privacyidx").ratings(true);
 ```

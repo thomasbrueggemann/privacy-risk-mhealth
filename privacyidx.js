@@ -11,16 +11,17 @@ var multiplier = {
     "security": 1.0,
     "personal_target": 1.0,
     "category": 1.0,
+	"login_required": 1.0,
     "unspecific_target": 1.0,
-    "rating_source": 1.0,
     "data_reasonable": 1.0
 };
 
 var defaultWeights = {
     "security": 0.1,
     "personal_target": 0.4,
-    "category": 0.35,
-    "unspecific_target": 0.1,
+    "category": 0.3,
+	"login_required": 0.1,
+    "unspecific_target": 0.05,
     "data_reasonable": 0.05
 };
 
@@ -142,6 +143,9 @@ function performRating(data, weights) {
             // unspecific data targe
             multiplier.unspecific_target = 1.0;
 
+			// login
+			multiplier.login_required = (rating.login === true) ? 1.0 : 0.0;
+
             if(rating.unspecific_target.length === 0) {
                 multiplier.unspecific_target = 0.0;
             }
@@ -171,13 +175,14 @@ function performRating(data, weights) {
             idx = multiplier.security * weights.security +
                   multiplier.personal_target * weights.personal_target +
                   multiplier.category * weights.category +
+				  multiplier.login_required * weights.login_required +
                   multiplier.unspecific_target * weights.unspecific_target +
                   multiplier.data_reasonable * weights.data_reasonable;
 
-            var influence_key = ["security", "personal_target", "category", "unspecific_target", "data_reasonable"];
+            var influence_key = ["security", "personal_target", "category", "login_required", "unspecific_target", "data_reasonable"];
             var influence_val = [multiplier.security * weights.security, multiplier.personal_target * weights.personal_target,
-                                multiplier.category * weights.category, multiplier.unspecific_target * weights.unspecific_target,
-                                multiplier.data_reasonable * weights.data_reasonable];
+                                multiplier.category * weights.category, multiplier.login_required * weights.login_required,
+								multiplier.unspecific_target * weights.unspecific_target, multiplier.data_reasonable * weights.data_reasonable];
 
             // find maximum influence value index
             var max_influence_val = Math.max.apply(null, influence_val);

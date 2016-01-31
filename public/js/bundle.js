@@ -522,23 +522,30 @@ var AppRow = (function (_React$Component) {
 
 												var unspecificTargetCellClass = "app-cell tooltip";
 												var unspecificTargetCellInfluence = null;
-												if (this.props.app.influence_key === "category") {
+												if (this.props.app.influence_key === "unspecific_target") {
 																unspecificTargetCellClass += " influence-cell";
 																unspecificTargetCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
 												}
 
 												var dataReasonableCellClass = "app-cell";
 												var dataReasonableCellInfluence = null;
-												if (this.props.app.influence_key === "category") {
+												if (this.props.app.influence_key === "data_reasonable") {
 																dataReasonableCellClass += " influence-cell";
 																dataReasonableCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
 												}
 
 												var secureCellClass = "app-cell";
 												var secureCellInfluence = null;
-												if (this.props.app.influence_key === "category") {
+												if (this.props.app.influence_key === "security") {
 																secureCellClass += " influence-cell";
 																secureCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
+												}
+
+												var loginCellClass = "app-cell";
+												var loginCellInfluence = null;
+												if (this.props.app.influence_key === "login_required") {
+																loginCellClass += " influence-cell";
+																loginCellInfluence = _react2["default"].createElement("i", { className: "fa fa-bolt fa-influence" });
 												}
 
 												var min = null;
@@ -615,7 +622,8 @@ var AppRow = (function (_React$Component) {
 																),
 																_react2["default"].createElement(
 																				"div",
-																				{ className: "app-cell" },
+																				{ className: loginCellClass, "data-weight": "login_required" },
+																				loginCellInfluence,
 																				this.props.app.login === true ? _react2["default"].createElement("i", { className: "fa fa-check fa-lg" }) : _react2["default"].createElement("i", { className: "fa fa-times fa-lg" })
 																),
 																_react2["default"].createElement(
@@ -1325,8 +1333,9 @@ var Weights = (function (_React$Component) {
 			"weights": {
 				"security": 0.1,
 				"personal_target": 0.4,
-				"category": 0.35,
-				"unspecific_target": 0.1,
+				"category": 0.3,
+				"login_required": 0.1,
+				"unspecific_target": 0.05,
 				"data_reasonable": 0.05
 			}
 		};
@@ -1340,8 +1349,9 @@ var Weights = (function (_React$Component) {
 			var defaultWeights = {
 				"security": 0.1,
 				"personal_target": 0.4,
-				"category": 0.35,
-				"unspecific_target": 0.1,
+				"category": 0.3,
+				"login_required": 0.1,
+				"unspecific_target": 0.05,
 				"data_reasonable": 0.05
 			};
 
@@ -1455,6 +1465,18 @@ var Weights = (function (_React$Component) {
 					),
 					"not so much ",
 					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "unspecific_target", onChange: this.saveWeight.bind(this) }),
+					" very"
+				),
+				_react2["default"].createElement(
+					"div",
+					{ className: "weight-row" },
+					_react2["default"].createElement(
+						"label",
+						null,
+						"The fact that you have to login to the app with an eMail or Facebook"
+					),
+					"not so much ",
+					_react2["default"].createElement("input", { type: "range", min: "0", max: "100", steps: "10", "data-weight": "login_required", onChange: this.saveWeight.bind(this) }),
 					" very"
 				),
 				_react2["default"].createElement(

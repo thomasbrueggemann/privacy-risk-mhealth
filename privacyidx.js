@@ -26,8 +26,8 @@ var defaultWeights = {
 };
 
 var personalTargetWeights = {
-    "app provider": 0.3,
-    "advertisers / marketeers": 0.3,
+    "app provider": 0.2,
+    "advertisers / marketeers": 0.4,
     "research projects": 0.1,
     "unknown": 1.0,
     "facebook": 0.3
@@ -207,8 +207,9 @@ function performRating(data, weights) {
     // apply correction to risk index based on maximum rating
     var corr = 1.0 / parseFloat(maxRating);
     for(var m in ratings) {
-        ratings[m].privacy_index = parseInt(ratings[m].privacy_index * 100); //parseInt(parseFloat(ratings[m].privacy_index) * parseFloat(corr) * 100.0);
-    }
+        //ratings[m].privacy_index = parseInt(ratings[m].privacy_index * 100);
+		ratings[m].privacy_index = parseInt(parseFloat(ratings[m].privacy_index) * parseFloat(corr) * 100.0);
+	}
 
     return ratings;
 }

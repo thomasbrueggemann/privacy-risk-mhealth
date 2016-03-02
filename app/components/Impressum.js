@@ -13,16 +13,7 @@ class Impressum extends React.Component {
 
                 <p>Responsible for this site:</p>
 
-                <p><span className="reverse">nnameggürB samohT</span><br />
-                <span className="reverse">51 eßartsreliewtdiehcS</span><br />
-                <span className="reverse">nlöK 33905</span><br />
-                </p>
-
-                <p><span className="reverse">nesnaH leoJ</span><br />
-                <span className="reverse">53 .rtsnellepaK</span><br />
-                <span className="reverse">nehcaA 66025</span><br />
-                </p>
-
+    			<p>(Authors address currently removed since this website is subject to a scientific paper review)</p>
                 <h3>Legal disclaimer</h3>
                 <p>The creators of this website cannot assume liability for the timeless accuracy and completeness of the information. This website contains links to external websites. As the contents of these third-party websites are beyond my control, I cannot accept liability for them. ResponsibiIity for the contents of the linked pages is always held by the provider or operator of the pages.</p>
 

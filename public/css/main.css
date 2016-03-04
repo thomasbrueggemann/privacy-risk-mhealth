@@ -204,6 +204,7 @@ a {
   font-size: 3em;
   position: relative;
   top: -20px;
+  cursor: pointer;
 	background: #e1ded9;
 	margin: 0 15px 0 25px;
 	text-align: right;
@@ -355,4 +356,8 @@ button:active {
 
 .hidden {
 	display:none;
+}
+
+.table {
+	padding:20px;
 }

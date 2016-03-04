@@ -116,7 +116,9 @@ app.get("/api/idx/:id", function(req, res) {
 			"continuum": {
 				"min": min_idx,
 				"max": max_idx
-			}
+			},
+			"multiplier": app.multiplier,
+			"weights": app.weights
 		});
 	}
 	else {

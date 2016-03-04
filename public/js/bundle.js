@@ -464,6 +464,16 @@ var AppRow = (function (_React$Component) {
 												_actionsAppActions2["default"].getByCategoryAndIdx(this.props.app.archetype, idx);
 								}
 
+								// SET DETAIL
+				}, {
+								key: "setDetail",
+								value: function setDetail() {
+												$(window).trigger("setDetail", {
+																"multiplier": this.state.idx[this.props.app.id].multiplier,
+																"weights": this.state.idx[this.props.app.id].weights
+												});
+								}
+
 								// RENDER
 				}, {
 								key: "render",
@@ -603,7 +613,7 @@ var AppRow = (function (_React$Component) {
 																				min,
 																				_react2["default"].createElement(
 																								"span",
-																								{ className: idx_class },
+																								{ onClick: this.setDetail.bind(this), className: idx_class },
 																								this.props.app.privacy_index
 																				),
 																				max
@@ -824,7 +834,8 @@ var Home = (function (_React$Component) {
 		_get(Object.getPrototypeOf(Home.prototype), "constructor", this).call(this, props);
 		this.state = {
 			apps: [],
-			catidx: []
+			catidx: [],
+			detail: null
 		};
 	}
 
@@ -845,6 +856,7 @@ var Home = (function (_React$Component) {
 		value: function componentDidMount() {
 			$(window).on("addNewApp", this.addNewApp.bind(this));
 			$(window).on("addCatIdx", this.addCatIdx.bind(this));
+			$(window).on("setDetail", this.setDetail.bind(this));
 		}
 
 		// COMPONENT WILL UNMOUNT
@@ -852,6 +864,7 @@ var Home = (function (_React$Component) {
 		key: "componentWillUnmount",
 		value: function componentWillUnmount() {
 			$(window).off("addNewApp");
+			$(window).off("setDetail");
 		}
 
 		// ADD NEW APP
@@ -892,7 +905,6 @@ var Home = (function (_React$Component) {
 	}, {
 		key: "addCatIdx",
 		value: function addCatIdx(e, data) {
-			console.log(data);
 			var s = this.state;
 			s.catidx = data.data;
 
@@ -909,6 +921,27 @@ var Home = (function (_React$Component) {
 			this.setState(s);
 		}
 
+		// SET DETAIL
+	}, {
+		key: "setDetail",
+		value: function setDetail(e, data) {
+			var s = this.state;
+			s.detail = data;
+			console.log(data);
+
+			this.setState(s);
+		}
+
+		// REMOVE DETAIL
+	}, {
+		key: "removeDetail",
+		value: function removeDetail() {
+			var s = this.state;
+			s.detail = null;
+
+			this.setState(s);
+		}
+
 		// RENDER
 	}, {
 		key: "render",
@@ -920,13 +953,199 @@ var Home = (function (_React$Component) {
 				overlayClasses += " hidden";
 			}
 
-			console.log(this.state.catidx);
+			var overlayFormulaClasses = "app-overlay autocomplete-list";
+			var formulaContent;
+			if (this.state.detail === null) {
+				overlayFormulaClasses += " hidden";
+			} else {
+				formulaContent = _react2["default"].createElement(
+					"tbody",
+					null,
+					_react2["default"].createElement(
+						"tr",
+						null,
+						_react2["default"].createElement(
+							"td",
+							null,
+							"Secure Connection"
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.multiplier.security
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.weights.security
+						)
+					),
+					_react2["default"].createElement(
+						"tr",
+						null,
+						_react2["default"].createElement(
+							"td",
+							null,
+							"Personal data Target"
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.multiplier.personal_target
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.weights.personal_target
+						)
+					),
+					_react2["default"].createElement(
+						"tr",
+						null,
+						_react2["default"].createElement(
+							"td",
+							null,
+							"Personal data category"
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.multiplier.category
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.weights.category
+						)
+					),
+					_react2["default"].createElement(
+						"tr",
+						null,
+						_react2["default"].createElement(
+							"td",
+							null,
+							"Login required"
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.multiplier.login_required
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.weights.login_required
+						)
+					),
+					_react2["default"].createElement(
+						"tr",
+						null,
+						_react2["default"].createElement(
+							"td",
+							null,
+							"Unspecific data target"
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.multiplier.unspecific_target
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.weights.unspecific_target
+						)
+					),
+					_react2["default"].createElement(
+						"tr",
+						null,
+						_react2["default"].createElement(
+							"td",
+							null,
+							"Data collection reasonable"
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.multiplier.data_reasonable
+						),
+						_react2["default"].createElement(
+							"td",
+							null,
+							this.state.detail.weights.data_reasonable
+						)
+					)
+				);
+			}
 
 			if (this.state.apps.length > 0) {
 
 				return _react2["default"].createElement(
 					"div",
 					{ className: "apps" },
+					_react2["default"].createElement(
+						"div",
+						{ className: overlayClasses },
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-overlay-text" },
+							"You can choose one of these apps to add to the comparison table view:"
+						),
+						this.state.catidx.map(function (a) {
+							return _react2["default"].createElement(_AutoCompleteItem2["default"], { key: a.id, app: a, addNewApp: _this.addApp });
+						}),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-overlay-text" },
+							_react2["default"].createElement(
+								"button",
+								{ onClick: this.emptyCatIdx.bind(this), className: "btn-grey" },
+								"Close"
+							)
+						)
+					),
+					_react2["default"].createElement(
+						"div",
+						{ className: overlayFormulaClasses },
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-overlay-text" },
+							"The privacy index is calculated by the following formula:"
+						),
+						_react2["default"].createElement(
+							"table",
+							{ className: "table" },
+							_react2["default"].createElement(
+								"thead",
+								null,
+								_react2["default"].createElement(
+									"tr",
+									null,
+									_react2["default"].createElement("th", null),
+									_react2["default"].createElement(
+										"th",
+										null,
+										"Factor"
+									),
+									_react2["default"].createElement(
+										"th",
+										null,
+										"Weight"
+									)
+								)
+							),
+							formulaContent
+						),
+						_react2["default"].createElement(
+							"div",
+							{ className: "app-overlay-text" },
+							_react2["default"].createElement(
+								"button",
+								{ onClick: this.removeDetail.bind(this), className: "btn-grey" },
+								"Close"
+							)
+						)
+					),
 					_react2["default"].createElement(
 						"div",
 						{ className: overlayClasses },
@@ -1117,45 +1336,10 @@ var Impressum = (function (_React$Component) {
           "p",
           null,
           _react2["default"].createElement(
-            "span",
-            { className: "reverse" },
-            "nnameggürB samohT"
-          ),
-          _react2["default"].createElement("br", null),
-          _react2["default"].createElement(
-            "span",
-            { className: "reverse" },
-            "51 eßartsreliewtdiehcS"
-          ),
-          _react2["default"].createElement("br", null),
-          _react2["default"].createElement(
-            "span",
-            { className: "reverse" },
-            "nlöK 33905"
-          ),
-          _react2["default"].createElement("br", null)
-        ),
-        _react2["default"].createElement(
-          "p",
-          null,
-          _react2["default"].createElement(
-            "span",
-            { className: "reverse" },
-            "nesnaH leoJ"
-          ),
-          _react2["default"].createElement("br", null),
-          _react2["default"].createElement(
-            "span",
-            { className: "reverse" },
-            "53 .rtsnellepaK"
-          ),
-          _react2["default"].createElement("br", null),
-          _react2["default"].createElement(
-            "span",
-            { className: "reverse" },
-            "nehcaA 66025"
-          ),
-          _react2["default"].createElement("br", null)
+            "i",
+            null,
+            "(Authors address currently removed since this website is subject to a scientific paper review)"
+          )
         ),
         _react2["default"].createElement(
           "h3",

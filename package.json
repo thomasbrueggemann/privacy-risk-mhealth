@@ -13,29 +13,23 @@
     "postinstall": "bower install && gulp build"
   },
   "engines": {
-   "node": "0.10.x",
-   "npm": "3.5.2"
+    "node": "0.10.x",
+    "npm": "3.5.2"
   },
   "dependencies": {
     "alt": "^0.17.4",
-    "bower": "^1.6.3",
     "async": "^1.4.2",
     "babel": "^5.8.23",
+    "babelify": "^6.3.0",
     "body-parser": "^1.14.1",
+    "bower": "^1.6.3",
+    "browserify": "^11.2.0",
     "colors": "^1.1.2",
     "compression": "^1.6.0",
     "cookie-parser": "1.4.0",
     "express": "^4.13.3",
-    "fast-csv": "^0.6.0",
-    "history": "^1.12.5",
-    "morgan": "^1.6.1",
-    "react": "^0.14.0",
-    "react-dom": "^0.14.0",
-    "react-router": "^1.0.0-rc3",
-    "request": "^2.65.0",
-    "swig": "^1.4.2",
-    "underscore": "^1.8.3",
     "extend": "3.0.0",
+    "fast-csv": "^0.6.0",
     "gulp": "^3.9.0",
     "gulp-autoprefixer": "^3.1.0",
     "gulp-concat": "^2.6.0",
@@ -46,11 +40,17 @@
     "gulp-streamify": "1.0.2",
     "gulp-uglify": "^1.4.2",
     "gulp-util": "^3.0.6",
-    "babelify": "^6.3.0",
-    "browserify": "^11.2.0",
+    "history": "^1.12.5",
+    "jsonfile": "^2.2.3",
+    "morgan": "^1.6.1",
+    "react": "^0.14.0",
+    "react-dom": "^0.14.0",
+    "react-router": "^1.0.0-rc3",
+    "request": "^2.65.0",
+    "swig": "^1.4.2",
+    "underscore": "^1.8.3",
     "vinyl-source-stream": "^1.1.0",
-    "watchify": "^3.4.0",
-		"jsonfile": "^2.2.3"
+    "watchify": "^3.4.0"
   },
   "license": "MIT"
 }

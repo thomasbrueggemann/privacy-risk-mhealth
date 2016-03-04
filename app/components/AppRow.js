@@ -92,6 +92,14 @@ class AppRow extends React.Component {
 		AppActions.getByCategoryAndIdx(this.props.app.archetype, idx);
 	}
 
+	// SET DETAIL
+	setDetail() {
+		$(window).trigger("setDetail", {
+			"multiplier": this.state.idx[this.props.app.id].multiplier,
+			"weights": this.state.idx[this.props.app.id].weights
+		});
+	}
+
     // RENDER
     render() {
 
@@ -201,7 +209,7 @@ class AppRow extends React.Component {
 	            <div className="app-cell tooltip" title={this.tooltips.privacyIdx(this.state.idx[this.props.app.id].continuum, this.mapArchetype(this.props.app.archetype), this.props.app.privacy_index)}>
 					{line}
 					{min}
-					<span className={idx_class}>{this.props.app.privacy_index}</span>
+					<span onClick={this.setDetail.bind(this)} className={idx_class}>{this.props.app.privacy_index}</span>
 					{max}
 				</div>
 	            <div className="app-cell tooltip" title={this.tooltips.confidence(this.props.app.privacy_index_confidence)}>

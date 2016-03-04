@@ -9,7 +9,8 @@ class Home extends React.Component {
 		super(props);
 		this.state = {
 			apps: [],
-			catidx: []
+			catidx: [],
+			detail: null
 		};
 	}
 
@@ -25,11 +26,13 @@ class Home extends React.Component {
 	componentDidMount() {
 		$(window).on("addNewApp", this.addNewApp.bind(this));
 		$(window).on("addCatIdx", this.addCatIdx.bind(this));
+		$(window).on("setDetail", this.setDetail.bind(this));
 	}
 
 	// COMPONENT WILL UNMOUNT
 	componentWillUnmount() {
 		$(window).off("addNewApp");
+		$(window).off("setDetail");
 	}
 
 	// ADD NEW APP
@@ -62,7 +65,6 @@ class Home extends React.Component {
 
 	// ADD CAT IDX
 	addCatIdx(e, data) {
-		console.log(data);
 		var s = this.state;
 		s.catidx = data.data;
 
@@ -77,6 +79,23 @@ class Home extends React.Component {
 		this.setState(s);
 	}
 
+	// SET DETAIL
+	setDetail(e, data) {
+		var s = this.state;
+		s.detail = data;
+		console.log(data);
+
+		this.setState(s);
+	}
+
+	// REMOVE DETAIL
+	removeDetail() {
+		var s = this.state;
+		s.detail = null;
+
+		this.setState(s);
+	}
+
 	// RENDER
 	render() {
 
@@ -85,12 +104,79 @@ class Home extends React.Component {
 			overlayClasses += " hidden";
 		}
 
-		console.log(this.state.catidx);
+		var overlayFormulaClasses = "app-overlay autocomplete-list";
+		var formulaContent;
+		if(this.state.detail === null) {
+			overlayFormulaClasses += " hidden";
+		}
+		else {
+			formulaContent =
+				<tbody>
+					<tr>
+						<td>Secure Connection</td>
+						<td>{this.state.detail.multiplier.security}</td>
+						<td>{this.state.detail.weights.security}</td>
+					</tr>
+					<tr>
+						<td>Personal data Target</td>
+						<td>{this.state.detail.multiplier.personal_target}</td>
+						<td>{this.state.detail.weights.personal_target}</td>
+					</tr>
+					<tr>
+						<td>Personal data category</td>
+						<td>{this.state.detail.multiplier.category}</td>
+						<td>{this.state.detail.weights.category}</td>
+					</tr>
+					<tr>
+						<td>Login required</td>
+						<td>{this.state.detail.multiplier.login_required}</td>
+						<td>{this.state.detail.weights.login_required}</td>
+					</tr>
+					<tr>
+						<td>Unspecific data target</td>
+						<td>{this.state.detail.multiplier.unspecific_target}</td>
+						<td>{this.state.detail.weights.unspecific_target}</td>
+					</tr>
+					<tr>
+						<td>Data collection reasonable</td>
+						<td>{this.state.detail.multiplier.data_reasonable}</td>
+						<td>{this.state.detail.weights.data_reasonable}</td>
+					</tr>
+				</tbody>;
+		}
 
 		if(this.state.apps.length > 0) {
 
 			return (
 				<div className="apps">
+
+					<div className={overlayClasses}>
+						<div className="app-overlay-text">You can choose one of these apps to add to the comparison table view:</div>
+						{this.state.catidx.map(a => (
+							<AutoCompleteItem key={a.id} app={a} addNewApp={this.addApp} />
+						))}
+						<div className="app-overlay-text">
+							<button onClick={this.emptyCatIdx.bind(this)} className="btn-grey">Close</button>
+						</div>
+					</div>
+
+					<div className={overlayFormulaClasses}>
+						<div className="app-overlay-text">The privacy index is calculated by the following formula:</div>
+						<table className="table">
+							<thead>
+								<tr>
+									<th></th>
+									<th>Factor</th>
+									<th>Weight</th>
+								</tr>
+							</thead>
+							{formulaContent}
+						</table>
+						<div className="app-overlay-text">
+							<button onClick={this.removeDetail.bind(this)} className="btn-grey">Close</button>
+						</div>
+					</div>
+
 					<div className={overlayClasses}>
 						<div className="app-overlay-text">You can choose one of these apps to add to the comparison table view:</div>
 						{this.state.catidx.map(a => (

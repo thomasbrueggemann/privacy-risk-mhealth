@@ -202,6 +202,9 @@ function performRating(data, weights) {
             console.log(rating);
             console.log(multiplier);
         }
+
+		rating.multiplier = multiplier;
+		rating.weights = weights;
     }
 
     // apply correction to risk index based on maximum rating

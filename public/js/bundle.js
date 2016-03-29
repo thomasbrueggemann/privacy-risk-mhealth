@@ -1110,7 +1110,7 @@ var Home = (function (_React$Component) {
 						_react2["default"].createElement(
 							"div",
 							{ className: "app-overlay-text" },
-							"The privacy index is calculated by the following formula:"
+							"The privacy index is calculated using the following values:"
 						),
 						_react2["default"].createElement(
 							"table",

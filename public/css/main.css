@@ -361,3 +361,9 @@ button:active {
 .table {
 	padding:20px;
 }
+
+.table td {
+	border-bottom:1px solid rgba(170, 170, 170, 0.17);
+	margin-bottom:5px;
+	padding-bottom:5px;
+}

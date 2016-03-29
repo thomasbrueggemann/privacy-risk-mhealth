@@ -190,6 +190,8 @@ function performRating(data, weights) {
 
             // store the rating influence key
             rating.influence_key = influence_key[max_influence_idx];
+			rating.multiplier = JSON.parse(JSON.stringify(multiplier));
+			rating.weights = weights;
 
             if(idx > maxRating) maxRating = idx;
         }
@@ -202,9 +204,6 @@ function performRating(data, weights) {
             console.log(rating);
             console.log(multiplier);
         }
-
-		rating.multiplier = multiplier;
-		rating.weights = weights;
     }
 
     // apply correction to risk index based on maximum rating

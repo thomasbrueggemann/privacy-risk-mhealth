@@ -161,7 +161,7 @@ class Home extends React.Component {
 					</div>
 
 					<div className={overlayFormulaClasses}>
-						<div className="app-overlay-text">The privacy index is calculated by the following formula:</div>
+						<div className="app-overlay-text">The privacy index is calculated using the following values:</div>
 						<table className="table">
 							<thead>
 								<tr>

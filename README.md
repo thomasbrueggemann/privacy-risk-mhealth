@@ -1,7 +1,31 @@
 ![mHealth](http://www.xcubelabs.com/blogs/wp-content/uploads/mhealth-03.png)
 
 # Privacy Index mHealth Apps
-UI for paper "A Privacy Index for mHealth Apps". Easily compare privacy risks between apps
+UI for paper ["A Privacy Index for mHealth Apps"](http://link.springer.com/chapter/10.1007/978-3-319-44760-5_12). Easily compare privacy risks between apps.
+
+Recommended citation:
+
+```bibtex
+@Inbook{Brüggemann2016,
+  author=Brüggemann, Thomas
+  and Hansen, Joel
+  and Dehling, Tobias
+  and Sunyaev, Ali",
+  editor="Schiffner, Stefan
+  and Serna, Jetzabel
+  and Ikonomou, Demosthenes
+  and Rannenberg, Kai",
+  title="An Information Privacy Risk Index for mHealth Apps",
+  bookTitle="Privacy Technologies and Policy: 4th Annual Privacy Forum, APF 2016, Frankfurt/Main, Germany, September 7-8, 2016, Proceedings ",
+  year="2016",
+  publisher="Springer International Publishing",
+  address="Cham",
+  pages="190--201",
+  isbn="978-3-319-44760-5",
+  doi="10.1007/978-3-319-44760-5_12",
+  url="http://dx.doi.org/10.1007/978-3-319-44760-5_12"
+}
+```
 
 ### Building Blocks
 
